@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .exampleCalc {
+            width: calc(100% - 200px);
+            border: 1px solid black;
+            height: calc(50vh - 200px);
+            margin-bottom: 20px;
+        }
+        .exampleClamp {
+            width: clamp(250px, 50vw, 900px);
+            border: 1px solid black;
+            margin: auto;
+        }
+        .exampleClipPath {
+            /* clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); */
+            clip-path: rect(10px, 50px, 40px, 20px);
+            /* clip-path: ellipse(130px 140px at 10% 20%); */
+            text-align: center;
+            background-color: antiquewhite;
+            border: 1px double black;
+            height: 30vh;
+            display: inline-block;
+            width: 20vh;
+        }
+        .imgClipPath {
+            clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- This is an example of using the calc function -->
+    <div class="exampleCalc">
+        
+    </div>
+    <!-- This is the clamp function -->
+    <div class="exampleClamp">
+        clamp function is here
+    </div>
+
+    <!-- This is an example of adding clip path -->
+    <span class="exampleClipPath">
+        clip path is here
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path">
+            more text here
+        </a>
+        <a href="https://bennettfeely.com/clippy/"> create online </a>
+    </span>
+    <hr>
+    <!-- Example of cropping image with clip path -->
+    <img src="../img/mrMisses.jpg" alt="mrMisses" srcset="" class="imgClipPath">
+</body>
+</html>
