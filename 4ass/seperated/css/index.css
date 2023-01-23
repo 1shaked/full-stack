@@ -24,9 +24,9 @@ input:focus {
     /* transition: background-color 2s linear;
     transition: font-size 2s linear; */
     transition-duration: 500ms;
-    transition-timing-function: ease-in-out;
+    /* transition-timing-function: ease-in-out; */
     /* transition-timing-function: ease-in; */
-    /* transition-timing-function: cubic-bezier(0, 0, 1,-0.84); */
+    transition-timing-function: cubic-bezier(0, 0, 1,-0.84);
     /* transition-timing-function: cubic-bezier(0, 0, 0, 2.24); */
 }
 .myDiv:hover {
@@ -35,7 +35,11 @@ input:focus {
     font-size: 3rem;
 }
 
-
+#fname {
+    background-color: red;
+    transition-duration: 500ms;
+    transition-timing-function: linear;
+}
 #fname:focus {
     background-color: green;
 }
@@ -46,3 +50,17 @@ input:focus {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+/* .movePosition {
+    height: 60px; 
+    background-color: rgb(251, 255, 2); 
+    position: relative; 
+    left: 0px; 
+    top: 0px;
+    transition-timing-function: linear;
+    transition-duration: 5s;
+}
+.movePosition:hover {
+    left: 20px; 
+    top: 70px
+} */

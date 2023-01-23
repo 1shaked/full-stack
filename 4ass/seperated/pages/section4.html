@@ -13,6 +13,7 @@
             margin-bottom: 20px;
         }
         .exampleClamp {
+            /*            min , preferred, max  */
             width: clamp(250px, 50vw, 900px);
             border: 1px solid black;
             margin: auto;
@@ -36,7 +37,7 @@
 <body>
     <!-- This is an example of using the calc function -->
     <div class="exampleCalc">
-        
+        this is with calc
     </div>
     <!-- This is the clamp function -->
     <div class="exampleClamp">
@@ -54,5 +55,14 @@
     <hr>
     <!-- Example of cropping image with clip path -->
     <img src="../img/mrMisses.jpg" alt="mrMisses" srcset="" class="imgClipPath">
+    <hr>
+    <!-- Box shadow -->
+    <div style="width: 200px; height: 300px; box-shadow: 5px 10px #888888; border: 3px solid red;">
+        This is a box
+    </div>
+    <!-- text shadow -->
+    <h2 style="text-shadow: 2px 2px 4px #666">
+        text shadow
+    </h2>
 </body>
 </html>

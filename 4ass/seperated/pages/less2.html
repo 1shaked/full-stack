@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .example {
+            background-color: aquamarine;
+            width: 20%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /*                     left top */
+            transform: translate(-50%, -50%);
+            /*           x      y   r     color */
+            /* box-shadow: -10px -10px 3px brown; */
+            transition: 
+                width 8s linear,
+                transform 1s ease-in-out,
+                background-color 2s ease-in,
+                font-size 500ms ease-out;
+            /* transition: 5s linear; */
+        }
+
+        .example:hover {
+            /* first is           left, top   */
+            transform: translate(0%, 0%);
+            width: 50%;
+            background-color: blueviolet;
+            box-shadow: 0px 0px transparent;
+            font-size: 2em;
+        }
+        .childSelector {
+            background-color: antiquewhite;
+        }
+        /* child */
+        .childSelector > .c1 {
+            display: inline-block;
+            background-color: red;
+        }
+        div p {
+            
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-shadow: 5px 5px 1px brown;">Son</h1>
+    <div style="height: 50vh; border: 5px solid burlywood; position: relative;">
+        <div class="example">rick</div>
+    </div>
+    <img src="../img/mrMisses.jpg" width="200" alt="" srcset="">
+
+    <div class="childSelector">
+        <p class="c1">
+            this is p
+        </p>
+        <div>
+            this is  div
+        </div>
+        <p>
+            this is p
+        </p>
+        <div class="c1">
+            this is  div
+        </div>
+        <p>
+            this is p
+        </p>
+        <div>
+            this is  div
+            <div class="c1">
+                div is <p>not p</p>
+            </div>
+            <hr>
+            <p>this is pppppppp</p>
+        </div>
+        <p>
+            this is p
+        </p>
+    </div>
+
+
+    <div style="height: 300px; width: 350px; border: 2px solid red; margin:auto;">
+        <span style="border: 3px dotted green;
+            width: 150px;
+            margin: auto;
+            text-align: center;
+            display: block;">
+            center me please
+        </span>
+    </div>
+    <h1 style="text-align: center; border: 3px solid blue; width: 50vw;">
+        NF shaked 
+    </h1>
+</body>
+
+</html>

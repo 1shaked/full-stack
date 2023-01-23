@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexBox</title>
+    <style>
+        
+        body {
+            font-size:2.5rem;
+        }
+        /* * {
+            margin: 0;
+        } */
+        .flexbox {
+            /* min-height: 50vh; */
+            border: 5px solid firebrick;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            display: flex;
+            flex-direction: row;
+            /* justify-content: flex-end; */
+            /* justify-content: center; */
+            justify-content: space-around;
+            /* justify-content: space-between; */
+            /* justify-content: space-evenly; */
+        }
+        .flexbox > div {
+            border: 2px solid indigo;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flex box</h1>
+    <a href="#end">scroll to the end</a>
+    <h3>flexbox with space around</h3>
+    <div class="flexbox">
+        <div>
+            Home
+        </div>
+        <div>
+            About
+        </div>
+        <div>
+            Projects
+        </div>
+        <div>
+            Game
+        </div>
+    </div>
+    <h4>This example will show you how to use the css flexbox to create a navbar with amazing style</h4>
+    <!-- This example will show you how to use the css flexbox to create a navbar with amazing style -->
+    <div class="flexbox" style="justify-content:space-between;">
+        <div style="flex-grow: 1; display: flex; justify-content: start;" class="navbar">
+            <div>
+                Game
+            </div>
+            <div>
+                Imgs
+            </div>
+            <div>
+                about
+            </div>
+        </div>
+        <div style="flex-grow: 1; ; display: flex; justify-content: space-around;">
+            <div>
+                thrones
+            </div>
+            <div>
+                Login
+            </div>
+        </div>
+    </div>
+
+    <!-- create a flexbox with direction and flex wrap -->
+    <h3>flex direction set to column</h3>
+    <div style="display: flex;flex-direction: column;">
+        <div style="height: 50px; background-color: blueviolet; border: 5px solid black;">1</div>
+        <div style="height: 50px; background-color: blueviolet; border: 5px solid black;">2</div>
+        <div style="height: 50px; background-color: blueviolet; border: 5px solid black;">3</div>
+        <div style="height: 50px; background-color: blueviolet; border: 5px solid black;">4</div>
+    </div>
+
+    <h3>flex wrap option</h3>
+    <div style="display: flex;flex-wrap: wrap; border: 10px solid rgb(31, 245, 245);">
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">1</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">2</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">3</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">4</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">5</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">6</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">7</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">8</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">9</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">10</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">11</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">12</div>
+    </div>
+
+
+    <h3>flex wrap option with flex direction column</h3>
+    <div style="display: flex;flex-wrap: wrap; border: 10px solid green; flex-direction: column; height:500px;">
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">1</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">2</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">3</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">4</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">5</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">6</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">7</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">8</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">9</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">10</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">11</div>
+    </div>
+
+
+    <h3>flex wrap option with flex direction column and justify content</h3>
+    <div style="display: flex;flex-wrap: wrap; border: 10px solid red; flex-direction: column; height:500px; justify-content: space-between;">
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">1</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">2</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">3</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">4</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">5</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">6</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">7</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">8</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">9</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">10</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">11</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">12</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">13</div>
+    </div>
+
+
+    <h3>flex wrap option with flex direction column and justify content</h3>
+    <div style="display: flex;flex-wrap: wrap; border: 10px solid yellow; flex-direction: column; height:500px; justify-content: space-around;">
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">1</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">2</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">3</div>
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">4</div>
+    </div>
+
+
+    <h3>flex wrap option with flex direction column and justify content and align-items</h3>
+    <div style="display: flex;flex-wrap: wrap; border: 10px solid rgb(245, 21, 208); flex-direction: column; height:500px;
+        justify-content: space-around; align-items: center;">
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">1</div>
+        <div style="height: 90px; background-color: rgb(102, 214, 82); border: 5px solid black; width: 250px;">2</div>
+        <div style="height: 90px; background-color: rgb(223, 226, 43); border: 5px solid black; width: 250px;">3</div>
+        <div style="height: 90px; background-color: rgb(190, 2, 53); border: 5px solid black; width: 250px;">4</div>
+    </div>
+    <h3>flex wrap option with flex direction column and align-items with flex basis</h3>
+    <div style="display: flex;flex-wrap: nowrap; border: 10px solid rgb(62, 255, 200); height:250px;
+         align-items: center;">
+        <div style="height: 110px; background-color: blueviolet; border: 5px solid black; width: 250px;">1</div>
+        <div style="height: 110px; background-color: rgb(102, 214, 82); border: 5px solid black; flex-basis:   450px;">2</div>
+        <div style="height: 110px; background-color: rgb(223, 226, 43); border: 5px solid black; flex-basis:   450px;">3</div>
+        <div style="height: 110px; background-color: rgb(190, 2, 53);   border: 5px solid black; flex-basis:   450px;">4</div>
+        <div style="height: 110px; background-color: rgb(51, 72, 237);  border: 5px solid black; flex-basis:   450px;">5</div>
+    </div>
+
+
+    <h3>flex justify content (space-around) and align-items - end</h3>
+    <div style="display: flex; border: 10px solid rgb(20, 9, 232); height:500px;
+        justify-content: space-around; align-items: end;">
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">1</div>
+        <div style="height: 90px; background-color: rgb(102, 214, 82); border: 5px solid black; width: 250px;">2</div>
+        <div style="height: 90px; background-color: rgb(22, 165, 227); border: 5px solid black; width: 250px;">3</div>
+        <div style="height: 90px; background-color: rgb(190, 2, 53); border: 5px solid black; width: 250px;">4</div>
+    </div>
+
+    <h3>flex with grow (only one item with flex grow)</h3>
+    <div style="display: flex; border: 10px dashed rgb(14, 255, 34); height: 500px;">
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">1</div>
+        <div style="height: 90px; background-color: rgb(102, 214, 82); border: 5px solid black; width: 250px; flex-grow: 1;">2</div>
+        <div style="height: 90px; background-color: rgb(22, 165, 227); border: 5px solid black; width: 250px;">3</div>
+        <div style="height: 90px; background-color: rgb(190, 2, 53); border: 5px solid black; width: 250px;">4</div>
+    </div>
+
+    <h3>flex with grow (two items with flex grow)</h3>
+    <div style="display: flex; border: 10px dashed rgb(14, 255, 34); height: 300px;">
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">1</div>
+        <div style="height: 90px; background-color: rgb(102, 214, 82); border: 5px solid black; width: 250px;
+            flex-grow: 1;">2</div>
+        <div style="height: 90px; background-color: rgb(22, 165, 227); border: 5px solid black; width: 250px; flex-grow: 1;">3</div>
+        <div style="height: 90px; background-color: rgb(190, 2, 53); border: 5px solid black; width: 250px;">4</div>
+    </div>
+
+
+    <h3>flex with shrink (only one item with flex shrink)</h3>
+    <div style="display: flex; border: 10px dashed rgb(58, 4, 255); height: 300px;" id="end">
+        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">1</div>
+        <div style="height: 90px; background-color: rgb(102, 214, 82); border: 5px solid black; width: 250px;
+            flex-shrink: 1;">2</div>
+        <div style="height: 90px; background-color: rgb(22, 165, 227); border: 5px solid black; width: 250px;">3</div>
+        <div style="height: 90px; background-color: rgb(190, 2, 53); border: 5px solid black; width: 250px;">4</div>
+    </div>
+</body>
+</html>
