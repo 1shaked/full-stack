@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 3rem;
+        }
+        .grid {
+            display: grid;
+            border:5px solid green;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+        .grid >div {
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+    <h2>using grid-column-start and grid-column-end</h2>
+    <div class="grid">
+        <div style="background-color: red; grid-column-start: 1; grid-column-end: 4; ">start from 1 and end at 4</div>
+        <div style="background-color: blue; grid-column-start: 4; grid-column-end: 5;">start at 4 and end at 5</div>
+    </div>
+
+    <h2>using grid-column-start and grid-column-end</h2>
+    <div class="grid" style="grid-template-columns: repeat(9fr);">
+        <div style="background-color: red; grid-column-start: 1; grid-column-end: 4; ">start from 1 and end at 4</div>
+        <div style="background-color: blue; grid-column-start: 4; grid-column-end: 5;">start at 4 and end at 5!</div>
+        <div style="background-color: rgb(52, 255, 34); grid-column-start: 5; grid-column-end: 7;">start at 5 and end at 7</div>
+        <div style="background-color: rgb(255, 47, 47); grid-column-start: 7; grid-column-end: 10;">start at 7 and end at 10</div>
+    </div>
+    <hr>
+    <h2>using grid-column-start and grid-column-end with overflow</h2>
+    <div class="grid" style="grid-template-columns: repeat(9, 1fr); gap:5px;">
+        <div style="background-color: red; grid-column-start: 1; grid-column-end: 4; ">start from 1 and end at 4</div>
+        <div style="background-color: blue; grid-column-start: 4; grid-column-end: 5;">start at 4 and end at 5!</div>
+        <div style="background-color: rgb(52, 255, 34); grid-column-start: 3; grid-column-end: 7;">start at 3 and end at 7</div>
+        <div style="background-color: rgb(247, 0, 255); grid-column-start: 7; grid-column-end: 10;">start at 7 and end at 10</div>
+    </div>
+
+    
+</body>
+</html>

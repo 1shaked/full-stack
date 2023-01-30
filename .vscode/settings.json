@@ -1,4 +1,15 @@
 {
+    "tailwindCSS.emmetCompletions": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.quickSuggestions": {
+    "strings": true
+    },
+    "tailwindCSS.includeLanguages": {
+        "html": "html",
+        "javascript": "javascript",
+        "css": "css"
+    },
+    "css.validate": false,
     "cSpell.words": [
         "Morty"
     ]

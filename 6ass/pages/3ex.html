@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid {
+            border: 2px solid black;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 1fr 1fr;
+            gap: 5px;
+        }
+        .span-2-col {
+            grid-column: span 2;
+        }
+        .span-2-row {
+            grid-row: span 2;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>let's make it more interesting</h2>
+    <div class="grid">
+        <div class="content span-2-col">
+            <h1>content is here</h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur possimus nam rem reprehenderit, excepturi maiores, sapiente recusandae distinctio temporibus, amet fugiat. Rerum voluptatum nostrum eos necessitatibus dolor sequi distinctio labore.
+        </div>
+        <div class="ad" style="border-left: 1px solid rgb(255, 91, 26);">
+            <h1>ad</h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur possimus nam rem reprehenderit, excepturi maiores, sapiente recusandae distinctio temporibus, amet fugiat. Rerum voluptatum nostrum eos necessitatibus dolor sequi distinctio labore.
+        </div>
+        <div class="sidebar span-2-row" style="border-left: 1px solid goldenrod;">
+            <h1>sidebar</h1>
+            What ever content you see
+        </div>
+        <div class="contacts" style="border-top: 1px solid rgb(255, 32, 32); border-right: 1px solid rgb(255, 32, 32);">
+            <h1>contact</h1>
+            phone number: 123456789
+            email: <a href="http://" target="_blank" rel="noopener noreferrer">whatever@gmail.com</a>
+        </div>
+        <div class="img span-2-col" style="display: grid; grid-template-columns: 20% 1fr; gap: 20px; border: 1px dotted #ccc;">
+            <div>
+                <img src="../imgs/prision.png" alt="" style="width: 100%;">
+            </div>
+            <div>
+                <h1>Img with text</h1>
+                <div>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste aspernatur voluptatibus quibusdam fugit dolore facilis, molestiae modi aut totam officiis blanditiis ipsam, provident, magnam voluptatum a. Sunt nulla vero eos.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

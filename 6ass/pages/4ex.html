@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 2rem;
+        }
+        .grid {
+            display: grid;
+            height: 50vh;
+            border: 5px solid rgb(59, 59, 255);
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            justify-items: center;
+            align-items: center;
+            /* or */
+            /* place-items: center; */
+        }
+        .grid >div {
+            text-align: center;
+            height: 40px;
+            width: 100px;
+            background-color: rgb(255, 255, 255);
+            border: 2px solid rgb(245, 101, 101);
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

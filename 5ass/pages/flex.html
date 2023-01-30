@@ -10,7 +10,7 @@
         body {
             font-size:2.5rem;
         }
-        /* * {
+        /* {
             margin: 0;
         } */
         .flexbox {
@@ -18,17 +18,27 @@
             border: 5px solid firebrick;
             padding-top: 5px;
             padding-bottom: 5px;
+            height: 90vh;
             display: flex;
             flex-direction: row;
+            align-items: center;
             /* justify-content: flex-end; */
             /* justify-content: center; */
-            justify-content: space-around;
-            /* justify-content: space-between; */
+            /* justify-content: space-around; */
+            justify-content: space-between;
             /* justify-content: space-evenly; */
+            flex-wrap: wrap;
         }
         .flexbox > div {
             border: 2px solid indigo;
+            width: 170px;
+            /* height: 20vh; */
         }
+        /* @media screen and (max-width: 1000px) {
+            .flexbox {
+                flex-direction: row;
+            }
+        } */
     </style>
 </head>
 <body>
@@ -37,16 +47,19 @@
     <h3>flexbox with space around</h3>
     <div class="flexbox">
         <div>
-            Home
+            Home 1 
         </div>
         <div>
-            About
+            About 2 
+        </div>
+        <div style="order: 1;">
+            Projects 3 
         </div>
         <div>
-            Projects
+            thrones 4 
         </div>
         <div>
-            Game
+            Game 5
         </div>
     </div>
     <h4>This example will show you how to use the css flexbox to create a navbar with amazing style</h4>
@@ -54,21 +67,21 @@
     <div class="flexbox" style="justify-content:space-between;">
         <div style="flex-grow: 1; display: flex; justify-content: start;" class="navbar">
             <div>
-                Game
+                Game 1
             </div>
             <div>
-                Imgs
+                Imgs 2 
             </div>
             <div>
-                about
+                about 3 
             </div>
         </div>
-        <div style="flex-grow: 1; ; display: flex; justify-content: space-around;">
+        <div>
             <div>
-                thrones
+                thrones 4 
             </div>
             <div>
-                Login
+                Login 5
             </div>
         </div>
     </div>
@@ -83,7 +96,7 @@
     </div>
 
     <h3>flex wrap option</h3>
-    <div style="display: flex;flex-wrap: wrap; border: 10px solid rgb(31, 245, 245);">
+    <div style="display: flex;flex-direction: row-reverse; flex-wrap: wrap; border: 10px solid rgb(31, 245, 245); height: 500px; align-items: flex-end;">
         <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">1</div>
         <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">2</div>
         <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">3</div>
@@ -92,7 +105,7 @@
         <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">6</div>
         <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">7</div>
         <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">8</div>
-        <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">9</div>
+        <div style="height: 90px; background-color: rgb(255, 17, 17); border: 5px solid black; width: 250px;">9</div>
         <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">10</div>
         <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">11</div>
         <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">12</div>
@@ -189,7 +202,8 @@
 
 
     <h3>flex with shrink (only one item with flex shrink)</h3>
-    <div style="display: flex; border: 10px dashed rgb(58, 4, 255); height: 300px;" id="end">
+    <div style="display: inline-flex; border: 10px dashed rgb(58, 4, 255);
+        height: 300px; width: 50vw;" id="end">
         <div style="height: 90px; background-color: blueviolet; border: 5px solid black; width: 250px;">1</div>
         <div style="height: 90px; background-color: rgb(102, 214, 82); border: 5px solid black; width: 250px;
             flex-shrink: 1;">2</div>
