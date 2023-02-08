@@ -55,12 +55,12 @@
             background-color: red;
         }
         .box {
-            height: 50%;
-            width: 50%;
+            height: 250px;
+            width: 250px;
             background-color: blue;
             transition: 2s ease-out;
         }
-        .container:hover .box {
+        .container:hover ~ .box {
             background-color: rgb(198, 255, 196);
         }
     </style>
@@ -76,7 +76,8 @@
         whatever
     </h2>
 
-    <div class="container">
+    <div>
+        <div class="container"></div>
         <div class="box"></div>
     </div>
 </body>
