@@ -10,7 +10,7 @@ body {
 h1 {
     margin: 0px;
 }
-.body div {
+.body > div {
     height: 50vh;
 }
 
@@ -42,7 +42,8 @@ h1 {
 .nav-bar-el> a:hover {
     color: red;
     transform: rotate(360deg);
-    font-size: 2rem;
+    font-size: 1.6rem;
+    border-radius: 50%;
 }
 .body {
     margin-left: var(--baseWidthNavigation);
@@ -51,8 +52,11 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     place-items: center;
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between; */
 }
-.tech > i {
+.tech > div > i {
     transition: var(--transitionTime);
     font-size: 3rem;
 }
@@ -70,3 +74,30 @@ h1 {
 .css-icons:hover {
     color: #264de4;
 }
+.about {
+    background-color: cornflowerblue;
+    transition: var(--transitionTime);
+}
+.about:hover  ~ #mydiv {
+    background-color: #db23f79b;
+    height: 30vh;
+    font-size: 3rem;    
+}
+.about-content {
+    background-color: #ef4141cd;
+}
+.tech > div {
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+
+}
+.tech > div > div {
+    display: block;
+    transition: var(--transitionTime);
+    opacity: 0;
+}
+.tech > div:hover div {
+    opacity: 1;
+}
+
