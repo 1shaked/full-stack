@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            /* background-color: rgba(255, 255, 255, 0.3); */
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            font-family: sans-serif;
+            text-align: center;
+            line-height: 1;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            max-width: 50%;
+            max-height: 50%;
+            padding: 20px 40px;
+        }
+
+
+        body {
+            background-image: url("images/img_electric.jpeg"), linear-gradient(rgb(219, 166, 166), rgb(0, 0, 172));
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+          <p>backdrop-filter: blur(10px)</p>
+        </div>
+      </div>
+</body>
+</html>
