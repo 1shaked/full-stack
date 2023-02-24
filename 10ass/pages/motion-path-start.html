@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+      .circle {
+        motion-path: path("M18.45,58.46s52.87-70.07,101.25-.75,101.75-6.23,101.75-6.23S246.38,5.59,165.33,9.08s-15,71.57-94.51,74.56S18.45,58.46,18.45,58.46Z");
+        offset-path: path("M18.45,58.46s52.87-70.07,101.25-.75,101.75-6.23,101.75-6.23S246.38,5.59,165.33,9.08s-15,71.57-94.51,74.56S18.45,58.46,18.45,58.46Z");
+        motion-rotation: reverse;
+        animation: move 3s linear infinite;
+        width: 71px;
+        height: 54px;
+        background-color: red;
+        /* background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/pointer-hand.svg) no-repeat; */
+        position: absolute;
+        left: 30%;
+        top: 100px;
+      }
+      @keyframes move {
+            100% { 
+                motion-offset: 100%;
+                offset-distance: 100%;
+            }
+        }
+      
+    
+    </style>
+  </head>
+  <body>
+    <div class="circle"></div>
+  </body>
+</html>
