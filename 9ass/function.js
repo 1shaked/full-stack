@@ -27,5 +27,13 @@ function printName( firstName , lastName ) { // creating the printName
     console.log('hey ' + firstName + ' and yor last amazing name is ' + lastName);
 }
 
-printName('shaked' , 'chen')
-printName('moshe'  , 'levi')
+// printName('shaked' , 'chen')
+// printName('moshe'  , 'levi')
+printName('levi')
+
+let age = 20;
+let name = 'shaked'
+// if (  ) // age == 21 -> false
+// if (  ) // age == 20 -> true
+// if (  ) // name != 'shaked' -> true
+// if (  ) // name != 'david' -> false
