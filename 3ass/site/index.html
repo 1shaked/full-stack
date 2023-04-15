@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This is a title - WOW</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body {
+            background-image: url("snowflakes.jpeg");
+            /* background-repeat: no-repeat; */
+            /* background-repeat: repeat-x; */
+            /* background-repeat: repeat-y; */
+            background-repeat: repeat;
+            background-attachment: fixed;
+            /* background-attachment: scroll; */
+        }
+
+        .spacer {
+            height: 100vh;
+        }
+
+        .border {
+            border: 5px dotted red;
+        }
+        .ultag {
+            /* background-color: aqua; */
+        }
+        .ultag > li {
+            font-size: 30px;
+            list-style-image: url("triskit.svg");
+        }
+        .hoverExample {
+            background-color: royalblue; 
+            color: black; 
+            padding: 35px;
+        }
+        .hoverExample:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="spacer">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus officia autem, delectus, vel ea quisquam
+        voluptates repudiandae error esse laboriosam minus porro ratione tempore eveniet, perferendis animi soluta
+        voluptatibus? Corrupti.
+    </div>
+    <div>
+        this is a text <span>inside div from a span</span>
+        I can add many different <span>span tags like this</span>
+    </div>
+    <span>This is some inline text that is contained within a</span>
+
+    <ul>
+        <li>Milk</li>
+        <li>Eggs</li>
+        <li>Bread</li>
+    </ul>
+    <hr>
+    <ol>
+        <li>Step 1: Preheat the oven to 350°F</li>
+        <li>Step 2: In a mixing bowl, cream together the butter and sugar</li>
+        <li>Step 3: Beat in the eggs, one at a time, then stir in the vanilla</li>
+    </ol>
+
+    <form>
+        <fieldset>
+            <legend>Personalia:</legend>
+            <label for="fname">First name:</label>
+            <input type="text" id="fname" name="fname"><br><br>
+            <label for="lname">Last name:</label>
+            <input type="text" id="lname" name="lname"><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="birthday">Birthday:</label>
+            <input type="date" id="birthday" name="birthday"><br><br>
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+
+
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+        </tr>
+        <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+        </tr>
+    </table>
+
+
+    <div class="border">
+        border is here because of
+    </div>
+
+    <div>
+        This is icons
+        <div>
+            <i class="fas fa-cloud"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-car"></i>
+            <i class="fasfa-file"></i>
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-band-aid"></i>
+            <i class="fas fa-cat"></i>
+            <i class="fas fa-dragon"></i>
+            <i class="far fa-clock"></i>
+            <i class="fas fa-clock"></i>
+        </div>
+        <div>
+            <h3>material icons</h3>
+            <i class="material-icons">cloud</i> 
+            <i  class="material-icons">favorite</i>
+            <i class="material-icons">attachment</i> 
+            <i  class="material-icons">computer</i>
+            <i class="material-icons">traffic</i>
+
+        </div>
+        here
+    </div>
+    <hr>
+    <ul class="ultag">
+        <li>Milk</li>
+        <li>Eggs</li>
+        <li>Bread</li>
+    </ul>
+
+    <!-- Here is an example of using width as percentage -->
+    <div style="width: 50%; background-color: black; color: white; height: 50px;">
+        example of using 50% width
+    </div>
+    <hr>
+    <div style="width: 30%; background-color: black; color: white;">
+        example of using 30% width
+    </div>
+    <!-- using width inside an element -->
+    <div style="background-color: aqua;">
+        This is an example of using an inside
+        <span style="width: 350px; background-color:aquamarine; display: inline-block;">
+            span that will be with a width of 350px
+        </span> 
+        wow it is so big
+    </div>
+    <!-- This is an example of using margin -->
+    <div style="margin-left: 50px; margin-right: 150px; margin-top: 20px; background-color: greenyellow;">
+        wow this is 50px margin left and 150 right margin and 20px margin top;
+    </div>
+    <div style="margin: 25px; background-color: blueviolet;">
+        wow this is 25px margin and 
+    </div>
+
+    <!-- This is an example of using padding  -->
+    <div style="padding-left: 50px; padding-right: 150px; padding-top: 20px; background-color: greenyellow;">
+        wow this is 50px padding left and 150px padding right and padding top of 20px
+    </div>
+    <div style="padding: 25px; background-color: blueviolet;">
+        wow this is 25px padding and 
+    </div>
+    <!-- Here is a combination of both of these (margin and padding) -->
+    <div style="padding: 20px; margin: 55px; background-color: royalblue;">
+        This is an example of a combination of 55px margin and 20px padding
+    </div>
+
+    <!-- this is an example of hover -->
+    <div class="hoverExample">
+
+        wow there is so much text here that what will happen when we hover over here
+
+    </div>
+
+    <hr>
+    <!-- Let's make it bigger -->
+    <div class="hoverExample" style="font-size: 26px;">
+        wow there is so much text here that what will happen when we hover over here, but bigger text
+    </div>
+
+    <!-- let's use some different units -->
+    <div>
+        <h2>units!</h2>
+        <span style="font-size: 45px;">
+            <span style="font-size: 25px">this is 25px</span>
+            <span style="font-size: 1rem">this is 1rem</span>
+            <span style="font-size: 1em">this is 1em ( the size of the parent element ) around 45px</span>
+            <span style="font-size: 2em">this is 2em ( the size of the parent element ) around 45 * 2 = 90px</span>
+        </span>
+    </div>
+</body>
+
+</html>

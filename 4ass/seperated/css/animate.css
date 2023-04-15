@@ -1,0 +1,53 @@
+/*
+.transformed {
+  transform: translate(50px, 100px) rotate(45deg) scale(1.5);
+}
+*/
+.transformImg {
+    /* transform: translate(50px, 100px) rotate(45deg) scale(1.5); */
+    margin-top: 35px;
+    background-color: antiquewhite;
+}
+.transformImg:hover {
+    /* animation: rotation 3s 2 linear; */
+    animation: rotation 3s 1 linear;
+    display: none;
+}
+.myH {
+    width: 100px;
+    height: 250px;
+    border: 5px solid rgb(0, 0, 0);
+    border-top-left-radius: 50px ;
+}
+.myH:hover {
+    animation: rotation 3s infinite linear;
+}
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+        /* transform: rotate(0deg) scale(1); */
+        /* transform: scale(1); */
+        transform: skew(0deg,0deg);
+        
+    }
+    50% {
+        transform: skew(40deg, 10deg) rotate(180deg);
+    }
+    to {
+        transform: rotate(360deg);
+        /* transform: rotate(359deg) scale(2); */
+        /* transform: scale(2); */
+        /* transform: skew(25deg,45deg); */
+    }
+}
+/* @keyframes rotation {
+    from {
+        transform: skew(0deg,0deg);
+    }
+    50% {
+        transform: skew(25deg,45deg);
+    }
+    to {
+        transform: skew(0deg,0deg);
+    }
+} */

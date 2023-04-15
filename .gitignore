@@ -25,3 +25,6 @@ dist
 *.njsproj
 *.sln
 *.sw?
+22ass/example/supabase/.gitignore
+22ass/example/src/lib/supabase.ts
+22ass/example/supabase/seed.sql

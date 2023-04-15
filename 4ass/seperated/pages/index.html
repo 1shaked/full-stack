@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    
+  </head>
+  <body>
+    <!-- <span>
+      with default value, no font size is set 
+    </span>
+    <div style="font-size: 200px;">
+      test
+      <span style="font-size: 0.5rem;">
+        with font size
+      </span>
+    </div>
+    <div style="width: 70%; border: 5px double burlywood; height: 300vh; background-color: aqua;">
+      <div style="font-size: 50px; border: 3px solid greenyellow; width: 50vw;">
+        hey 
+        <div style="font-size: 300%;">
+          rick
+        </div>
+      </div>
+    </div>
+    <div style="width: 70%; border: 5px dotted blueviolet;">
+      <div style="font-size: 50px; border: 3px solid greenyellow; width: 50%;">
+        hey 
+        <div style="font-size: 300%;">
+          rick
+        </div>
+      </div>
+    </div>
+    <div style="font-size: 2em;">
+      rick
+    </div> -->
+
+    <h1>This is a separate file that contains img from another folder.</h1>
+
+    <!-- Here is a combination of both of these (margin and padding) -->
+    <div style="padding: 20px; margin: 55px; background-color: royalblue">
+      This is an example of a combination of 55px margin and 20px padding
+    </div>
+    <!-- Here is an example of focus -->
+    focus here
+    <input name="firstName" type="text">
+    <hr>
+    <!-- this is an example of hover -->
+    <div class="hoverExample">
+      wow there is so much text here that what will happen when we hover over
+      here
+    </div>
+
+    <hr />
+    <!-- Let's make it bigger -->
+    <div class="hoverExample" style="font-size: 26px">
+      wow there is so much text here that what will happen when we hover over
+      here, but bigger text
+    </div>
+
+    <!-- let's use some different units -->
+    <div>
+      <h2>units!</h2>
+      <span style="font-size: 45px">
+        <span style="font-size: 25px">this is 25px</span>
+        <span style="font-size: 1rem">this is 1rem</span>
+        <span style="font-size: 1em"
+          >this is 1em ( the size of the parent element ) around 45px</span
+        >
+        <span style="font-size: 2em"
+          >this is 2em ( the size of the parent element ) around 45 * 2 =
+          90px</span
+        >
+      </span>
+    </div>
+    <div class="myDiv">
+      This element is style different from the default
+      <span>but please hover me</span>
+      <a
+        href="https://codepen.io/kevinpowell/pen/bawGKx/ff0263bcbff4729a696dc19c8870518e?editors=1100"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        type of time function
+      </a>
+    </div>
+
+    <!-- This is a focus and how to use it -->
+    <div>
+      <label for="fname">great</label>
+      <input type="text" id="fname" name="fname" value="snowflakes is a" />
+    </div>
+    <!-- This is text linear gradient -->
+    <span
+      style="
+        background-color: rgba(242, 237, 179, 0.407);
+        display: inline-block;
+      "
+    >
+      <div class="textG">TEXT linear gradient</div>
+    </span>
+
+    <!-- This content is bold and some italic -->
+    <div>
+      <span style="font-weight: bold">This is a bold text.</span>
+      <br />
+      <span style="font-style: italic">This is a italic text.</span>
+    </div>
+    <!-- position elements -->
+    <div style="background-color: rgb(0, 251, 255); padding: 10px; margin: 30px;">
+        <h1>position elements static</h1>
+        <div style="height: 60px; background-color: rgb(251, 255, 2);">Rick</div>
+        <div style="height: 60px; background-color: rgb(23, 255, 74);">And</div>
+        <div style="height: 60px; background-color: rgb(255, 91, 244);">Morty</div>
+    </div>
+    <!-- position relative is relative to the normal position  -->
+    <div style="background-color: rgb(0, 251, 255); padding: 10px; margin: 30px;">
+        <h1>position relative</h1>
+        <div style="height: 60px; background-color: rgb(251, 255, 2); position: relative; left: 20px; top: 70px">Rick</div>
+        <div style="height: 60px; background-color: rgb(23, 255, 74);">And</div>
+        <div style="height: 60px; background-color: rgb(255, 91, 244);">Morty</div>
+    </div>
+    <!-- position absolute - will be relative to the nearest positioned ancestor -->
+    <div style="background-color: rgb(0, 251, 255); padding: 10px; margin: 30px;">
+        <h1>position absolute</h1>
+        <!-- uncomment next line to see what is going on -->
+        <!-- <div style="height: 60px; background-color: rgb(251, 255, 2); position: absolute; left: 200px; top: 70px">Rick</div> -->
+        <div style="height: 60px; background-color: rgb(23, 255, 74);">And</div>
+        <div style="height: 60px; background-color: rgb(255, 91, 244);">Morty</div>
+    </div>
+    <!-- example of position absolute , but with relative ancestor  -->
+    <div style="background-color: rgb(0, 251, 255); padding: 10px; margin: 30px; position: relative;">
+        <h1>Container</h1>
+        <!-- The width is small because if no dimensions are specified for the absolutely positioned element
+            ,it will default to the dimensions of the content within it, which may also contribute to a smaller width. -->
+        <!-- <div style="height: 60px; background-color: rgb(251, 255, 2); position: absolute; left: 20px; top: 70px">Rick</div> -->
+        <!-- uncomment next line to see what is going on -->
+        <div style="height: 25%; background-color: rgb(251, 255, 2); position: absolute; left: 10px; top: 26px; width: 100%;">Rick</div>
+        <div style="height: 60px; background-color: rgb(23, 255, 74);">And</div>
+        <div style="height: 60px; background-color: rgb(255, 91, 244);">Morty</div>
+    </div>
+    <!-- position fixed 
+    Remainder- this means that the element will be positioned relative to the viewport, and it will stay in the same place even if the page is scrolled.
+    -->
+    <div style="background-color: rgb(0, 251, 255); padding: 10px; margin: 30px;">
+        <h1>position fixed</h1>
+        <!-- uncomment next line to see what is going on -->
+        <!-- <div style="height: 60px; background-color: rgb(251, 255, 2); position: fixed; left: 35px; top: 50px; width: 100%;">Rick</div> -->
+        <div style="height: 60px; background-color: rgb(23, 255, 74);">And</div>
+        <div style="height: 60px; background-color: rgb(255, 91, 244);">Morty</div>
+    </div>
+    <!-- position sticky
+        - sticky property in CSS allows elements to behave like position: relative until a certain point is reached, at which point they become position: fixed. 
+     -->
+    <div style="background-color: rgb(0, 251, 255); padding: 10px; margin: 30px; height: 210vh;">
+        <h1>position sticky</h1>
+        <!-- uncomment next line to see what is going on -->
+        <div style="height: 60px; background-color: rgb(251, 255, 2); position: sticky; left: 35px; top: 50px; width: 100%;">Rick</div>
+        <div style="height: 60px; background-color: rgb(23, 255, 74);">And</div>
+        <div style="height: 60px; background-color: rgb(255, 91, 244);">Morty</div>
+    </div>
+    <div style="height: 90vh;">
+        Container is here
+    </div>
+  </body>
+</html>

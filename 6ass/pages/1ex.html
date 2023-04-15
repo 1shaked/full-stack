@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 3rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .grid > div {
+            height: 70px;
+        }
+    </style>
+</head>
+<body>
+    <h2>grid row</h2>
+    <div class="grid">
+        <div style="background-color: red; ">1</div>
+        <div style="background-color: blue; ">2</div>
+        <div style="background-color: blueviolet; ">3</div>
+    </div>
+    <hr>
+    <h2>4 grid elements</h2>
+    <div class="grid">
+        <div style="background-color: red; ">1</div>
+        <div style="background-color: blue; ">2</div>
+        <div style="background-color: blueviolet; ">3</div>
+        <div style="background-color: rgb(255, 0, 230); ">4</div>
+    </div>
+
+    <hr>
+    <div class="grid">
+        <div style="background-color: red; ">1</div>
+        <div style="background-color: blue; ">2</div>
+        <div style="background-color: blueviolet; ">3</div>
+        <div style="background-color: rgb(17, 255, 0); ">4</div>
+        <div style="background-color: rgb(255, 0, 230); ">5</div>
+        <div style="background-color: rgb(255, 251, 43); ">6</div>
+        <div style="background-color: rgb(87, 255, 244); ">7</div>
+    </div>
+    <hr>
+    <h2>GAP of 5px</h2>
+    <div class="grid" style="gap: 5px;">
+        <div style="background-color: red; ">1</div>
+        <div style="background-color: blue; ">2</div>
+        <div style="background-color: blueviolet; ">3</div>
+        <div style="background-color: rgb(17, 255, 0); ">4</div>
+        <div style="background-color: rgb(255, 0, 230); ">5</div>
+        <div style="background-color: rgb(255, 251, 43); ">6</div>
+        <div style="background-color: rgb(87, 255, 244); ">7</div>
+    </div>
+    <hr>
+    <h2>GAP of 5px row and 20 columns</h2>
+    <div class="grid" style="grid-column-gap:20px; grid-row-gap: 5px;">
+        <div style="background-color: red; ">1</div>
+        <div style="background-color: blue; ">2</div>
+        <div style="background-color: blueviolet; ">3</div>
+        <div style="background-color: rgb(17, 255, 0); ">4</div>
+        <div style="background-color: rgb(255, 0, 230); ">5</div>
+        <div style="background-color: rgb(255, 251, 43); ">6</div>
+        <div style="background-color: rgb(87, 255, 244); ">7</div>
+    </div>
+
+    <hr>
+    <!-- example of grid with grid-auto-columns -->
+    <h2>grid-auto-columns</h2>
+    <div class="grid" style="grid-auto-columns: 100px;">
+        <div style="background-color: red; ">1</div>
+        <div style="background-color: blue; ">2</div>
+        <div style="background-color: blueviolet; ">3</div>
+        <div style="background-color: rgb(17, 255, 0); ">4</div>
+        <div style="background-color: rgb(255, 0, 230); ">5</div>
+        <div style="background-color: rgb(255, 251, 43); ">6</div>
+        <div style="background-color: rgb(87, 255, 244); ">7</div>
+    </div>
+</body>
+</html>

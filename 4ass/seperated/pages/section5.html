@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .opacityExample {
+            /* transition: opacity 2s cubic-bezier(1,-2.82, 1, 1); */
+            transition: opacity 2s cubic-bezier(0.3,-0.2, 0.45, 0.94);
+            /* transition: opacity 2s linear; */
+        }
+        .opacityExample:hover {
+            opacity: 0;
+        }
+        .stackExample {
+            position: relative;
+            background-color: aqua;
+            width: 70vw;
+            height: 40vh;
+            border: 1px dotted blue;
+            z-index: 1;
+        }
+        .stackExample > div {
+            width: 100%;
+            height: 25%;
+        }
+        .stackChild:first-child {
+            position: relative;
+            z-index: 1;
+            border: 2px dashed blueviolet;
+            height: 8em;
+            margin-bottom: 1em;
+            margin-top: 2em;
+            z-index: -1;
+        }
+        .stackChild:last-child {
+            position: relative;
+            z-index: 2; /* put .green-box above blueviolet box */
+            background: lightgreen;
+            width: 50%;
+            left: 5%;
+            top: -70%;
+            height: 7em;
+            /* opacity: 0.9; */
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        text is here about rick
+    </p>
+    <img src="../img/mrMisses.jpg" alt="" srcset="" class="opacityExample">
+    <!-- stacking context -->
+    <div class="stackExample">
+        <div class="stackChild">stack 1</div>
+        <div class="stackChild">stack 2</div>
+        <div class="stackChild">stack 3</div>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+    <!-- This will be center -->
+    <h2>position absolute center</h2>
+    <div style="height: 500px; width: 70vh; border: 2px solid red; position: relative;">
+        <div style="border: 4px dotted blue; position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);">
+            This will be center
+        </div>
+    </div>
+    <h2>Flex center</h2>
+    <!-- This is with grid (we will see in the future) -->
+    <div style="height: 500px; width: 70vh; border: 2px solid red; display: flex; align-items: center; justify-content: center;">
+        <div style="border: 4px dotted blue; width: 50%; ">
+            This will be center #flex
+        </div>
+    </div>
+
+    <h2>Grid center</h2>
+    <!-- This is with grid (we will see in the future) -->
+    <div style="height: 500px; width: 70vh; border: 2px solid red; display: grid; place-items: center;">
+        <div style="border: 4px dotted blue; width: 50%; ">
+            This will be center #grid
+        </div>
+    </div>
+    <hr>
+    <hr>
+    <!-- no float -->
+    <h2>no float</h2>
+    <p>
+        <img src="../img/photo.jpeg" height="100" alt=""> 
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusamus nobis libero assumenda! Cumque quia doloremque aliquid hic recusandae perspiciatis. Iusto saepe magni atque commodi quas facilis, nesciunt quia eaque?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusamus nobis libero assumenda! Cumque quia doloremque aliquid hic recusandae perspiciatis. Iusto saepe magni atque commodi quas facilis, nesciunt quia eaque?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusamus nobis libero assumenda! Cumque quia doloremque aliquid hic recusandae perspiciatis. Iusto saepe magni atque commodi quas facilis, nesciunt quia eaque?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusamus nobis libero assumenda! Cumque quia doloremque aliquid hic recusandae perspiciatis. Iusto saepe magni atque commodi quas facilis, nesciunt quia eaque?
+        <img src="../img/photo.jpeg" width="50" alt=""> 
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusamus nobis libero assumenda! Cumque quia doloremque aliquid hic recusandae perspiciatis. Iusto saepe magni atque commodi quas facilis, nesciunt quia eaque?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusamus nobis libero assumenda! Cumque quia doloremque aliquid hic recusandae perspiciatis. Iusto saepe magni atque commodi quas facilis, nesciunt quia eaque?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusamus nobis libero assumenda! Cumque quia doloremque 
+     </p>
+    <!-- float -->
+    <h1>float</h1>
+    <p>
+        <img src="../img/photo.jpeg" height="100" alt="" 
+            style="float: left;"> 
+        span Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusamus nobis libero assumenda! Cumque quia doloremque aliquid hic recusandae perspiciatis. Iusto saepe magni atque commodi quas facilis, nesciunt quia eaque?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusamus nobis libero assumenda! Cumque quia doloremque aliquid hic recusandae perspiciatis. Iusto saepe magni atque commodi quas facilis, nesciunt quia eaque?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusamus nobis libero assumenda! Cumque quia doloremque aliquid hic recusandae perspiciatis. Iusto saepe magni atque commodi quas facilis, nesciunt quia eaque?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusamus nobis libero assumenda! Cumque quia doloremque aliquid hic recusandae perspiciatis. Iusto saepe magni atque commodi quas facilis, nesciunt quia eaque?
+        <img src="../img/photo.jpeg" width="50" alt="" 
+            style="float: right;"> 
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusamus nobis libero assumenda! Cumque quia doloremque aliquid hic recusandae perspiciatis. Iusto saepe magni atque commodi quas facilis, nesciunt quia eaque?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusamus nobis libero assumenda! Cumque quia doloremque aliquid hic recusandae perspiciatis. Iusto saepe magni atque commodi quas facilis, nesciunt quia eaque?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio accusamus nobis libero assumenda! Cumque quia doloremque 
+     </p>
+</body>
+</html>

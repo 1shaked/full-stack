@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .body {
+            display: grid;
+            height: 100vh;
+            place-items: center;
+            background-color: beige;
+            /* how far away the user from the screen */
+            perspective: 1400px; 
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            text-align: center;
+            width: 300px;
+            background-color: #282222;
+            color: #fff;
+            height: 500px;
+            transition: 2s ease-in-out;
+            box-shadow: 15px 15px 15px rgb(243, 62, 62);
+            border-width: 5px;
+            border: 15px solid transparent;
+            border-image-repeat: round;
+            border-image-slice: 60;
+            border-image-source:url('./img/img.png'); 
+            /* border-image-source: repeating-linear-gradient(45deg, transparent, #4d9f0c 20px); */
+        }
+        .card:hover {
+            transform: rotateX(30deg)  rotateY(360deg) rotateZ(0deg);
+            box-shadow: 15px 15px 15px rgb(78, 43, 219);
+
+        }
+        .row_btn {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="card">
+            <h1>Card</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur 
+                adipisicing elit. Quisquam, 
+                quod.
+            </p>
+            <div class="row_btn">
+                <button>Call me</button>
+                <button>Nooo</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

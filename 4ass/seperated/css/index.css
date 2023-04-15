@@ -1,0 +1,66 @@
+.hoverExample {
+    background-color: royalblue; 
+    color: black; 
+    padding: 35px;
+}
+.hoverExample:hover {
+    background-color: black;
+    color: white;
+}
+
+label {
+    display: block;
+    margin-top: 1em;
+}
+
+input:focus {
+    background-color: lightblue;
+}
+
+.myDiv {
+    background-color: burlywood;
+    font-size: 2rem;
+    color: black;
+    /* transition: background-color 2s linear;
+    transition: font-size 2s linear; */
+    transition-duration: 500ms;
+    /* transition-timing-function: ease-in-out; */
+    /* transition-timing-function: ease-in; */
+    transition-timing-function: cubic-bezier(0, 0, 1,-0.84);
+    /* transition-timing-function: cubic-bezier(0, 0, 0, 2.24); */
+}
+.myDiv:hover {
+    background-color: red;
+    color: blue;
+    font-size: 3rem;
+}
+
+#fname {
+    background-color: red;
+    transition-duration: 500ms;
+    transition-timing-function: linear;
+}
+#fname:focus {
+    background-color: green;
+}
+.textG {
+    font-size: 90px;
+    background: #0007CF;
+    background: linear-gradient(to right, #0007CF 0%, #CF1512 31%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* .movePosition {
+    height: 60px; 
+    background-color: rgb(251, 255, 2); 
+    position: relative; 
+    left: 0px; 
+    top: 0px;
+    transition-timing-function: linear;
+    transition-duration: 5s;
+}
+.movePosition:hover {
+    left: 20px; 
+    top: 70px
+} */

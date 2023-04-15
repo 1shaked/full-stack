@@ -1,0 +1,63 @@
+:root {
+    /* This is a top level element that will allow us to set variables and set top level style  */
+    --primary: #05445E;
+    --secondary: #189AB4;
+    --tertiary: #75E6DA;
+    --btn: #D4F1F4;
+    --primary-background: #ccc;
+    --secondary-background: #000;
+    --tertiary-background: #f2f2f2;
+
+    --font-base-size: 30px;
+}
+body {
+    font-size: var(--font-base-size);
+}
+
+.overview {
+    background-color: var(--primary-background);
+    color: var(--primary);
+}
+
+.bth {
+    --btn-size: 10%;
+    background-color: var(--tertiary);
+    width: var(--btn-size);
+    height: 10%;
+    border: none;
+    height: 5ex;
+}
+.btn:active {
+    font-size: 100px;
+    box-shadow: 2px 2px 5px #fc894d;
+}
+
+.Bth {
+    --btn-size: 10%;
+    width: var(--btn-size);
+    height: 5ex;
+    background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: background-color 2s ease-in
+        ,color 5s ease-in
+        ,width 1s ease-out;
+}
+
+.Bth:active {
+    --btn-size: 70%;
+    box-shadow: 2px 2px 5px #fc894d;
+    background: red;
+    color: blueviolet;
+    font-size: 100px;
+}
+
+.parent > p {
+    background-color: #ccc;
+}
+.descendant p {
+    background-color: #fc894d;
+}

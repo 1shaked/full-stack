@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .exampleCalc {
+            width: calc(100% - 200px);
+            border: 1px solid black;
+            height: calc(50vh - 200px);
+            margin-bottom: 20px;
+        }
+        .exampleClamp {
+            /*            min , preferred, max  */
+            width: clamp(250px, 50vw, 900px);
+            border: 1px solid black;
+            margin: auto;
+        }
+        .exampleClipPath {
+            /* clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); */
+            /* clip-path: rect(10px, 500px, 40px, 20px); */
+            /* clip-path: ellipse(130px 140px at 10% 20%); */
+            /* clip-path: polygon(20% 0%, 0% 20%, 34% 59%, 0% 80%, 20% 100%, 50% 68%, 80% 100%, 100% 80%, 87% 50%, 100% 20%, 80% 0%, 70% 64%); */
+            clip-path: polygon(60% 65%, 75% 0%, 100% 50%, 79% 69%, 25% 100%, 0% 50%);
+            text-align: center;
+            background-color: red;
+            border: 1px double black;
+            height: 30vh;
+            display: inline-block;
+            width: 20vh;
+        }
+        .imgClipPath {
+            clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- This is an example of using the calc function -->
+    <div class="exampleCalc">
+        this is with calc
+    </div>
+    <!-- This is the clamp function -->
+    <div class="exampleClamp">
+        clamp function is here
+    </div>
+
+    <!-- This is an example of adding clip path -->
+    <span class="exampleClipPath">
+        clip path is here
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path">
+            more text here
+        </a>
+        <a href="https://bennettfeely.com/clippy/"> create online </a>
+    </span>
+    <hr>
+    <!-- Example of cropping image with clip path -->
+    <img src="../img/mrMisses.jpg" alt="mrMisses" srcset="" class="imgClipPath">
+    <hr>
+    <!-- Box shadow -->
+    <div style="width: 200px; height: 300px; box-shadow: 5px 10px #888888; border: 3px solid red;">
+        This is a box
+    </div>
+    <!-- text shadow -->
+    <h2 style="text-shadow: 2px 2px 4px #666">
+        text shadow
+    </h2>
+</body>
+</html>
