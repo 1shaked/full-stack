@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+      "outDir": "js",
+      "module": "commonjs",
+      "target": "es6",
+      "sourceMap": true,
+      "lib": ["DOM", "ES2017"]
+    },
+    "include": ["ts/**/*"]
+  }

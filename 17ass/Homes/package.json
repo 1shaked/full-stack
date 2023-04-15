@@ -1,0 +1,27 @@
+{
+  "name": "homes",
+  "private": true,
+  "version": "0.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "contentful-typescript-codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts",
+    "ctf:codegen": "contentful-typescript-codegen --output contentful/__generated__/types.ts"
+  },
+  "devDependencies": {
+    "contentful-management": "^10.31.5",
+    "contentful-typescript-codegen": "^3.4.0",
+    "dotenv": "^16.0.3",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0"
+  },
+  "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.16.3",
+    "@types/markdown-it": "^12.2.3",
+    "contentful": "^9.3.5",
+    "markdown-it": "^13.0.1",
+    "zod": "^3.21.4"
+  }
+}
