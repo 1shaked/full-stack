@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import type { AppState } from "../store/store";
 import { supabase } from "@/lib/supabase";
 import { TaskState, addTasksList } from "@/store/taskSlice";
-
+import {TaskItem} from '@/components/taskItem'
 export const TaskListComponent = () => {
   const authState = useSelector((state: AppState) => state.auth);
   const tasksList = useSelector((state: AppState) => state.task.taskList);
@@ -47,7 +47,6 @@ export const TaskListComponent = () => {
       return "";
     }
     console.log(response.data);
-    debugger;
     const taskListTemp = response.data as TaskState[];
     dispatch(addTasksList(taskListTemp));
     return response.data;
@@ -55,18 +54,10 @@ export const TaskListComponent = () => {
   return (
     <>
       <ul className="taskList">
-        <li>
-          <h3>Task 1</h3>
-          <p>Task 1 description</p>
-          <div>by who and du at when</div>
-        </li>
-        {tasksList.map((task) => (
-        <li key={task.id}>
-          <h3>{task.task_name}</h3>
-          <p>{task.description}</p>
-          <div>status: {task.id_done ? 'done' : 'not done'}</div>
-        </li>
-      ))}
+        {tasksList.map((task, index) => (
+        <TaskItem index={index} key={task.id}></TaskItem>
+      ))
+      }
       </ul>
     </>
   );

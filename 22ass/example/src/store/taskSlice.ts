@@ -1,14 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppState } from "./store";
 import { HYDRATE } from "next-redux-wrapper";
-import {PayloadAction} from '@reduxjs/toolkit'
-// Type for our state
 export interface TaskState {
     id: number;
     // createAt: Date;
     user: string;
     task_name: string;
-    id_done: boolean;
+    is_done: boolean;
     description: string;
 }
 export interface TasksState {
@@ -29,25 +27,30 @@ export const TaskSlice = createSlice({
     setId(state, action: PayloadAction<{id:number, index:number}>) {
       state.taskList[action.payload.index].id = action.payload.id;
     },
-    setTaskName(state, action: PayloadAction<{id:number, task_name:string}>) {
-        state.taskList[action.payload.id].task_name = action.payload.task_name;
+    setTaskName(state, action: PayloadAction<{index:number, task_name:string}>) {
+        state.taskList[action.payload.index].task_name = action.payload.task_name;
     },
     // setCreateAt(state, action: PayloadAction<Date>) {
     //     state.createAt = action.payload;
     // },
-    setUser(state, action: PayloadAction<{id:number, user:string}>) {
-        state.taskList[action.payload.id].user = action.payload.user;
+    setUser(state, action: PayloadAction<{index:number, user:string}>) {
+        state.taskList[action.payload.index].user = action.payload.user;
     },
-    setIdDone(state, action: PayloadAction<{id:number, is_done:boolean}>) {
-        state.taskList[action.payload.id].id_done = action.payload.is_done;
+    setIsDone(state, action: PayloadAction<{index:number, is_done:boolean}>) {
+        state.taskList[action.payload.index].is_done = action.payload.is_done;
     },
-    setDescription(state, action: PayloadAction<{id:number, description:string}>) {
-        state.taskList[action.payload.id].description = action.payload.description;
+    setDescription(state, action: PayloadAction<{index:number, description:string}>) {
+        state.taskList[action.payload.index].description = action.payload.description;
     },
     addTasksList(state, action: PayloadAction<TaskState[]>) {
       state.taskList = action.payload;
+    },
+    createTask(state, action: PayloadAction<TaskState>) {
+      state.taskList.push(action.payload);
+    },
+    setTaskByIndex(state, action: PayloadAction<{index:number, task:TaskState}>) {
+      state.taskList[action.payload.index] = action.payload.task;
     }
-
   },
 
   // Special reducer for hydrating the state. Special case for next-redux-wrapper
@@ -61,7 +64,10 @@ export const TaskSlice = createSlice({
   },
 });
 
-export const {  setId , setTaskName , setUser , setIdDone , setDescription, addTasksList } = TaskSlice.actions;
+export const {  setId , setTaskName , setUser 
+  ,setDescription, addTasksList, createTask
+,setTaskByIndex,
+setIsDone } = TaskSlice.actions;
 
 export const TaskState = (state: AppState) => state.task;
 

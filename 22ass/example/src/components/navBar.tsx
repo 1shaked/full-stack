@@ -9,12 +9,10 @@ export const NavBarComponent = () => {
   const authState = useSelector((state: AppState) => state.auth);
     const dispatch = useDispatch();
   async function logout () {
-    debugger;
     await supabase.auth.signOut();
     // notify redux that the user is logged out
     dispatch(setAuthState(false));
     dispatch(setUserState(null));
-    debugger;
 
 }
   return (

@@ -16,9 +16,10 @@ export default function Home() {
   }, []); // The empty array as second parameter indicates that this effect only needs to run once (when the component mounts)
   return (
     <main>
-      {authState.authState ? <div>h</div> : null}
-      {authState.authState ? <TaskListComponent /> : <h1>Not Logged In</h1>}
-      {authState.authState ? <TaskForm /> : <h1>Not Logged In</h1>}
+      {authState.authState ? <>
+        <TaskListComponent />
+        <TaskForm />
+        </> : <h1>Not Logged In</h1>}
     </main>
   )
 }
