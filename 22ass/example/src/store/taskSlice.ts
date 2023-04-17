@@ -50,6 +50,9 @@ export const TaskSlice = createSlice({
     },
     setTaskByIndex(state, action: PayloadAction<{index:number, task:TaskState}>) {
       state.taskList[action.payload.index] = action.payload.task;
+    },
+    deleteTask(state, action: PayloadAction<number>) {
+      state.taskList.splice(action.payload, 1);
     }
   },
 
@@ -67,7 +70,7 @@ export const TaskSlice = createSlice({
 export const {  setId , setTaskName , setUser 
   ,setDescription, addTasksList, createTask
 ,setTaskByIndex,
-setIsDone } = TaskSlice.actions;
+setIsDone, deleteTask } = TaskSlice.actions;
 
 export const TaskState = (state: AppState) => state.task;
 

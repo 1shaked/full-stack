@@ -100,3 +100,8 @@ nav {
   font-size: 1.1rem;
   font-weight: bold;
 }
+.EditDeleteRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
