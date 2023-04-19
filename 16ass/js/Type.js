@@ -11,8 +11,8 @@ const john = {
 printPerson(john);
 const role1 = 'admin';
 const role2 = 'user';
-const role3 = prompt('Enter role');
-
-// const role3: Roles = 'user1'
+const role3 = prompt('Enter role'); // but this is not safe
+// https://www.madeintext.com/facebook-symbols/
+const icon = '😂';
 // export { };
 //# sourceMappingURL=Type.js.map

@@ -21,6 +21,7 @@ function fillBoard(el) {
 let board = document.getElementById('board');
 let XTurn = true;
 let count = 0;
+
 for (let index = 0; index < board.children.length; index++) {
     const child = board.children[index]; // dom element
     child.addEventListener('click', function () {
