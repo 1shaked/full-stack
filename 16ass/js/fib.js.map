@@ -1,0 +1,1 @@
+{"version":3,"file":"fib.js","sourceRoot":"","sources":["../ts/fib.ts"],"names":[],"mappings":"AACA,SAAS,GAAG,CAAC,CAAS;IACpB,IAAI,CAAC,GAAG,CAAC,EAAE;QACT,OAAO,CAAC,CAAC;KACV;IACD,OAAO,GAAG,CAAC,CAAC,GAAG,CAAC,CAAC,GAAG,GAAG,CAAC,CAAC,GAAG,CAAC,CAAC,CAAC;AACjC,CAAC"}
