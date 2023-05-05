@@ -13,4 +13,7 @@ function add(a:number, b:number):number {
 }
 
 
-export {fib, recursivelySumArray, add};
+export { 
+  fib, recursivelySumArray, add
+  
+};

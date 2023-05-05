@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 // boolean
 let isDone = false;
 // number
@@ -28,4 +26,5 @@ let Car = {
     brand: 'toyota',
     year: 30
 };
+export {};
 //# sourceMappingURL=variables.js.map

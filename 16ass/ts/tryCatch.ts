@@ -1,3 +1,4 @@
+debugger;
 try {
     // code that may throw an exception
     const result = 10 / 0;

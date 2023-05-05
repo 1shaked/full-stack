@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 let middleName = null;
 console.log(middleName); // logs null to the console
 let PersonObj = {
@@ -14,4 +12,5 @@ function findPerson(name) {
 }
 let r = findPerson('Bob'); // function returns null to indicate no matching person found
 console.log(r); // logs null to the console
+export {};
 //# sourceMappingURL=null.js.map

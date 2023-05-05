@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 let example; // uninitialized variable, value is undefined
 console.log(example); // logs undefined to the console
 // let person = {
@@ -12,4 +10,5 @@ function sayHello(name) {
 }
 let result = sayHello('Alice'); // function doesn't return a value, result is undefined
 console.log(result); // logs undefined to the console
+export {};
 //# sourceMappingURL=undefind.js.map
