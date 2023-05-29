@@ -1,10 +1,10 @@
 function printAll(strs: string | string[] | null) {
-    if (typeof strs === "object") {
-        //   for (const s of strs) {
+    if (typeof strs === "object" && strs !== null) {
+          for (const s of strs) {
 
-        //     // only because of "strictNullChecks": true,
-        //     console.log(s);
-        //   }
+            // only because of "strictNullChecks": true,
+            console.log(s);
+          }
         console.log(strs);
 
     } else if (typeof strs === "string") {

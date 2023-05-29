@@ -3,8 +3,9 @@ function example(x: number | string, y: number | boolean) {
         console.log(x, y);
         let v = x + y;
         console.log(v);
+        return ;
     }
-    
+    console.log(x, y);
 }
 
 export {};
