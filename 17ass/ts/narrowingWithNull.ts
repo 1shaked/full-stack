@@ -47,3 +47,9 @@ function move(animal: Fish | Bird) {
 
 
 export {};
+
+const arr  = [
+    ['a', 'b', 'c'],
+    ['x', 'y', 'z'],
+    ['1', '2', '3']
+]
