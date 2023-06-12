@@ -15,3 +15,5 @@ function bubbleSort(arr: number[]): void {
   console.log("Sorted array:", arr);
   
   export {};
+  // [1 , 5 , 2 , 3 , 4  , 7 , 8 , 10]
+  // --> 9  , 6 
