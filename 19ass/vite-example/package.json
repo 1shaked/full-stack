@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "vite-example",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,6 +13,6 @@
     "vite": "^4.0.0"
   },
   "dependencies": {
-    "kute.js": "^2.2.4"
+    "@supabase/supabase-js": "^2.25.0"
   }
 }

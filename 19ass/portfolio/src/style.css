@@ -66,3 +66,7 @@ svg:hover {
 .project_description {
   font-size: 1.5rem;
 }
+
+#shape {
+  transition: all 1s ease-in-out;
+}

@@ -51,6 +51,8 @@ function drawProjects(projects: ProjectInterface[]) {
 
 }
 drawProjects(projects);
+
+
 /*
 
 <div class="project">
