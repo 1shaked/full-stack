@@ -31,7 +31,7 @@ for (let index = 0; index < board.children.length; index++) {
         }
         fillBoard(child);
         let gameDone = isGameDone();
-        if (gameDone !== '') {
+        if (gameDone != '') {
             alert('Game is done, ' + gameDone + ' is the winner');
             count = 9;
             return ;
