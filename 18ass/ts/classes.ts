@@ -104,4 +104,4 @@ pako.bark()
 const beni = new Dog('green')
 beni.bark()
 
-
+export {};
