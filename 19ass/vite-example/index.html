@@ -7,17 +7,22 @@
     <title>Vite + TS</title>
   </head>
   <body>
-    <div id="app"></div>
+    <dialog id="dialogEdit">
+      <h1>Edit Country</h1>
+      <input type="text" id="countryNameDialog" />
+      <button id="saveBtnDialog">save</button>
+      <button id="closeBtnDialog">close</button>
+    </dialog>
+    <div>
+      <div id="app"></div>
     <div id="countryList">
     </div>
     <form>
       <input type="text" id="countryName" />
       <button id="saveBtn">save</button>
     </form>
-    <dialog id="dialogEdit">
-      <input type="text" id="countryNameDialog" />
-      <button id="saveBtnDialog">save</button>
-    </dialog>
+    </div>
+    
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

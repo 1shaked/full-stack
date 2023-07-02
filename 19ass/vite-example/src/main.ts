@@ -1,59 +1,6 @@
 import './style.css'
-import { createClient } from '@supabase/supabase-js'
-const supabaseUrl = 'https://vqaomehdggmojgvqohma.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZxYW9tZWhkZ2dtb2pndnFvaG1hIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODcxODcxMzUsImV4cCI6MjAwMjc2MzEzNX0.SgCMlRoxm4p6CpwMXXpczePWv1_mmFwOjWYrOjoH020'
-const supabase = createClient(supabaseUrl, supabaseKey);
+import { supabase } from './supabaseClient';
 let currentId = 0;
-
-class HumanClass {
-  name: string | undefined;
-  age: number  | undefined;
-  id: string   | undefined;
-
-  // constructor
-  // constructor (newName: string) {
-  //   debugger;
-  //   this.name = newName;
-  //   // alert('wake up in a ')
-  //   console.log(`HUMAN NAME IS ${this.name}`);
-  // }
-
-  printName () {
-    console.log(`printing name ${this.name}`);
-  }
-
-  printAge() {
-    
-    console.log(`printing age ${this.age}`);
-    debugger;
-  }
-
-   addAge() {
-    debugger;
-      if (this.age !== undefined) {
-        this.age = this.age + 1;
-      }
-   }
-
-}
-debugger;
-const humanClassVariable = new HumanClass();
-const h2 = new HumanClass();
-humanClassVariable.name = 'h1';
-h2.name = 'h2';
-h2.age = 5
-humanClassVariable.printName();
-humanClassVariable.age = 0;
-h2.printAge()
-h2.addAge()
-h2.printAge()
-humanClassVariable.printAge();
-humanClassVariable.addAge();
-humanClassVariable.printAge();
-
-// humanClassVariable.name = 'HUMAN1';
-// humanClassVariable.
-console.log(humanClassVariable)
 
 async function getData() {
   const {data, error, status} = await supabase.from('countries').select();
@@ -63,22 +10,54 @@ async function getData() {
     for (const row of data) {
       const div = document.createElement('div');
       // row.name + ' ------ ' + row.id
-      div.textContent = `${row.name} **** ${row.id}`;
-      div.id = row.id;
-      div.addEventListener('click', () => {
+      const span = document.createElement('span');
+      span.textContent = `${row.name} **** ${row.id}`;
+      // div.textContent = `${row.name} **** ${row.id}`;
+      div.id = `id-${row.id}`;
+      const actionDiv = document.createElement('div');
+      const editBtn = document.createElement('button');
+      editBtn.classList.add('editBtn');
+      editBtn.textContent = 'edit';
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'delete';
+      deleteBtn.classList.add('deleteBtn');
+      deleteBtn.addEventListener('click', () => {
+        deleteCountry(row.id);
+      });
+      editBtn.addEventListener('click', () => {
+        countryList?.classList.toggle('hidden');
         dialogEdit.show();
+        // make all the page disabled
+
         currentId = row.id;
       });
+      actionDiv.appendChild(editBtn);
+      actionDiv.appendChild(deleteBtn);
+      div.appendChild(span);
+      div.appendChild(actionDiv);
       countryList?.appendChild(div);
     }
   }
 }
-async function createCountry() {
+async function createCountry(e: Event) {
+  e.preventDefault();
   debugger;
   let countryNameValue = countryName?.value;
   if (countryNameValue.length != 0) {
-    const { error } = await supabase.from('countries').insert({ name: countryNameValue });
+    const { error, data } = await supabase.from('countries').insert({ name: countryNameValue }).select();
     console.log(error);
+    // adding a new country to the list of countries
+    if (data != null) {
+      const div = document.createElement('div');
+      div.textContent = `${countryNameValue} **** ${data[0].id}`;
+      div.id = data[0].id;
+      div.addEventListener('click', () => {
+        dialogEdit.show();
+        currentId = data[0].id;
+        
+      });
+      countryList?.appendChild(div);
+    }
 
   }
   
@@ -88,9 +67,28 @@ async function updateCountry(id: number, name: string) {
   const { error } = await supabase
   .from('countries')
   .update({ name: name })
-  .eq('id', id)
+  .eq('id', id);
+  console.log(error);
 }
 
+async function deleteCountry(id: number) {
+  const { error } = await supabase
+  .from('countries')
+  .delete()
+  .eq('id', id);
+  // find the country with the id and delete it
+  if (error != null) {
+    alert(error.message);
+    return;
+  } 
+  if (countryList == null) return ;
+  const country = countryList.querySelector(`#id-${id}`);
+  if (country != null) {
+    alert(`country deleted ${id} and name ${country.textContent}`);
+    country.remove();
+  }
+
+}
 
 // createCountry();
 getData();
@@ -101,11 +99,21 @@ const saveBtn = document.getElementById('saveBtn');
 const countryNameDialog = document.getElementById('countryNameDialog') as HTMLInputElement;
 const saveBtnDialog = document.getElementById('saveBtnDialog');
 const dialogEdit = document.getElementById('dialogEdit') as HTMLDialogElement ;
+const closeBtnDialog = document.getElementById('closeBtnDialog');
 saveBtn?.addEventListener('click', createCountry);
+closeBtnDialog?.addEventListener('click', () => {
+  countryList?.classList.toggle('hidden');
+  dialogEdit.close();
+
+})
 
 
 saveBtnDialog?.addEventListener('click', () => {
   // countryNameDialog.value
   updateCountry(currentId, countryNameDialog.value);
-  dialogEdit.close()
+  countryList?.classList.toggle('hidden');
+  dialogEdit.close();
+
 });
+
+
