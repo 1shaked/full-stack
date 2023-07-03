@@ -1,3 +1,4 @@
+import { getCities } from '../city/getCities';
 import { supabase } from '../supabaseClient';
 import { deleteCountry } from './deleteCountry';
 async function getCountries() {
@@ -48,6 +49,10 @@ function drawCountry (id: number, country: string) {
         console.log(`The DELETE id is ${id} and country name is ${country}`);
         deleteCountry(id, divCountryContainer);
 
+    });
+    textDivContainer.addEventListener('click', () => {
+        console.log(`SELECT ALL CITIES ${id} , ${country}`)
+        getCities(id);
     });
 }
 

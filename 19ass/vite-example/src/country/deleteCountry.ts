@@ -1,3 +1,4 @@
+import { removeAllChildNodes } from '../removeAllChildNodes';
 import { supabase } from '../supabaseClient';
 async function deleteCountry(idNumber: number, divContainer : HTMLDivElement) {
     // delete a country
@@ -7,7 +8,10 @@ async function deleteCountry(idNumber: number, divContainer : HTMLDivElement) {
         return ;
     }
     // delete the country from the list of countries
-    divContainer.remove()
+    divContainer.remove();
+    const citiesList = document.getElementById('citiesList');
+    if (citiesList === null) return ;
+    removeAllChildNodes(citiesList);
 }
 
 export { deleteCountry } 

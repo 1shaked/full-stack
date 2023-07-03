@@ -58,3 +58,14 @@
     display: flex;
     justify-content: space-between;
 }
+#citiesList > div {
+    display: flex;
+    justify-content: space-between;
+    border: 2px dashed  #ccc;
+    transition: 0.4s ease-in;
+    margin-bottom: 5px;
+}
+#citiesList > div:hover {
+    background-color: #73ff6c;
+
+}
