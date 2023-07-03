@@ -48,8 +48,13 @@
     border-radius: 10px;
 }
 .deleteBtn {
+    margin-left: 5px;
     border: none;
     cursor: pointer;
     background-color: rgb(255, 0, 0);
     border-radius: 10px;
+}
+.countryContainer {
+    display: flex;
+    justify-content: space-between;
 }

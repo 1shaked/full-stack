@@ -1,4 +1,5 @@
 import { supabase } from '../supabaseClient';
+import { deleteCountry } from './deleteCountry';
 async function getCountries() {
     // get all the countries and display them
     const res = await supabase.from('countries').select();
@@ -38,7 +39,16 @@ function drawCountry (id: number, country: string) {
     divCountryContainer.appendChild(divActionContainer);
     divCountryContainer.classList.add('countryContainer')
     countryList.appendChild(divCountryContainer);
-    
+    // add event listeners to the buttons
+    actionEditBtn.addEventListener('click', () => {
+        console.log(`The id is ${id} and country name is ${country}`);
+    });
+    actionDeleteBtn.addEventListener('click', () => {
+        debugger;
+        console.log(`The DELETE id is ${id} and country name is ${country}`);
+        deleteCountry(id, divCountryContainer);
+
+    });
 }
 
 export {getCountries}
