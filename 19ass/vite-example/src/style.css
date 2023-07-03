@@ -1,4 +1,4 @@
-#countryList > div {
+/* #countryList > div {
     display: flex;
     justify-content: space-between;
     font-size: 1.2rem;
@@ -29,4 +29,27 @@
 }
 .hidden {
     display: none !important;
+} */
+#countryList > div {
+    color: blueviolet;
+    font-size: 1.2rem;
+    border: 2px dotted rgb(135, 142, 237);
+    margin-bottom: 5px;
+    transition: 0.5s ease-in-out;
+}
+#countryList > div:hover  {
+    background-color: blueviolet;
+    color: white;
+}
+.editBtn {
+    border: none;
+    cursor: pointer;
+    background-color: rgb(68, 255, 221);
+    border-radius: 10px;
+}
+.deleteBtn {
+    border: none;
+    cursor: pointer;
+    background-color: rgb(255, 0, 0);
+    border-radius: 10px;
 }
