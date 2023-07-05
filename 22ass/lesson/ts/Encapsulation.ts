@@ -12,7 +12,9 @@ class Car {
     public getBrand(): string {
       return this._brand;
     }
-  
+    get model () : string {
+      return this._model;
+    }
     public getModel(): string {
       return this._model;
     }
@@ -20,7 +22,14 @@ class Car {
     public getYear(): number {
       return this._year;
     }
-  
+    set year (year: number) {
+      if (year > 1900 && year <= new Date().getFullYear()) {
+        this._year = year;
+      } else {
+        console.log('Invalid year!');
+      }
+    }
+
     public setYear(year: number): void {
       if (year > 1900 && year <= new Date().getFullYear()) {
         this._year = year;
