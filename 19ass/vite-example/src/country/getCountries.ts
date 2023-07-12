@@ -52,8 +52,8 @@ function drawCountry (id: number, country: string) {
     });
     textDivContainer.addEventListener('click', () => {
         console.log(`SELECT ALL CITIES ${id} , ${country}`)
-        getCities(id);
+        getCities(id, country);
     });
 }
 
-export {getCountries}
+export {getCountries , drawCountry}
