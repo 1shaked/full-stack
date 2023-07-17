@@ -4,4 +4,5 @@ function removeAllChildNodes(parent: HTMLElement) {
     }
 }
 
+
 export {removeAllChildNodes}
