@@ -41,7 +41,7 @@ try {
 } catch (error) {
   console.error(error);
 }
-
+// 
 try {
   // userProxy.job = 'developer';  // throws Error: No such property: job
 } catch (error) {
