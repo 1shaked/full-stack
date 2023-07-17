@@ -8,13 +8,13 @@ async function getCity(id: number) {
     console.log(status);
 }
 async function createCity(id: number, name: string) {
-    const {data, error, status} = await supabase.from('cities').insert({name: name, country_id: id}).select();
+    const {data, error, status} = await supabase.from('cities').insert({city_name: name, country_id: id}).select();
     console.log(error);
     console.log(data);
     console.log(status);
 }
 async function updateCity(id: number, name: string) {
-    const {data, error, status} = await supabase.from('cities').update({name: name}).eq('id', id).select();
+    const {data, error, status} = await supabase.from('cities').update({city_name: name}).eq('id', id).select();
     console.log(error);
     console.log(data);
     console.log(status);
@@ -26,4 +26,6 @@ async function deleteCity(id: number) {
     console.log(status);
 }
   
-  
+export {
+    deleteCity, updateCity, createCity, getCity
+}

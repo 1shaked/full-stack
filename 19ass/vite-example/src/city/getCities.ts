@@ -4,8 +4,9 @@ import { deleteCity } from './deleteCity';
 async function getCities (idCountry: number, countryName: string) {
     const countryTitle = document.getElementById('countryTitle');
     if (countryTitle?.textContent) {
-        countryTitle.textContent = countryName
+        countryTitle.textContent = countryName;
     }
+    
     const res = await supabase.from('cities').select().eq('country_id', idCountry); 
     if (res.data == null) return ;
     console.log(res.data);

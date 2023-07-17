@@ -1,5 +1,5 @@
 interface Box<T> {
-  value: T;
+  value: T; // boolean , number, string, object, array
   logValue: () => void;
 }
 

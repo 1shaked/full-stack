@@ -50,7 +50,7 @@ async function createCountry(e: Event) {
     if (data != null) {
       const div = document.createElement('div');
       div.textContent = `${countryNameValue} **** ${data[0].id}`;
-      div.id = data[0].id;
+      div.id = data[0].id.toString();
       div.addEventListener('click', () => {
         dialogEdit.show();
         currentId = data[0].id;
