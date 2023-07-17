@@ -14,6 +14,8 @@ async function getCountries() {
     // console.log({ data, error });
 }
 
+let selectedCountry: number = -1;
+
 function drawCountry (id: number, country: string) {
     console.log(id)
     const countryList = document.getElementById('countryList');
@@ -51,9 +53,10 @@ function drawCountry (id: number, country: string) {
 
     });
     textDivContainer.addEventListener('click', () => {
+        selectedCountry = id;
         console.log(`SELECT ALL CITIES ${id} , ${country}`)
         getCities(id, country);
     });
 }
 
-export {getCountries , drawCountry}
+export {getCountries , drawCountry, selectedCountry}

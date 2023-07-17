@@ -44,4 +44,4 @@ function drawCity(cityName: string, id: number) {
     });
 }
 
-export {getCities}
+export {getCities, drawCity}
