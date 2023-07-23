@@ -58,3 +58,5 @@ You can extend this implementation by adding additional methods like search, del
 
 Remember that this is a basic implementation of a binary tree in TypeScript. Depending on your use case, you may need to modify or add more functionalities to meet your specific requirements.
  */
+
+export {}
