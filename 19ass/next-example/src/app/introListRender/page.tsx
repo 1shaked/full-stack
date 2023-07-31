@@ -1,4 +1,5 @@
 'use client'
+import TodoComponent from "@/components/todo";
 import { useState } from "react";
 
 
@@ -19,7 +20,7 @@ export default function Page() {
     return (
         <>
             <h2>Our list of to do's</h2>
-            { listOfToDos.map((el) => <div>{el}</div>) }
+            { listOfToDos.map((el) => <TodoComponent todo={el} />) }
             <div>
                 value of {valueToAdd}
                 <br />
