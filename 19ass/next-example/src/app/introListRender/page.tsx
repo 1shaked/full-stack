@@ -20,7 +20,9 @@ export default function Page() {
     return (
         <>
             <h2>Our list of to do's</h2>
-            { listOfToDos.map((el) => <TodoComponent todo={el} />) }
+            { listOfToDos.map((el, index) => 
+                <TodoComponent key={index} 
+                    todo={el} />) }
             <div>
                 value of {valueToAdd}
                 <br />

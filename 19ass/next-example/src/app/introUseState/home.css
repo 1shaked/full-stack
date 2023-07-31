@@ -7,4 +7,9 @@ main {
 button {
     font-size: 1.5rem;
     margin: 1rem;
+    background-color: red;
+}
+.container {
+    padding: 10px;
+    background-color: #cccccca8;
 }
