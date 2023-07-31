@@ -8,7 +8,9 @@ export default function Page () {
     return (
         <main>
             <p>count: {count}</p>
-            <NameOfComponent></NameOfComponent>
+            <NameOfComponent 
+                number={count}
+            />
             <button onClick={() => setCount(count + 1)}>add</button>
             {/* <PropsComponent age={count} /> */}
         </main>

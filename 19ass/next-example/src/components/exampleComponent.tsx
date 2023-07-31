@@ -1,9 +1,13 @@
+interface PropsInter {
+    number: number;
+    name?: string;
+}
 
-
-export default function NameOfComponent() {
+export default function NameOfComponent(props: PropsInter) {
     return (<div>
-        <h2>
-            some text of this story
-        </h2>
+        <h3>
+            the count is {props.number}
+            , name is {props.name ?? 'default'}
+        </h3>
     </div>);
 }
