@@ -1,0 +1,20 @@
+.todoItem {
+    display: flex;
+    justify-content: space-between;
+    size: 30px;
+    background-color: #ccc;
+    margin: 5px;
+    padding: 20px;
+}
+.todoBtn {
+    padding: 10px;
+    border: 2px solid rgba(255, 54, 54, 0.603);
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    transition: 0.5s linear;
+}
+.todoBtn:hover {
+    background-color: white;
+    color: black;
+}

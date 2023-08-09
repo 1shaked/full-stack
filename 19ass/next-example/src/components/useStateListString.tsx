@@ -5,17 +5,18 @@ import { ChangeEvent, useState } from "react"
 export default function ExampleStateListString() {
     const [tasks, setTasks] = useState<string[]>(['abc', 'def', 'gh']);
     const [newTask, setNewTask] = useState('');
-    let newTaskAsaf: string = '';
+    // let newTaskAsaf: string = '';
     function inputChanged(e : ChangeEvent<HTMLInputElement>) {
         // the long way
         // console.log(e); 
         setNewTask(e.target.value);
-        newTaskAsaf = e.target.value;
-        console.log(newTaskAsaf);
+        // newTaskAsaf = e.target.value;
+        // console.log(newTaskAsaf);
     }
     function addNewTask() {
-        console.log(newTaskAsaf);
-        setTasks([...tasks, newTaskAsaf]);
+        // console.log(newTaskAsaf);
+        // setTasks([...tasks, newTaskAsaf]);
+        setTasks([...tasks, newTask]);
     }
     return <>
         <div>
@@ -31,9 +32,9 @@ export default function ExampleStateListString() {
                 <div>
                     new task value is = {newTask}
                 </div>
-                <div>
+                {/* <div>
                     asaf new task value is = {newTaskAsaf}
-                </div>
+                </div> */}
             </p>
         </div>
     </>
