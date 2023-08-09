@@ -7,9 +7,11 @@ export default function TodoComponent(props: {index: number}) {
     function toggleIsComplete() {
         // change the is complete if true -> false,
         // if false -> true
-        setTodoArray([]);
+        setTodoArray(todoArray.map((todo, index) => {
+            return index === props.index ? {...todo, isComplete: !todo.isComplete } : todo
+        }));
     }   
-    return <div className='todoItem'>
+    return <div className={`todoItem ${todoArray[props.index].isComplete ? 'todoCompleted' : ''}`}>
         <div>{todoArray[props.index].title}</div> 
         <button className='todoBtn' onClick={toggleIsComplete}>{todoArray[props.index].isComplete ? 'completed' : 'need to do'}</button>
     </div>
