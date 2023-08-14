@@ -1,4 +1,5 @@
 'use client'
+import ForComponent from "@/components/ForCompoent";
 import Test from "@/components/test";
 import { useState } from "react";
 export default function Home() {
@@ -15,6 +16,9 @@ export default function Home() {
       <div>buy me stuff</div>
       <section>
         <span>want new</span>
+      </section>
+      <section>
+        <ForComponent array={['a', 'b', 'c', 'd']} nodeComponent={<div> hey i am a child </div>} />
       </section>
     </div>
   );
