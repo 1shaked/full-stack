@@ -1,11 +1,12 @@
 import { PostsInterface } from "@/types/post"
-import { sleep } from "@/utils/sleep"
+// import { sleep } from "@/utils/sleep"
 async function getData() {
-    await sleep(2)
+    // await sleep(2)
     const res = await fetch('https://jsonplaceholder.typicode.com/posts/')
     
-   console.log(res);
-    return (await res.json()) as PostsInterface[]
+    console.log(res);
+    const posts = (await res.json()) as PostsInterface[]
+    return posts;
 }
 export default async function Page() {
     const data = await  getData();

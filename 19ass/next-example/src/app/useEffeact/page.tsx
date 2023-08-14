@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 export default function Page() {
     const [todoArray, setTodoArray] = useAtom(todoArrayAtom);
     const [leftTodo, setLeftTodo] = useAtom(leftTodoAtom);
-
     useEffect(() => {
         console.log('the value of todo array has changed')
     }, [todoArray]);

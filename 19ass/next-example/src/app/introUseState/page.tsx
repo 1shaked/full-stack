@@ -9,17 +9,19 @@ import ZustandArrayExample from '@/components/zustandArrayExample';
 import JotaiArrExample from '@/components/jotaiArrExample';
 import RecoilExampleBaseComponent from '@/components/recoilExampleBase';
 import { RecoilRoot } from 'recoil';
+import CounterComponent from '@/components/counter';
 
 export default function Page () {
     const [count, setCount] = useState(0);
     return (
         <main>
-            <p className={styles.container}>count: {count}</p>
+            <p className={styles.container}>--count: {count}</p>
             <NameOfComponent 
                 number={count}
             />
             <button className={styles.container} onClick={() => setCount(count + 1)}>add</button>
             {/* <PropsComponent age={count} /> */}
+            <CounterComponent />
             <JotaiExample />
 
             <ZustandArrayExample />
