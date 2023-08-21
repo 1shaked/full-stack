@@ -1,13 +1,11 @@
 'use client'
+import { CountryInter } from "@/types/CountryInter";
 import { Database } from "@/types/supabase";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 
-interface CountryProps {
-    name: string;
-    id: number;  
-}
-export default function CountryComponent(props: CountryProps) {
+
+export default function CountryComponent(props: CountryInter) {
     const router = useRouter();
     const supabase = createClientComponentClient<Database>()
 

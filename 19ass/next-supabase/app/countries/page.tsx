@@ -1,4 +1,6 @@
 import CountryComponent from "@/components/country";
+import CountryExampleClientComponent from "@/components/countryExampleClientComponent";
+import CountryExampleClientRealTimeComponent from "@/components/countryExampleClientRealTimeComp";
 import CountryComponentServer from "@/components/countryServer";
 import CreateCountryComponent from "@/components/createCountryClient";
 import CreateCountryServerComponent from "@/components/createCountryServer";
@@ -26,6 +28,12 @@ export default async function Index() {
       <hr />
       <h2>Server</h2>
       <CreateCountryServerComponent />
+      <hr />
+      <h2>Client</h2>
+      <CountryExampleClientComponent />
+      <hr />
+      <h2>Client real time</h2>
+      <CountryExampleClientRealTimeComponent />
     </ul>
   );
 }
