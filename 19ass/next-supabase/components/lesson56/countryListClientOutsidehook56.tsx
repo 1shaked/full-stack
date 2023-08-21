@@ -4,7 +4,7 @@ import { useFetchCountries } from "./hookFetchCountries56";
 
 
 export default function CountryListClientOutsideHook56() {
-    const {fetchState , countries}  = useFetchCountries()
+    const {fetchState , countries}  = useFetchCountries();
     return <>
         {
         fetchState === 'loading' ? 

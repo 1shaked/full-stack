@@ -16,9 +16,9 @@ export default async function Index() {
       <CountryListClientOutsideHook56 />
       <hr />
     <ul className="my-auto text-foreground">
-      {/* {countries?.map((country) => (
+      {countries?.map((country) => (
         <CountryExampleComponent id={country.id}  name={country.name} key={country.id} />
-      ))} */}
+      ))}
     </ul>
     <hr />
     </>
