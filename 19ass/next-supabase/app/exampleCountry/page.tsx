@@ -16,7 +16,6 @@ export default async function Index() {
       <CountryListClientOutsideHook56 />
       <hr />
     <ul className="my-auto text-foreground">
-      leon
       {countries?.map((country) => (
         <CountryExampleComponent id={country.id}  name={country.name} key={country.id} />
       ))}
