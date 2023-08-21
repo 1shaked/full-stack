@@ -1,5 +1,3 @@
-
-
 import '@/app/styles/countryComponent.css'
 import supabase from '@/utils/supabaseConnection';
 import { revalidatePath } from "next/cache";
@@ -16,7 +14,6 @@ export default function  CountryExampleComponent(props : CountryInter) {
         
         await supabase.from('countries').delete().match({ id: props.id });
         revalidatePath('/exampleCountry');
-
     }
 
     return <form className='country' action={deleteCountry}>

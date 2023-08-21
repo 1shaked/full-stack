@@ -5,7 +5,7 @@ import { cookies } from 'next/headers'
 
 export default async function Page(){ 
     const supabase = createServerComponentClient({ cookies })
-    const {data } = await supabase.from('todos').select();
+    const { data } = await supabase.from('todos').select();
     async function toggleDone(formData: FormData) {
         "use server"
         console.log("toggle done");
