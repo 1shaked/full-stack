@@ -1,3 +1,4 @@
+import ClientDataFetch from "@/components/clientDataFetch";
 import { PostsInterface } from "@/types/post"
 import { sleep } from "@/utils/sleep"
 import Link from "next/link";
@@ -35,6 +36,7 @@ export default async function Page({params}: { params: {postId: string} }) {
                 <hr />
                 <Link href={'/dataFetch/' + (data.id - 1)}>prev</Link>
             </section>
+            <ClientDataFetch />
         </div>
     );
 

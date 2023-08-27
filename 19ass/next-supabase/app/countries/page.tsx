@@ -1,9 +1,11 @@
+import AuthComponent from "@/components/auth";
 import CountryComponent from "@/components/country";
 import CountryExampleClientComponent from "@/components/countryExampleClientComponent";
 import CountryExampleClientRealTimeComponent from "@/components/countryExampleClientRealTimeComp";
 import CountryComponentServer from "@/components/countryServer";
 import CreateCountryComponent from "@/components/createCountryClient";
 import CreateCountryServerComponent from "@/components/createCountryServer";
+import ListComponentWithHighOrderComponent from "@/components/highOrderComponent";
 import { Database } from "@/types/supabase";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
@@ -15,6 +17,8 @@ export default async function Index() {
  
   return (
     <ul className="my-auto">
+      <ListComponentWithHighOrderComponent />
+      <hr />
       {data?.map((country) => (
         <CountryComponent key={country.id} name={country.name} id={country.id} />
       ))}
@@ -34,6 +38,8 @@ export default async function Index() {
       <hr />
       <h2>Client real time</h2>
       <CountryExampleClientRealTimeComponent />
+      <hr />
+      <AuthComponent />
     </ul>
   );
 }

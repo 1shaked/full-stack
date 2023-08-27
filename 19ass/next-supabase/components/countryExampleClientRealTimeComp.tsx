@@ -40,7 +40,7 @@ export default function CountryExampleClientRealTimeComponent() {
             else if (payload.eventType === 'UPDATE') {
                 // update the data
                 setCountries([...countries.map(country => {
-                    if (country.id === payload.new.id.toString()) {
+                    if (country.id === payload.new.id) {
                         country.name = payload.new.name
                     }
                     return country

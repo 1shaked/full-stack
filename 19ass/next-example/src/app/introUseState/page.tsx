@@ -10,6 +10,9 @@ import JotaiArrExample from '@/components/jotaiArrExample';
 import RecoilExampleBaseComponent from '@/components/recoilExampleBase';
 import { RecoilRoot } from 'recoil';
 import CounterComponent from '@/components/counter';
+import ReduxComponent from '@/stores/redux/reduxComponent';
+import { Provider } from 'react-redux';
+import store from '@/stores/redux/store';
 
 export default function Page () {
     const [count, setCount] = useState(0);
@@ -29,6 +32,9 @@ export default function Page () {
             <RecoilRoot>
                 <RecoilExampleBaseComponent />
             </RecoilRoot>
+            <Provider store={store}>
+                <ReduxComponent />
+            </Provider>
         </main>
     )
 }
