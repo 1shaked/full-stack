@@ -5,7 +5,8 @@ export default function CallFromTrpc() {
   const [count, setCount] = useState(0);
   
   const userQuery = trpc.filmById.useQuery(count);
-
+  
+  // trpc.filmById.
   return (
     <div>
       <h2>wow</h2>
