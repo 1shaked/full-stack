@@ -11,7 +11,8 @@ router.get('/', (req: Request, res: Response) => {
 router.post('/',
     [
         body('name').isLength({ min: 5 }),
-        body('email').isEmail()
+        body('email').isEmail(),
+        body('age').isNumeric(),
     ],
     (req: Request, res: Response) => {
         const errors = validationResult(req);
