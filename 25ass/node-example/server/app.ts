@@ -14,6 +14,7 @@ const app = express();
 const port = process.env.PORT || 4000 ;
 import cors from 'cors';
 import symmetricEncryptionRouter from './crypto/symmetricEncryption';
+import { asymmetricEncryptionRouter } from './crypto/asymmericEncryption';
 
 app.use(cors({
   origin: ['http://localhost:5173', 'http://another-domain.com']
@@ -34,6 +35,8 @@ app.use('/crypto/salt', saltRouter)
 app.use('/crypto/saltCrypto', saltRouterCrypto)
 app.use('/crypto/hmac', hmacRouter)
 app.use('/crypto/symmetricEncryption', symmetricEncryptionRouter)
+app.use('/crypto/asymmetricEncryption', asymmetricEncryptionRouter)
+
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);
