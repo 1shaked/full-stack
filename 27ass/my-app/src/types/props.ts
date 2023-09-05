@@ -1,4 +1,4 @@
 export interface PropsInter {
     age: number;
-    name: string;
+    name?: string;
 }

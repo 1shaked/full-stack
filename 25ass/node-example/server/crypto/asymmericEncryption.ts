@@ -18,7 +18,7 @@ asymmetricEncryptionRouter.get("/", (req: Request, res: Response) => {
     },
   });
   // const message: string = "the british are coming!";
-  const message = req.query.message as string || "example message"; 
+const message = req.query.message as string || "example message"; 
 
   const encryptedData: Buffer = publicEncrypt(publicKey, Buffer.from(message));
 

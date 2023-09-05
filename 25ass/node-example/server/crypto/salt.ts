@@ -2,7 +2,7 @@ import * as bcrypt from 'bcrypt';
 import express, { Router, Request, Response } from "express";
 export const saltRouter: Router = express.Router();
 
-const saltRounds = 11;
+const saltRounds = 15;
 
 async function hashPassword(password: string): Promise<string> {
     try {

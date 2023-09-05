@@ -23,8 +23,18 @@
 1. create the app ``` const app = express() ```
 1. add ``` app.listen() ```
 
-## create a router 
+## create the first api endpoint
+1. create the api end point
+```
+app.get('/', (req , res) => {
+    res.send({
+        message: 'hey ma'
+    })
+})
+```
 
+## create a router 
+1. create a file for the router in our case this is the products.ts
 ## connect to database 
 
 ## show information from database
