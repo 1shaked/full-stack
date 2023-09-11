@@ -1,5 +1,8 @@
+#pExample {
+    font-weight: 900;
+    color: blueviolet;
+}
 p {
-    background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.SqEICC59PL1VrdefhGEqqgHaCg%26pid%3DApi&f=1&ipt=2c04a543fdc973446c61d1baa85c1ba2c76db9fc3ad0c83136860e2a06825ea5&ipo=images');   
     color: tomato;
     font-size: 20px;
     font-weight: 100;
@@ -11,4 +14,11 @@ p {
     border-top: 5px solid red;
     border-bottom: 5px solid blue;
     border-left: 5px solid rgb(221, 255, 49);
+}
+
+.delBtn {
+    background-color: tomato;
+    font-size: 50px;
+    padding: 10px;
+    margin-top: 20px;
 }

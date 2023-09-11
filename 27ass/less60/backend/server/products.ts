@@ -14,7 +14,7 @@ ProductsRouter.get('/topProduct', (req , res) => {
 
 ProductsRouter.get('/example', (req , response) => {
     response.send({
-        price: 100,
+        price: 101,
         name: 'w',
         id: 573
     })
