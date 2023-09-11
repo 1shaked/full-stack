@@ -56,11 +56,17 @@ import { PrismaClient } from '@prisma/client'
 export const prismaDB = new PrismaClient()
 ```
 ## create a new api end point and show information from database
-1. create api endpoint 
+1. create a router 
+``` 
+ import { Router} from 'express'
+ import { prismaDB } from './dbConnection.ts'
+ export const routerName = Router(); // create the router
+```
+2. create api endpoint 
 ```
 routerName.get('/example', async (req , response) => {
-    const data = await prismaDB.table.findMany();    
-    response.send(data);
+    const data = await prismaDB.table.findMany(); // get the data from our sql db  
+    response.send(data); // send the data to the user
 })
 ```
 ## create a table using prisma
@@ -71,7 +77,7 @@ model books {
   author String
 }
 ```
-and then run  ``` npx prisma db push ```
+and then run  ``` npx prisma db push ``` or use ``` npx prisma migrate migrateMsg ``` when in production.
 ## HW
 create 5 tables using prisma 
 authors, books, authorsOfBooks (many to many) , categoryOfBook (one to many), category
