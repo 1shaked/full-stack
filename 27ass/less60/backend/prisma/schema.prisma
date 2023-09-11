@@ -13,8 +13,22 @@ model films {
   id   Int     @id @default(autoincrement())
 }
 
+model bookCat {
+  bookId Int?
+  catId  Int?
+  id     Int    @id @default(autoincrement())
+  books  books? @relation(fields: [bookId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  // category  category? @relation(fields: [catId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
 model books {
+  id      Int       @id @default(autoincrement())
+  name    String
+  author  String
+  bookCat bookCat[]
+}
+
+model category {
+  name String?
   id   Int     @id @default(autoincrement())
-  name String
-  author String
 }

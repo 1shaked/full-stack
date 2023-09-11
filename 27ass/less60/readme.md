@@ -77,7 +77,20 @@ model books {
   author String
 }
 ```
-and then run  ``` npx prisma db push ``` or use ``` npx prisma migrate migrateMsg ``` when in production.
+and then run  ``` npx prisma db push ``` or use ``` npx prisma migrate dev ``` when in production.
+
 ## HW
 create 5 tables using prisma 
 authors, books, authorsOfBooks (many to many) , categoryOfBook (one to many), category
+create a 3 pages to display the data display books, display category, display authors
+
+## create react app using vite in the client dir
+1. adding cors to your backend ``` npm i cors ```
+1. adding types cors to your backend ``` npm i @types/cors ```
+1. adding cors 
+```
+import cors from 'cors'
+app.use(cors({
+    origin: ['http://localhost:5173']
+}))
+```
