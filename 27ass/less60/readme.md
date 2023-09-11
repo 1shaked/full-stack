@@ -44,8 +44,34 @@ app.get('/', (req , res) => {
 1. install sql lite from [here](https://sqlitebrowser.org/dl/)
 1. create a new file (you can call it what ever you want), in the same dir as your tsconfig.json and package.json
 1. change the file name and path in the .env file. **(DATABASE_URL="file:../db.db")**
-## show information from database
+1. optional add data (tables and rows to the db)
+1. run ``` npx prisma db pull ```
+1. run ``` npx prisma generate ```
 
-## connect it to the client 
-
+## create db connection 
+1. create a file name **dbConnection.ts**
+1. in this file write 
+``` 
+import { PrismaClient } from '@prisma/client'
+export const prismaDB = new PrismaClient()
+```
+## create a new api end point and show information from database
+1. create api endpoint 
+```
+routerName.get('/example', async (req , response) => {
+    const data = await prismaDB.table.findMany();    
+    response.send(data);
+})
+```
+## create a table using prisma
+```
+model books {
+  id   Int     @id @default(autoincrement())
+  name String
+  author String
+}
+```
+and then run  ``` npx prisma db push ```
 ## HW
+create 5 tables using prisma 
+authors, books, authorsOfBooks (many to many) , categoryOfBook (one to many), category

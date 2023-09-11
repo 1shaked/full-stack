@@ -1,4 +1,5 @@
 import { Router} from 'express'
+import { prismaDB } from './dbConnection';
 
 // [/topProduct, /example ]
 
@@ -12,12 +13,9 @@ ProductsRouter.get('/topProduct', (req , res) => {
     })
 })
 
-ProductsRouter.get('/example', (req , response) => {
-    response.send({
-        price: 101,
-        name: 'w',
-        id: 573
-    })
+ProductsRouter.get('/example', async (req , response) => {
+    const data = await prismaDB.films.findMany(); // select data from db    
+    response.send(data);
 })
 
 /*
