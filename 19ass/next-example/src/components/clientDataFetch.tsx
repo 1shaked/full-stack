@@ -14,7 +14,6 @@ export default function ClientDataFetch() {
     }
     useEffect(() => {
         getData();
-        getRandomNumber();
     }, [])
     return <>
         <h2>client data</h2>
