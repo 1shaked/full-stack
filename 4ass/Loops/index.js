@@ -1,9 +1,9 @@
 
 
 //
+const arr = JSON.parse(prompt('Enter you array?'))
 let count = 0;
-debugger;
-while ( count < 10 ) {
-    console.log( count );
+while ( count < arr.length ) {
+    console.log( arr[count] );
     count = count + 1; // add 1 for the count value
 }
