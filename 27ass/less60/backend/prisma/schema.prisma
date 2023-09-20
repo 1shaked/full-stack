@@ -13,6 +13,12 @@ model films {
   id   Int     @id @default(autoincrement())
 }
 
+model Blog {
+  id      Int       @id @default(autoincrement())
+  title String
+  content String
+}
+
 model bookCat {
   bookId Int?
   catId  Int?

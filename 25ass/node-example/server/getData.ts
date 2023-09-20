@@ -1,14 +1,14 @@
 import express, { Router, Request, Response } from 'express';
 import { body, validationResult } from 'express-validator';
 
-const router: Router = express.Router();
+export const routerData: Router = express.Router();
 
-router.get('/', (req: Request, res: Response) => {
+routerData.get('/', (req: Request, res: Response) => {
     const queryParams = req.query;
     res.send(queryParams);
 });
 
-router.post('/',
+routerData.post('/',
     [
         body('name').isLength({ min: 5 }),
         body('email').isEmail(),
@@ -23,13 +23,18 @@ router.post('/',
     }
 );
 
-router.put('/', (req: Request, res: Response) => {
+routerData.post('/postData', (req: Request, res: Response) => {
+        res.send(req.body);
+    }
+);
+
+
+routerData.put('/', (req: Request, res: Response) => {
     res.send(req.body);
 });
 
-router.delete('/:id', (req: Request, res: Response) => {
+routerData.delete('/:id', (req: Request, res: Response) => {
     const id = req.params.id;
     res.send(`Delete data with ID: ${id}`);
 });
 
-export default router;

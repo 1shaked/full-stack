@@ -6,7 +6,7 @@ import { hashRouter } from './crypto/hash';
 import { saltRouter } from './crypto/salt';
 import { saltRouterCrypto } from './crypto/saltCrypto';
 import { hmacRouter } from './crypto/hmac';
-
+import {routerData} from './getData';
 
 const createContext = ({ req, res }: trpcExpress.CreateExpressContextOptions) => ({});
 
@@ -36,7 +36,7 @@ app.use('/crypto/saltCrypto', saltRouterCrypto)
 app.use('/crypto/hmac', hmacRouter)
 app.use('/crypto/symmetricEncryption', symmetricEncryptionRouter)
 app.use('/crypto/asymmetricEncryption', asymmetricEncryptionRouter)
-
+app.use('/getData', routerData)
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);

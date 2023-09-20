@@ -92,5 +92,90 @@ create a 3 pages to display the data display books, display category, display au
 import cors from 'cors'
 app.use(cors({
     origin: ['http://localhost:5173']
-}))
+}));
 ```
+
+## use react to fetch data from the server
+```
+  const [blogs, setBlogs] = useState<BlogInterface[]>([])
+  async function getData() {
+    const res = await fetch('http://localhost:3300/products/example');
+    const data: BlogInterface[] = await res.json() ;
+    console.log(data);
+    setBlogs(data);
+
+  }
+
+  useEffect(() => {
+    getData()
+  }, []);
+```
+
+## install react query
+1. ``` npm install react-query ```
+1. ``` npm install @types/react-query ```
+1. wrap the app with the query client provider
+1. create a query client 
+```
+import './App.css'
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { FetchDataReactQuery } from './components/fetchDataReactQuery';
+
+const queryClient = new  QueryClient();
+
+function App() {
+
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <main>
+        <FetchDataReactQuery />
+      </main>  
+    </QueryClientProvider>
+  )
+}
+
+export default App
+``` 
+
+## create you first react query component
+```
+import { useQuery } from "react-query"
+
+async function getProducts() {
+    const res = await fetch('http://localhost:3300/products/example')
+    return await res.json() as { name: string, desc: string, id: number}[]
+}
+
+export function FetchDataReactQuery() {
+    const {isLoading, error , data, isError  } = useQuery('productsNameOfQueryYouCanCallItWhateverYouWant', getProducts)
+    if (isLoading) return <h1>loading</h1>
+    if (isError) return <h1>error - {String(error)}</h1> 
+    return <div>
+        {data?.map((blog) => <div key={blog.id}>{blog.name}</div>)}
+        <h1>wow react query is awesome</h1>
+    </div>
+}
+```
+
+### create a blog router
+```
+import { Router } from "express";
+import { prismaDB } from "./dbConnection";
+
+export const blogRouter = Router()
+// get all blogs (max of 5 blogs)
+blogRouter.get('/list', async (req, res) => {
+    const data = await prismaDB.blog.findMany({
+        take: 5,
+    });
+    res.send(data)
+});
+
+```
+### use the blog router in the app.ts
+```
+app.use('/blog', blogRouter)
+```
+
+
