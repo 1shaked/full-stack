@@ -1,11 +1,6 @@
 import express, { Router, Request, Response } from "express";
 import { z } from "zod";
 
-// Define a schema for validation
-const dataSchema = z.object({
-  name: z.string().min(5),
-  email: z.string().email(),
-});
 
 const router: Router = express.Router();
 
@@ -13,10 +8,16 @@ router.get("/", (req: Request, res: Response) => {
   const queryParams = req.query;
   res.send(queryParams);
 });
+// Define a schema for validation
+const dataSchema = z.object({
+  name: z.string().min(5).max(20),
+  email: z.string().email(),
+  n: z.number().min(10).max(20),
+  arr: z.array(z.string(), ).optional()
+});
 
 router.post("/", (req: Request, res: Response) => {
   const validationResult = dataSchema.safeParse(req.body);
-
   if (!validationResult.success) {
     return res
       .status(400)

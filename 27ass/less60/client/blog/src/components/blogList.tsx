@@ -11,14 +11,16 @@ async function addData() {
     const res = await fetch('http://localhost:3300/blog/add', {
         method: 'POST',
         headers: {
-            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            title: 'g',
-            content: 'w'
+            title: 50,
+            content: 'w1'
         })
     });
-    console.log(res)
+    console.log(res);
+    const data = await res.json();
+    console.log(data);
 }
 
 export function BlogList () {
