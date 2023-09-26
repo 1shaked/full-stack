@@ -43,3 +43,34 @@ function sumArray(arr) {
 let sumArr = sumArray([10 , 20 ,53, 37]) // sumArr = 120
 let totalBankBalance = sumArray([50 , -10, 30 , -20]) //  totalBankBalance = 50
 
+
+// create the function, but did not use it
+function printFullName(firstName, lastName) {
+    console.log(firstName, lastName)
+}
+
+printFullName('hps', 'nf')// print hps nf
+
+function arrMulti(arr) {
+    let index = 0;
+    let multi = 1;
+
+    while (index < arr.length) {
+        multi = multi * arr[index];
+        index = index + 1
+    }
+    console.log(multi);
+    return multi;
+}
+
+
+// create a factorial function
+// 5! = 5 * 4 * 3 * 2 , 3! = 3 * 2
+function factorial(num){
+    let sum = 1; 
+    while(num> 0){
+        sum = sum * num 
+        num = num - 1;
+    }
+    console.log(sum)
+}
