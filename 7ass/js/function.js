@@ -74,3 +74,4 @@ function factorial(num){
     }
     console.log(sum)
 }
+
