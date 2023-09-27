@@ -5,16 +5,19 @@ export const blogRouter = Router()
 // get all blogs (max of 5 blogs)
 blogRouter.get('/list', async (req, res) => {
     const data = await prismaDB.blog.findMany({
-        take: 5,
+        take: 10,
     });
     res.send(data)
 });
 // this will add data // post = add data
 blogRouter.post('/add', async (req , res ) => {
     
-    const mySchemaString = z.string().min(5).max(10);
+    const mySchemaString = z.object({
+        title: z.string().min(5).max(10),
+        content: z.string().min(3)
+    });
 
-    const myString = mySchemaString.safeParse(req.body.title);
+    const myString = mySchemaString.safeParse(req.body);
     if (myString.success) {
         res.send(myString.data)
     } else {
@@ -38,4 +41,18 @@ blogRouter.post('/add', async (req , res ) => {
     //     console.log(e);
     //     res.send({message: 'error'})
     // }
+});
+blogRouter.post('/new', async (req , res ) => {
+    console.log('--------------------');
+    console.log(req.body);
+    const blogSchema = z.object({
+        title: z.string().min(3).max(150),
+        content: z.string().min(10).max(8000)
+    })
+    // save the data
+    const blogParseRes = blogSchema.safeParse(req.body); 
+    if (!blogParseRes.success) return res.status(400).json(blogParseRes.error.message);
+
+    const data = await prismaDB.blog.create({data: blogParseRes.data});
+    res.status(201).send(data)
 });

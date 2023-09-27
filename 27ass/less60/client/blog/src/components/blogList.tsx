@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import { useQuery } from "react-query";
 
 async function getBlogList() {
@@ -7,15 +7,15 @@ async function getBlogList() {
     return data as {id: number, title: string, content: string;}[];
 }
 
-async function addData() {
-    const res = await fetch('http://localhost:3300/blog/add', {
+async function addData(title: string, content: string) {
+    const res = await fetch('http://localhost:3300/blog/new', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            title: 50,
-            content: 'w1'
+            title,
+            content
         })
     });
     console.log(res);
@@ -25,10 +25,8 @@ async function addData() {
 
 export function BlogList () {
     const {isLoading, isError, data: blogsList} = useQuery('BlogList' , getBlogList);
-    
-    useEffect( () => {
-        addData()
-    }, []);
+    const [title, setTitle] = useState('')
+    const [content, setContent] = useState('')
     if (isLoading) return <h1>loading...</h1>
     if (isError) return <h1>error...</h1>
     return <>
@@ -39,5 +37,12 @@ export function BlogList () {
                 <p>{blog.content}</p>
             </div>)}
         </div>
+        <hr />
+        <input type="text" onChange={(e) => setTitle(e.target.value)}  />
+        <hr />
+        <input type="text" onChange={(e) => setContent(e.target.value)} />
+        <button onClick={() => addData(title, content)}>
+            submit
+        </button>
     </>
 }

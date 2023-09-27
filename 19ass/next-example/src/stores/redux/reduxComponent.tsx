@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from './store';
 import { addUser } from './usersSlice';
 import { addPost } from './postsSlice';
-
 export default function ReduxComponent() {
   const dispatch = useDispatch();
   const users = useSelector((state: RootState) => state.users.users);

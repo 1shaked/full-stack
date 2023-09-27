@@ -178,4 +178,17 @@ blogRouter.get('/list', async (req, res) => {
 app.use('/blog', blogRouter)
 ```
 
+### using zod as an example
+```
+const mySchemaString = z.object({
+    title: z.string().min(5).max(10),
+    content: z.string().min(3)
+});
 
+const myString = mySchemaString.safeParse(req.body);
+if (myString.success) {
+    res.send(myString.data)
+} else {
+    res.send(myString.error.message)
+}
+```
