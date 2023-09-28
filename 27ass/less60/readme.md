@@ -6,7 +6,8 @@
 1. npm install dotenv
 1. npx tsc --init
 1. npm install -D concurrently nodemon
-1. add the server to the include (in ts config), you will need to create it
+1. add the server to the include (in ts config), you will need to create it ``` "include": ["server/**/*.ts"],
+  "exclude": ["node_modules"] ```
 1. add the exclude to the ts config, 
 1. added the scripts to package.json 
     ```
