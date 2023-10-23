@@ -194,3 +194,12 @@ if (myString.success) {
     res.send(myString.error.message)
 }
 ```
+
+
+### adding cors
+1. ``` npm i cors ```
+2. ``` npm i @types/cors ```
+3. in the app.ts ``` import cors from 'cors' ```
+4. ``` app.use(cors({
+    origin: ['http://localhost:5173']
+})); ```
