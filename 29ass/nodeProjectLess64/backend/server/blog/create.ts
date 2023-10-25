@@ -12,11 +12,8 @@ export async function CreateRouterHandler(req: Request , res: Response) {
             }
         })
         console.log('newBlog', newBlog)
-        res.send({
-            message: 'CreateRouterHandler!',
-            body: req.body,
-            newBlog
-        })
+        await new Promise((resolve, reject) => setTimeout(resolve,1000))
+        res.send(newBlog)
     } catch (error) {
         res.status(400).send({
             message: 'CreateRouterHandler error!',

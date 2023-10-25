@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { BlogInterface } from "./get_data/get_data_types";
+import { BlogContentInterface, BlogInterface } from "./get_data/get_data_types";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -30,11 +30,11 @@ export function GetDataAndAddForm() {
                 },
                 body: JSON.stringify(data),
             });
-            return await response.json() as BlogInterface;
+            return await response.json() as BlogContentInterface;
         },
         onSuccess(data, variables, context) {
             console.log({data, variables, context});
-            get_data_server_react_query.refetch()
+            setCount(data.id) // automatically pull the data
         },
     } );
     // const form = useForm<AddBlogInterface>();
@@ -44,7 +44,7 @@ export function GetDataAndAddForm() {
         blogAddMutation.mutate(data);
         // refetch
     }
-
+    
     if (get_data_server_react_query.isLoading || get_data_server_react_query.data === undefined) return <div>Loading...</div>
     
     return (<div>
@@ -64,5 +64,6 @@ export function GetDataAndAddForm() {
                 <button type="submit">create blog</button>
             </form>
         </div>
+        {blogAddMutation.isPending ? 'pending' : null}
     </div>);
 }

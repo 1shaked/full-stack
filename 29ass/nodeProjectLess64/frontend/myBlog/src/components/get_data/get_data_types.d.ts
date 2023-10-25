@@ -10,3 +10,9 @@ export interface BlogInterface {
     };
     query: Record<string, any>;
 };
+
+export interface BlogContentInterface {
+    id: number;
+    title: string;
+    content: string;
+}
