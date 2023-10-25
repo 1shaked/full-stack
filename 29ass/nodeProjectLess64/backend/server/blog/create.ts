@@ -3,6 +3,7 @@ import { prisma } from "../connection";
 
 export async function CreateRouterHandler(req: Request , res: Response) {
     try {
+        console.log(req.body)
         // add the row
         const newBlog = await prisma.blog.create({
             data: {
