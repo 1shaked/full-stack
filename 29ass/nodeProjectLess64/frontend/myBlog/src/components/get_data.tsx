@@ -10,7 +10,7 @@ export function GetData() {
         const data = await response.json() // getting the data from the response
         console.log(count)
         return data as BlogInterface;
-    }});
+    }, }, );
     if (get_data_server_react_query.isLoading || get_data_server_react_query.data === undefined) return <div>Loading...</div>
     
     return (<div>

@@ -203,3 +203,8 @@ if (myString.success) {
 4. ``` app.use(cors({
     origin: ['http://localhost:5173']
 })); ```
+
+
+### parse json body
+1. add the app.use ``` app.use(express.json()) ```
+2. send the data and check if it is working
