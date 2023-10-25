@@ -6,3 +6,5 @@
 6. add react query ``` npm i @tanstack/react-query ```
 7. add jotai ``` npm i jotai ```
 8. add react router dom ``` npm i react-router-dom ```
+9. add https://react-hook-form.com/get-started ``` npm i react-hook-form ```
+10. 
