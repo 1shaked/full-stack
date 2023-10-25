@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { BlogInterface } from "./get_data/get_data_types";
+import { BlogInterface } from "./get_data_types";
 import { useState } from "react";
 
 
