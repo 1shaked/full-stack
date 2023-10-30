@@ -16,7 +16,7 @@ export async function ItemRouterHandler(req: Request , res: Response) {
     })
     res.send({
         message: 'ItemRouterHandler',
-        params: req.params,
+        // params: req.params,
         data,
         query: req.query
     })
