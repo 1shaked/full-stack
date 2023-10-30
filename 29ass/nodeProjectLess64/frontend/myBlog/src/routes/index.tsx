@@ -8,7 +8,7 @@ export function RouterReact() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/products">
-        <Route path=":id" element={<ProductIdPage />} />
+        <Route path=":id" element={<ProductIdPage />} errorElement={<h1>error!</h1>} />
         <Route index element={<MainProducts />} />
       </Route>
     </Routes>
