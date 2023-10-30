@@ -12,16 +12,11 @@ const queyClient = new QueryClient();
 function App() {
   return (<BrowserRouter>
     <QueryClientProvider client={queyClient} >
-      {/* <SelectMuiExample /> */}
-      {/* <BasicTableMuiExample /> */}
-      {/* <GetData />
-      <AddForm /> */}
       <div>
         <Link to={'/about'}>about</Link>
         <hr />
         <Link to={'/'}>home</Link>
       </div>
-      <br />
       <RouterReact />
     </QueryClientProvider>
   </BrowserRouter>
