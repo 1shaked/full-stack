@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // import { SelectMuiExample } from "./components/mui_examples/select";
 // import { BasicTableMuiExample } from "./components/mui_examples/table_mui";
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
+import { RouterReact } from "./routes";
 const queyClient = new QueryClient();
 function App() {
   return (<BrowserRouter>
@@ -21,18 +22,7 @@ function App() {
         <Link to={'/'}>home</Link>
       </div>
       <br />
-      <Routes>
-        <Route path="/" element={<div>home page</div>} />
-        <Route path="/about" element={<div>about page</div>} />
-        <Route path="/about/:id" element={<div>about page with id</div>} />
-        <Route path="/about/example" element={<div>about page with example</div>} />
-        <Route path="/products">
-          <Route path=":id" element={<div>products page with id</div>} />
-          <Route path="main" element={<h1>main products</h1>} />
-          <Route index element={<h1>home products</h1>} />
-          <Route path="*" element={<h1>all come to here</h1>} />
-        </Route>
-      </Routes>
+      <RouterReact />
     </QueryClientProvider>
   </BrowserRouter>
   );
