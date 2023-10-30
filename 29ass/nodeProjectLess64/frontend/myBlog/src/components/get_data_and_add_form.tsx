@@ -34,7 +34,8 @@ export function GetDataAndAddForm() {
         },
         onSuccess(data, variables, context) {
             console.log({data, variables, context});
-            setCount(data.id) // automatically pull the data
+            if (data.id === count) get_data_server_react_query.refetch();
+            setCount(data.id); // automatically pull the data;
         },
     } );
     // const form = useForm<AddBlogInterface>();
@@ -42,7 +43,6 @@ export function GetDataAndAddForm() {
     async function onSubmit( data : AddBlogInterface) {
         // send a message to the server to add the blog
         blogAddMutation.mutate(data);
-        // refetch
     }
     
     if (get_data_server_react_query.isLoading || get_data_server_react_query.data === undefined) return <div>Loading...</div>
