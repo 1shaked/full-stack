@@ -9,7 +9,6 @@ interface AddBlogInterface {
     content: string;
 }
 
-
 export function GetDataAndAddForm() {
     const [count, setCount] = useState(0);
 
@@ -26,7 +25,7 @@ export function GetDataAndAddForm() {
         return data as BlogInterface;
     }, }, );
     
-    const {register, handleSubmit}  = useForm<AddBlogInterface>();
+    const {register, handleSubmit, watch}  = useForm<AddBlogInterface>();
     const blogAddMutation = useMutation( {
         mutationFn: async (data: AddBlogInterface) => { // the function that will add the data
             // send a message to the server to add the blog
@@ -45,6 +44,7 @@ export function GetDataAndAddForm() {
             setCount(data.id); // automatically pull the data;
         },
     } );
+    const contentPar = watch('content')
     // const form = useForm<AddBlogInterface>();
     // form.
     async function onSubmit( data : AddBlogInterface) {
@@ -56,6 +56,7 @@ export function GetDataAndAddForm() {
     
     return (<div>
         <h1>get data {count}</h1>
+        {contentPar}
         <button onClick={() => setCount(count + 1)}>count + 1</button>
         <button onClick={() => setCount(count - 1)}>count - 1</button>
         <div>
