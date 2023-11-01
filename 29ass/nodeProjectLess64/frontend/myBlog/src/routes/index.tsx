@@ -3,6 +3,7 @@ import { HomePage } from "./home";
 import { MainProducts } from "./products/main";
 import { ProductIdPage } from "./products/[id]";
 import { LayoutStory } from "./story/layout";
+import { SignalsIntro } from "./signals/page";
 
 export function RouterReact() {
   return (
@@ -16,6 +17,7 @@ export function RouterReact() {
         <Route path=":id" element={<ProductIdPage />} errorElement={<h1>error!</h1>} />
         <Route index element={<MainProducts />} />
       </Route>
+      <Route path="/signals" element={<SignalsIntro />} />
     </Routes>
   );
 }
