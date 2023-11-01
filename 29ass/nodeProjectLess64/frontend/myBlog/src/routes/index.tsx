@@ -12,6 +12,7 @@ export function RouterReact() {
       <Route path="/products">
         <Route path=":id" element={<ProductIdPage />} errorElement={<h1>error!</h1>} />
         <Route index element={<MainProducts />} />
+        {/* <Route path="101" element={<MainProducts />} /> */}
       </Route>
       <Route path="/story" element={<LayoutStory />}>
         <Route path=":id" element={<ProductIdPage />} errorElement={<h1>error!</h1>} />
