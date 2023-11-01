@@ -56,7 +56,7 @@ export function GetDataAndAddForm() {
     
     return (<div>
         <h1>get data {count}</h1>
-        {contentPar}
+        content - {contentPar}
         <button onClick={() => setCount(count + 1)}>count + 1</button>
         <button onClick={() => setCount(count - 1)}>count - 1</button>
         <div>
