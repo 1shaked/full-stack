@@ -8,3 +8,4 @@
 8. add react router dom ``` npm i react-router-dom ```
 9. add https://react-hook-form.com/get-started ``` npm i react-hook-form ```
 10. add ``` npm install @preact/signals-react ```
+11. add trpc client ``` npm install @trpc/client ```
