@@ -22,6 +22,10 @@ function App() {
         <NavLink to={'/signals'} style={({ isActive }) =>
           isActive ? { backgroundColor: 'white',  color: 'blue'} : {}
         }>signals</NavLink>
+        <hr />
+        <NavLink to={'/signals/class'} style={({ isActive }) =>
+          isActive ? { backgroundColor: 'white',  color: 'blue'} : {}
+        }>signals class</NavLink>
       </div>
       <RouterReact />
     </QueryClientProvider>
