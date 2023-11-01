@@ -4,6 +4,7 @@ import { MainProducts } from "./products/main";
 import { ProductIdPage } from "./products/[id]";
 import { LayoutStory } from "./story/layout";
 import { SignalsIntro } from "./signals/page";
+import { SignalsIntroClass } from "./signals/class/page";
 
 export function RouterReact() {
   return (
@@ -19,6 +20,7 @@ export function RouterReact() {
         <Route index element={<MainProducts />} />
       </Route>
       <Route path="/signals" element={<SignalsIntro />} />
+      <Route path='/signals/class' element={<SignalsIntroClass />}/>
     </Routes>
   );
 }

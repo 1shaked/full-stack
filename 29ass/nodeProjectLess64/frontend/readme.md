@@ -7,5 +7,4 @@
 7. add jotai ``` npm i jotai ```
 8. add react router dom ``` npm i react-router-dom ```
 9. add https://react-hook-form.com/get-started ``` npm i react-hook-form ```
-10. add ``` npm install @preact/signals```
-11. add ``` npm install @preact/signals-react ```
+10. add ``` npm install @preact/signals-react ```
