@@ -1,9 +1,12 @@
-import { computed, useSignal } from "@preact/signals-react"
+import { computed, effect, useSignal } from "@preact/signals-react"
 
 
 export function SignalsIntroClass() {
     const count = useSignal(0);
-    const doubleNumber = computed(() => count.value  * 4)    
+    const doubleNumber = computed(() => count.value  * 2);
+    effect(() => {
+        console.log(count.value)
+    })   
     return <main>
         <h1>SignalsIntroClass</h1>
         <button onClick={() => {
