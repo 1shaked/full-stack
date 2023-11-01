@@ -1,15 +1,7 @@
-import { signal } from "@preact/signals-react"
 import { useState } from "react";
+import { todo } from "./stateTodo";
 
-interface TodoInterface {
-    text: string;
-}
 
-const todo = signal<TodoInterface[]>([
-    { text: 'x'},
-    { text: 'y'},
-    { text: 'z'},
-]);
 
 export function IntroSignals() {
     const [todoText, setTodoText] = useState('');
