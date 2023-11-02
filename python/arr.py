@@ -1,4 +1,6 @@
 
-arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+arr  = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
 
-arr[3]
+x = arr[-3]
+
+print(x)
