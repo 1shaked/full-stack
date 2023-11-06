@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 import { trpcClient } from "../../trpc"
 
 export function TrpcExample() {
-    const trpcResponse = useQuery({queryKey: ['trpcExample'], queryFn: () => trpcClient.list.query() })
+    const trpcResponse = useQuery({queryKey: ['trpcExample'], queryFn: () => trpcClient.booksList.query() })
     if (trpcResponse.isLoading || trpcResponse.data === undefined) return <div>loading or undefined</div>
     return <div>
         trpc example
