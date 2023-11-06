@@ -209,4 +209,13 @@ if (myString.success) {
 1. add the app.use ``` app.use(express.json()) ```
 2. send the data and check if it is working
 3. add trpc to the server ``` npm install @trpc/server ```
-4. 
+
+
+### added trpc to the server
+
+
+### added comment table
+1. adding the table to the prisma ``` model Comment {
+  id Int @id @default(autoincrement())
+  comment String
+} ```

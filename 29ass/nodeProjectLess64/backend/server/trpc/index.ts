@@ -1,4 +1,4 @@
-import { BlogRouterTrpc } from "./blog";
+import { BlogRouterTrpc } from "./blog/index";
 import { publicProcedure, router } from "./trpc";
 
 export const appRouter = router({

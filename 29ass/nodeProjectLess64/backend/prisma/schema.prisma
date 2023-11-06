@@ -15,4 +15,12 @@ model Blog {
   id Int @id @default(autoincrement())
   title String
   content String
+  comments Comment[]  
+}
+
+model Comment {
+  id Int @id @default(autoincrement())
+  blogId  Int 
+  comment String
+  blog     Blog   @relation(fields: [blogId], references: [id])  // Define the relationship
 }

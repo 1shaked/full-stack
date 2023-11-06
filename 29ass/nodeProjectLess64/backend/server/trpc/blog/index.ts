@@ -1,8 +1,10 @@
 import { z } from "zod";
-import { prisma } from "../connection";
-import { router, publicProcedure } from "./trpc";
+import { prisma } from "../../connection";
+import { router, publicProcedure } from "../trpc";
+import { CommentRouterTrpc } from "./comment";
 
 export const BlogRouterTrpc = router({
+  comment: CommentRouterTrpc,
   list: publicProcedure.query(async () => {
     return await prisma.blog.findMany();
   }),
@@ -21,3 +23,12 @@ export const BlogRouterTrpc = router({
       return newBlog;
     }),
 });
+
+/**
+ * 
+ * [ {id : 1, text: 's'}]
+ */
+
+/**
+ * [{blogID: 1, id: 5, comment: 'suck'}, {blogID: 1, id: 3, comment: 'x'} ]
+ */
