@@ -3,7 +3,7 @@ import cors from 'cors'
 import { blogRouter } from "./blog";
 import * as trpcExpress from '@trpc/server/adapters/express';
 import { appRouter } from "./trpc";
-
+import {appRouter as booksAppRouter} from './booksTrpc/index'
 const app = express();
 app.use(express.json());
 app.use(cors({
@@ -19,7 +19,8 @@ app.use(
         // createContext,
     }),
 );
-
+app.use('/books', 
+    trpcExpress.createExpressMiddleware({router: booksAppRouter}))
 app.listen(3300, () => {
     console.log('app is running!')
 });

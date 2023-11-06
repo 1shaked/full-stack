@@ -2,7 +2,7 @@ import { initTRPC } from '@trpc/server';
  const t = initTRPC.create();
 const router = t.router;
 const publicProcedure = t.procedure;
-const appRouter = router({
+export const appRouter = router({
     booksList: publicProcedure.query(async () => {
         // go to the database and fetch the books
         return [1, 2 ,3]
