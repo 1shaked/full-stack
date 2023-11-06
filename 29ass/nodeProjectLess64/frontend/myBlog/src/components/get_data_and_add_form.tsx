@@ -29,9 +29,7 @@ export function GetDataAndAddForm() {
     const {register, handleSubmit, watch}  = useForm<AddBlogInterface>();
     const blogAddMutation = useMutation( {
         mutationFn: async (data: AddBlogInterface) => { // the function that will add the data
-            const r = await trpcClient.listShaked.query(data);
-            console.log(r)
-            return await trpcClient.blogCreate.mutate(data);
+            return await trpcClient.blog.create.mutate(data);
         },
         onSuccess(data, variables, context) {
             console.log({data, variables, context});

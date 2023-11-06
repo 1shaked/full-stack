@@ -2,8 +2,7 @@ import express from "express";
 import cors from 'cors'
 import { blogRouter } from "./blog";
 import * as trpcExpress from '@trpc/server/adapters/express';
-import { appRouter } from "./trpc";
-import {appRouter as booksAppRouter} from './booksTrpc/index'
+import { appRouter } from "./trpc/index";
 const app = express();
 app.use(express.json());
 app.use(cors({
