@@ -19,8 +19,8 @@ app.use(
         // createContext,
     }),
 );
-app.use('/books', 
-    trpcExpress.createExpressMiddleware({router: booksAppRouter}))
+// app.use('/books', 
+//     trpcExpress.createExpressMiddleware({router: booksAppRouter}))
 app.listen(3300, () => {
     console.log('app is running!')
 });
