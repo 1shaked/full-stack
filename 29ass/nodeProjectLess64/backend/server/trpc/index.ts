@@ -10,7 +10,11 @@ export const appRouter = router({
     console.log("list")
     return ["t", "x", "y", "z"];
   }),
-  listShaked: publicProcedure.query(async () => {
+  listShaked: publicProcedure.input(z.object({
+    title: z.string(),
+    content: z.string(),
+  })).query(async (opts) => {
+    console.log(opts.input)
     console.log("list")
     return ["t", "x", "y", "z"];
   }),
@@ -19,12 +23,9 @@ export const appRouter = router({
   blogCreate: publicProcedure.input(z.object({
     title: z.string(),
     content: z.string(),
-  })).mutation(async () => {
+  })).mutation(async (opts) => {
     const newBlog = await prisma.blog.create({
-        data: {
-            title: 'req.body.title',
-            content: 'req.body.content',
-        }
+        data: opts.input
     });
     return newBlog;
   }),

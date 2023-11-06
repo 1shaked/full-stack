@@ -2,6 +2,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { BlogContentInterface, BlogInterface, BlogSchemaResponseZod, } from "./get_data/get_data_types";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { trpcClient } from "../trpc";
 
 
 interface AddBlogInterface {
@@ -28,15 +29,9 @@ export function GetDataAndAddForm() {
     const {register, handleSubmit, watch}  = useForm<AddBlogInterface>();
     const blogAddMutation = useMutation( {
         mutationFn: async (data: AddBlogInterface) => { // the function that will add the data
-            // send a message to the server to add the blog
-            const response = await fetch('http://localhost:3300/blog/create', {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data),
-            });
-            return await response.json() as BlogContentInterface;
+            const r = await trpcClient.listShaked.query(data);
+            console.log(r)
+            return await trpcClient.blogCreate.mutate(data);
         },
         onSuccess(data, variables, context) {
             console.log({data, variables, context});
