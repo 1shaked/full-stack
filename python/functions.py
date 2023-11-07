@@ -46,6 +46,8 @@ def multiArrOfArr(arr: list[list[int]]):
     return total
 '''
 create a function name fib that a number and calculate the fibonacci sequence 
+index 0 , 1 , 2,  3, 4, 5, 6
+value 1 , 1 , 2,  3, 5, 8, 13
 
 fib(0) -> 1
 fib(1) -> 1
