@@ -7,6 +7,12 @@ example -> [1 , 2 , 3] -> return 6
 example -> [ 2 , 3] -> return 6
 example -> [ 4 ] -> return 4
 '''
+def multiArr(arr: list[int]):
+    multi_arr_res = 1
+    for num in arr:
+        multi_arr_res = num * multi_arr_res
+    
+    return multi_arr_res
 
 '''
 create a function that take an array of array of numbers and calculate the sum
@@ -14,7 +20,15 @@ create a function that take an array of array of numbers and calculate the sum
 [[ 1, 2 , 3] , [4 , 5 , 6] , [7 , 8]] -> return 36
 [ [4 , 5 , 6] , [7 , 8]] -> return 30
 '''
+def sumArrOfArr(arr: list[list[int]]):
+    total = 0
+    for inner_arr in arr:
+        for num in inner_arr:
+            total = total + num
 
+    return total
+
+print(sumArrOfArr([[1, 10 , 1], [20 , 50 , 30]]))
 '''
 create a function that take an array of array of numbers and calculate the multiplication
 
@@ -23,7 +37,13 @@ create a function that take an array of array of numbers and calculate the multi
 [ [4], [3,2] ] -> return 24
 
 '''
+def multiArrOfArr(arr: list[list[int]]):
+    total = 1
+    for inner_arr in arr:
+        for num in inner_arr:
+            total = total * num
 
+    return total
 '''
 create a function name fib that a number and calculate the fibonacci sequence 
 
