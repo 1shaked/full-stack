@@ -99,25 +99,36 @@ def fib_arr(location: int):
     
     return arr[-1]
 
-fib_arr(4)
 '''
 given a sorted array of numbers ,and a number find the index of this number 
 if the index is in the array return the index 
 else return -1
+
+[1 , 2 , 5 , 7 , 8] , 5 -> 2
+[1 , 2 , 5 , 7 , 8] , 7 -> 3
+[1 , 2 , 5 , 7 , 8] , 4 -> -1
 '''
 
 '''
 Nested Lists Sum
-Write a recursive function that sums all the numbers in a nested list structure. The list may contain integers or other nested lists.
+Write a function that sums all the numbers in a nested list structure.
+The list may contain integers or other nested lists.
 
 Example:
 
 Given the list [1, [2, [3, 4], 5], 6], the function should return 21.
+Given the list [2, [2, [6], 5], 6], the function should return 21.
+Given the list [[6], 5], 6], the function should return 17.
+Given the list [[[[1]]]], the function should return 1.
+Given the list [[[[1], 2]]], the function should return 3.
+Given the list [[[[1], 2], 3]], the function should return 6.
+Given the list [[[[1], 2], 3], 4], the function should return 10.
 '''
 
 '''
 create a function that takes and array of numbers and sort them 
 example [8 , 5 , 2 ,1] -> [1 , 2 , 5 ,8]
+example [8, 3 , 5 , 2 ,1] -> [1 , 2, 3 , 5 ,8]
 '''
 
 '''
