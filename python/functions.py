@@ -88,10 +88,12 @@ def fib_arr(location: int):
     [1 , 1]
     '''
     arr = [1 , 1]
+    if location == 0 or location == 1:
+        return arr[location]
     init_index = 2
     while init_index <= location:
-        prev_val = arr[init_index - 1]
-        two_prev_val = arr[init_index - 2]
+        prev_val = arr[- 1]
+        two_prev_val = arr[ - 2]
         arr.append(prev_val + two_prev_val)
         init_index = init_index + 1
     
