@@ -49,6 +49,8 @@ create a function name fib that a number and calculate the fibonacci sequence
 index 0 , 1 , 2,  3, 4, 5, 6
 value 1 , 1 , 2,  3, 5, 8, 13
 
+[1 , 1, 2, 3 , 5 , 8 , 13]
+
 fib(0) -> 1
 fib(1) -> 1
 fib(2) -> 2
@@ -57,4 +59,65 @@ fib(4) -> 5
 fib(5) -> 8
 fib(6) -> 13
 fib(7) -> 21
+'''
+def fib_r(index: int):
+    if index == 0 or index == 1:
+        return 1
+    return fib_r(index - 1) + fib_r(index-2) 
+
+def fib(index : int):
+    count = 0
+    last_num = 1 # prev number in fib
+    two_last_num = 1 # two prev in fib
+    total = 0
+    while count <= index:
+        if (count == 0 or count == 1):
+            last_num = 1
+            two_last_num = 1
+            total = 1
+        else: 
+            two_last_num = last_num
+            last_num = total
+            total = last_num + two_last_num
+        count = count + 1
+    
+    return total
+
+def fib_arr(location: int):
+    '''
+    [1 , 1]
+    '''
+    arr = [1 , 1]
+    init_index = 2
+    while init_index <= location:
+        prev_val = arr[init_index - 1]
+        two_prev_val = arr[init_index - 2]
+        arr.append(prev_val + two_prev_val)
+        init_index = init_index + 1
+    
+    return arr[-1]
+
+fib_arr(4)
+'''
+given a sorted array of numbers ,and a number find the index of this number 
+if the index is in the array return the index 
+else return -1
+'''
+
+'''
+Nested Lists Sum
+Write a recursive function that sums all the numbers in a nested list structure. The list may contain integers or other nested lists.
+
+Example:
+
+Given the list [1, [2, [3, 4], 5], 6], the function should return 21.
+'''
+
+'''
+create a function that takes and array of numbers and sort them 
+example [8 , 5 , 2 ,1] -> [1 , 2 , 5 ,8]
+'''
+
+'''
+
 '''
