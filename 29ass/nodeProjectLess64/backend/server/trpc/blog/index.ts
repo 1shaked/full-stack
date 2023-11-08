@@ -1,27 +1,13 @@
-import { z } from "zod";
-import { prisma } from "../../connection";
-import { router, publicProcedure } from "../trpc";
+import { router } from "../trpc";
 import { CommentRouterTrpc } from "./comment";
+import { blogList } from "./blogList";
+import { blogCreate } from "./blogCreate";
 
 export const BlogRouterTrpc = router({
   comment: CommentRouterTrpc,
-  list: publicProcedure.query(async () => {
-    return await prisma.blog.findMany();
-  }),
+  list: blogList,
   // to add data to the database
-  create: publicProcedure
-    .input(
-      z.object({
-        title: z.string(),
-        content: z.string(),
-      })
-    )
-    .mutation(async (opts) => {
-      const newBlog = await prisma.blog.create({
-        data: opts.input,
-      });
-      return newBlog;
-    }),
+  create: blogCreate,
 });
 
 /**
