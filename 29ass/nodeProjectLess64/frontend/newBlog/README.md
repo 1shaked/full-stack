@@ -24,3 +24,17 @@ function App() {
 
 export default App
 ```
+
+### create a routes folder
+1. create a index.tsx file in the routes folder add the code 
+```
+import { Route, Routes } from "react-router-dom"
+export function CustomRouter() {
+    return <div>
+        <Routes>
+            <Route path="/" element={<div>home</div>}/>
+            <Route path="/about" element={<div>about</div>}/>
+        </Routes>
+    </div>
+} 
+```
