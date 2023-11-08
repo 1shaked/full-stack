@@ -38,3 +38,5 @@ export function CustomRouter() {
     </div>
 } 
 ```
+
+### create a trpc.ts file in the src folder
