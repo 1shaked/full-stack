@@ -1,0 +1,16 @@
+.blogList {
+    background-color: #f3f1f1;
+    font-size: 1.5rem;
+    padding-left: 10px;
+    transition: 0.2s ease-in;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-left: 3px solid #61efcb;
+    display: block;
+    color: black;
+    font-weight: normal;
+    text-decoration: none;
+}
+.blogList:hover {
+    background-color: #61efcb;
+}
