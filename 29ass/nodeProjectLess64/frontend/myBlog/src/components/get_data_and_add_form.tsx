@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { BlogContentInterface, BlogInterface, BlogSchemaResponseZod, } from "./get_data/get_data_types";
+import { BlogInterface, BlogSchemaResponseZod, } from "./get_data/get_data_types";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { trpcClient } from "../trpc";
@@ -29,6 +29,7 @@ export function GetDataAndAddForm() {
     const {register, handleSubmit, watch}  = useForm<AddBlogInterface>();
     const blogAddMutation = useMutation( {
         mutationFn: async (data: AddBlogInterface) => { // the function that will add the data
+            // 
             return await trpcClient.blog.create.mutate(data);
         },
         onSuccess(data, variables, context) {
@@ -65,6 +66,6 @@ export function GetDataAndAddForm() {
                 <button type="submit">create blog</button>
             </form>
         </div>
-        {blogAddMutation.isPending ? 'pending' : null}
+        {blogAddMutation.isLoading ? 'pending' : null}
     </div>);
 }
