@@ -13,8 +13,9 @@ function App() {
         httpBatchLink({
           url: 'http://localhost:3300/trpc',
           // You can pass any HTTP headers you wish here
-          async headers() {
+          headers() {
             return {
+              // 'Content-Type': 'application/json'
               // authorization: getAuthCookie(),
             };
           },

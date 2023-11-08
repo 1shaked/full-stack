@@ -23,9 +23,15 @@ export const CommentRouterTrpc = router({
       })
     )
     .mutation(async (opts) => {
-      const newComment = await prisma.comment.create({
-        data: opts.input,
-      });
-      return newComment;
+      console.log(opts.input)
+      try {
+        const comment = await prisma.comment.create({
+          data: opts.input
+        });
+        return comment;
+      } catch (e) {
+        console.log(e)
+        return {}
+      }
     }),
 });
