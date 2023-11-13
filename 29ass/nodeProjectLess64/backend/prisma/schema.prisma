@@ -22,5 +22,5 @@ model Comment {
   id Int @id @default(autoincrement())
   blogId  Int 
   comment String
-  blog     Blog   @relation(fields: [blogId], references: [id])  // Define the relationship
+  blog     Blog   @relation(fields: [blogId], references: [id], onDelete: Cascade)  // Define the relationship
 }
