@@ -3,13 +3,14 @@ import { exampleRouter58 } from './example58';
 import cors from 'cors'
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
-import session from 'express-session';
 import { prismaDB } from './dbConnection';
 import { exampleRouterAuth } from './exampleAuth';
 import { RequestCustom } from './types/expressCustom';
 import expressSession from 'express-session';
 import { googleKey } from './client';
-const { PrismaSessionStore } = require('@quixo3/prisma-session-store');
+import PrismaSessionStore from './memoryStore';
+// import { PrismaSessionStore } from '@quixo3/prisma-session-store';
+// import { PrismaClient } from '@prisma/client';
 
 const app = express();
 const port = 4000 ;
@@ -30,14 +31,15 @@ app.use(
     secret: 'your-secret-key',
     resave: true,
     saveUninitialized: true,
-    store: new PrismaSessionStore(
-      prismaDB,
-      {
-        checkPeriod: 2 * 60 * 1000,  //ms
-        dbRecordIdIsSessionId: true,
-        dbRecordIdFunction: undefined,
-      }
-    )
+    // store: new PrismaSessionStore(prismaDB)
+    // store: new PrismaSessionStore(
+    //   new PrismaClient(),
+    //   {
+    //     checkPeriod: 2 * 60 * 1000,  //ms
+    //     dbRecordIdIsSessionId: true,
+    //     dbRecordIdFunction: undefined,
+    //   }
+    // )
   })
 );
 
@@ -52,6 +54,9 @@ app.use(cors(
 
 
 passport.serializeUser((user: any, done) => {
+  console.log('---------------------------------------------------------------------')
+  console.log(user)
+  console.log('---------------------------------------------------------------------')
   done(null, user?.id);
 });
 
@@ -70,7 +75,7 @@ passport.use(new GoogleStrategy(
   async (accessToken: string, refreshToken: string, profile: any, done: any) => {
     try {
       let user = await prismaDB.user.findUnique({ where: { email: profile.emails[0].value } });
-  
+      console.log(user);
       if (!user) {
         // Create a new user
         user = await prismaDB.user.create({
@@ -93,16 +98,17 @@ passport.use(new GoogleStrategy(
             provider: "google"
           }
         });
+
   
         if (!googleAuth) {
           // If the user hasn't logged in with Google before, add this auth method
-          await prismaDB.authMethod.create({
-            data: {
-              provider: "google",
-              externalId: profile.id,
-              userId: user.id
-            }
-          });
+          // await prismaDB.authMethod.create({
+          //   data: {
+          //     provider: "google",
+          //     externalId: profile.id,
+          //     userId: user.id
+          //   }
+          // });
         }
       }
   

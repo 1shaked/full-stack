@@ -31,6 +31,7 @@ model AuthMethod {
 model Session {
   id          Int      @id @default(autoincrement())
   userId      Int
+  sid       String   @unique
   user        User     @relation(fields: [userId], references: [id])
   expiresAt   DateTime
   sessionToken String  @unique
@@ -38,6 +39,18 @@ model Session {
   data String
   updateAt DateTime @updatedAt
 }
+
+
+
+// model Session {
+//   id        String   @id
+//   sid       String   @unique
+//   data      String    // MediumText may be needed for MySql
+//   expiresAt   DateTime
+// }
+
+
+
 // model Session {
 //   id        String   @id
 //   sid       String   @unique
