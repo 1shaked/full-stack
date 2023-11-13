@@ -23,20 +23,20 @@ class PrismaSessionStore extends Store {
     async set(sid: string, session: SessionData, callback?: (err?: any) => void): Promise<void> {
         try {
             console.log({sid, session});
-            debugger;
+            // debugger;
             
-            this.prisma.session.create({
-                data: { 
-                    userId: 1,
-                    sid: "your_session_id",        // Add this field
-                    expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
-                    sessionToken: sid,
-                    data: JSON.stringify(session),
-                    createdAt: new Date(), 
-                    updateAt: new Date(),
+            // this.prisma.session.create({
+            //     data: { 
+            //         userId: 1,
+            //         sid: "your_session_id",        // Add this field
+            //         expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
+            //         sessionToken: sid,
+            //         data: JSON.stringify(session),
+            //         createdAt: new Date(), 
+            //         updateAt: new Date(),
                     
-                }
-            })
+            //     }
+            // })
             await this.prisma.session.update({
                 where: { sessionToken: sid },
                 data: { data: JSON.stringify(session), updateAt: new Date() },

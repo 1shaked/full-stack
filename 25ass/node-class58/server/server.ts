@@ -48,7 +48,7 @@ app.use(passport.session());
 
 app.use(cors(
   {
-    origin: ['http://localhost:5173', 'http://another-domain.com']
+    origin: ['http://localhost:5174', 'http://another-domain.com']
   }
 ));
 
