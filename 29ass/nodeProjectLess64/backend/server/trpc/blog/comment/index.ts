@@ -19,7 +19,7 @@ export const CommentRouterTrpc = router({
     .input(
       z.object({
         comment: z.string(),
-        blogId: z.number()
+        blogId: z.number(),
       })
     )
     .mutation(async (opts) => {

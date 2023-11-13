@@ -6,6 +6,7 @@ export const blogList = publicProcedure.query(async () => {
       select: {
         id: true,
         title: true,
+        // content: true,
       }
     });
   })

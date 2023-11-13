@@ -8,9 +8,9 @@ interface CommentFormInterface {
 export function BlogIdPage() {
     const { id } = useParams();
     const id_num = parseInt(id ?? '0');
-    if (isNaN(id_num) || id_num < 0) return <div>error</div>
     const { register,handleSubmit} = useForm<CommentFormInterface>();
     const blogQuery = trpc.blog.item.useQuery({ id: id_num});
+    if (isNaN(id_num) || id_num < 0) return <div>error</div>
     const commentCreateMut = trpc.blog.comment.create.useMutation({
         onSuccess: () => {
             alert('comment added');
@@ -26,7 +26,7 @@ export function BlogIdPage() {
         </p>
 
         <form onSubmit={handleSubmit( (data) => {
-            commentCreateMut.mutate({ ...data, blogId: id_num})
+            commentCreateMut.mutate({ ...data, blogId: id_num});
         })}>
             <input type="text" placeholder="comment" {...register('comment')} />
             <button type="submit">add comment</button>
