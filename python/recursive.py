@@ -38,15 +38,20 @@ def factorial(num: int) -> int:
 #  sumFlip(-1) # - 1
 
 # factorial(4) = 4 * 3 * 2 * 1
-print(f'{factorial(4)}')
+# print(f'{factorial(4)}')
 
 
 def sumFlip(num: int):
-    if (num == 1):
-        return 1
-    if (num == -1):
-        return -1
+    if (num == 1 or num == -1):
+        return num
     if (num > 1):
         return num + sumFlip(1 - num) # num  = 5 -> 1- num = -4
     if (num < -1):
         return num + sumFlip(-num - 1) # num = -3 -> -num=3 -1 -> 2
+    
+
+print(sumFlip(3)) # 3 -2 + 1 = 2
+print(sumFlip(4)) # 4 - 3 + 2 - 1 = 2
+print(sumFlip(-3)) # -3 + 2 - 1 = -2
+print(sumFlip(5)) # 5 - 4 + 3 -2 + 1= 3
+print(sumFlip(-5)) # -5 + 4 - 3 + 2 - 1= -3
