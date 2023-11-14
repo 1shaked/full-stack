@@ -1,5 +1,4 @@
 
-
 # fact(8)
 # 8 * fact(7)
 # fact(7) = 7 * fact(6)
@@ -35,6 +34,19 @@ def factorial(num: int) -> int:
 #  sumFlip(4) # 4 -3 + 2 - 1
 #  sumFlip(-4) # -4 +3 - 2 + 1
 #  sumFlip(5) # 5 -4 + 3 - 2 + 1
+#  sumFlip(2) # 2 - 1
+#  sumFlip(-1) # - 1
 
 # factorial(4) = 4 * 3 * 2 * 1
-print(factorial(4))
+print(f'{factorial(4)}')
+
+
+def sumFlip(num: int):
+    if (num == 1):
+        return 1
+    if (num == -1):
+        return -1
+    if (num > 1):
+        return num + sumFlip(1 - num) # num  = 5 -> 1- num = -4
+    if (num < -1):
+        return num + sumFlip(-num - 1) # num = -3 -> -num=3 -1 -> 2
