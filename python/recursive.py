@@ -24,21 +24,23 @@ def factorial(num: int) -> int:
 # factorial(3) = 3 * 2
 # factorial(4) = 4 * 6
 
+
+# factorial(4) = 4 * 3 * 2 * 1
+# print(f'{factorial(4)}')
+
+
 # SUMuntil(num) 
 # SUMuntil(3) = 3 + 2 + 1
 # SUMuntil(4) = 4 + 3 + 2 + 1
 # SUMuntil(5) = 5 + 4 + 3 + 2 + 1
 
 # sumFlip(num) # get a number and sum the number and then is negative
-#  sumFlip(3) # 3 -2 + 1
+#  sumFlip(3) # 3 -2 + 1 = 2
 #  sumFlip(4) # 4 -3 + 2 - 1
 #  sumFlip(-4) # -4 +3 - 2 + 1
 #  sumFlip(5) # 5 -4 + 3 - 2 + 1
 #  sumFlip(2) # 2 - 1
 #  sumFlip(-1) # - 1
-
-# factorial(4) = 4 * 3 * 2 * 1
-# print(f'{factorial(4)}')
 
 
 def sumFlip(num: int):
