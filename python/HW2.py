@@ -117,11 +117,22 @@ def getIndexOfNumberInArray(arr: list[int], searchNumber: int) -> int:
             index = index + 1
     return -1
 
+def getIndexOfNumberInArrayWithWhile(arr: list[int], searchNumber: int) -> int:
+    index = 0
+    while index < len(arr):
+        element = arr[index] 
+        if (element == searchNumber):
+            return index
+        index = index + 1
+    return -1
 
-getIndexOfNumberInArray(arr=[1 , 2 , 5 , 7 , 8], searchNumber=1)
-getIndexOfNumberInArray(arr=[1 , 2 , 5 , 7 , 8], searchNumber=7)
-getIndexOfNumberInArray(arr=[1 , 2 , 5 , 7 , 8], searchNumber=4)
-
+# index1 = getIndexOfNumberInArray(arr=[1 , 2 , 5 , 7 , 8], searchNumber=1)
+# print(f'index 1 is {index1}')
+# index2 = getIndexOfNumberInArray(arr=[1 , 2 , 5 , 7 , 8], searchNumber=7)
+# print(f'index 2 is {index2}')
+# index3 = getIndexOfNumberInArray(arr=[1 , 2 , 5 , 7 , 8], searchNumber=4)
+# print(f'index 3 is {index3}')
+getIndexOfNumberInArray(arr=[i for i in range(10**6)], searchNumber=850000)
 '''
 Nested Lists Sum
 Write a function that sums all the numbers in a nested list structure.
