@@ -22,7 +22,7 @@ def getIndexOfNumberInArrayWithWhile(arr: list[int], searchNumber: int) -> int:
 
 
 start_time = time.time()
-getIndexOfNumberInArray(arr=[i for i in range(10**6)], searchNumber=850000)
+getIndexOfNumberInArray(arr=[i for i in range(10**8)], searchNumber=850000)
 end_time = time.time()
 execution_time = end_time - start_time
 print(f"The function executed in {execution_time} seconds.")
