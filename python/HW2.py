@@ -101,13 +101,26 @@ def fib_arr(location: int):
 
 '''
 given a sorted array of numbers ,and a number find the index of this number 
-if the index is in the array return the index 
+if the number is in the array return the index 
 else return -1
 
 [1 , 2 , 5 , 7 , 8] , 5 -> 2
 [1 , 2 , 5 , 7 , 8] , 7 -> 3
 [1 , 2 , 5 , 7 , 8] , 4 -> -1
 '''
+def getIndexOfNumberInArray(arr: list[int], searchNumber: int) -> int:
+    index = 0
+    for element in arr:
+        if searchNumber == element:
+            return index
+        else:
+            index = index + 1
+    return -1
+
+
+getIndexOfNumberInArray(arr=[1 , 2 , 5 , 7 , 8], searchNumber=1)
+getIndexOfNumberInArray(arr=[1 , 2 , 5 , 7 , 8], searchNumber=7)
+getIndexOfNumberInArray(arr=[1 , 2 , 5 , 7 , 8], searchNumber=4)
 
 '''
 Nested Lists Sum
