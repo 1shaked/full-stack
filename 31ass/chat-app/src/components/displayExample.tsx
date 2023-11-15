@@ -26,7 +26,10 @@ export function DisplayExample() {
     return <main>
         display data
         <pre>
-            {JSON.stringify(query.data, null , 4)}
+            {Object.values(query.data ?? {}).map((item, index) => <pre key={index}>
+                {JSON.stringify(item, null , 2)}
+                <hr />
+            </pre>)}
         </pre>
     </main>
 }

@@ -2,6 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form"
 import { collection, addDoc } from "firebase/firestore";
 import { firebaseDB } from "../firebase_connection";
+import { queryClient } from "../query_client";
 interface AddDataExampleInterface {
     firstName: string;
     lastName: string;
@@ -18,6 +19,9 @@ export function AddDataToExampleComponent() {
             addDoc(collectionTest, data);
             console.log(data)
             return ;
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['test']})
         }
     })
     return <form onSubmit={handleSubmit( (data) => queryMuta.mutate(data))}>
