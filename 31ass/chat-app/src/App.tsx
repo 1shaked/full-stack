@@ -1,9 +1,9 @@
 import './App.css'
-import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
+import { QueryClientProvider } from '@tanstack/react-query'
 import { DisplayExample } from './components/displayExample'
 import { AddDataToExampleComponent } from './components/addDataToExample'
+import { queryClient } from './query_client'
 
-const queryClient = new QueryClient()
 
 function App() {
   return (
