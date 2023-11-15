@@ -25,3 +25,6 @@ const appFirebase = initializeApp(firebaseConfig);
 #### install firebase tools 
 1. ``` npm install -g firebase-tools ```
 
+#### configure firebase
+1. ``` firebase login ```
+1. ``` firebase init ```
