@@ -4,6 +4,8 @@ import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
+    GoogleAuthProvider,
+    signInWithPopup
 } from "firebase/auth";
 import { authFirebase } from "../firebase_connection";
 import { useState } from "react";
@@ -39,22 +41,17 @@ export function AuthExample() {
                 console.log({ data, userCredential });
             }
         },
-        onSuccess: (data, variables, ctx) => {
-            console.log({ data, variables, ctx });
+        onSuccess: () => {
             updateUser()
         }
     });
-    //   authFirebase.onAuthStateChanged((authState) => {
-    //     if (authState === null) setUser(false)
-    //     else setUser(true)
-    //   });
-
     if (!user) return <main>
         <h1>AuthExample</h1>
-        {/* <pre>
-    currentUser
-    {JSON.stringify(authFirebase.currentUser, null, 2)}
-</pre> */}
+        <button onClick={async () => {
+            const provider = new GoogleAuthProvider()
+            await signInWithPopup(authFirebase, provider);
+            updateUser()
+        }}>Google login</button>
         <form
             onSubmit={handleSubmit((data: AuthFormInterface) =>
                 queryAuthMutation.mutate(data)
