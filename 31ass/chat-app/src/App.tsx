@@ -10,7 +10,6 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <>
-      <h1>Shaked</h1>
       <AuthExample />
       <DisplayExample />
       <AddDataToExampleComponent />
