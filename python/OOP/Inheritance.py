@@ -7,6 +7,9 @@ class Animal:
     def makeSound(self):
         print('making sound')
 
+    def x(self):
+        print('x')
+
 # child class
 class Dog(Animal):
     def __init__(self, age: int, name: str):
@@ -15,7 +18,11 @@ class Dog(Animal):
     def bark(self):
         print('bark bark')
 
+    def x(self):
+        print('custom x')
 
 d1 = Dog(3, 'pako')
 
 d1.bark()
+
+d1.x()

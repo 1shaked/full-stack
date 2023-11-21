@@ -5,6 +5,9 @@ class Animal {
     makeSound() {
         console.log('making sound')
     }
+    x() {
+        console.log('x')
+    }
 }
 
 class Dog extends Animal {
@@ -15,9 +18,14 @@ class Dog extends Animal {
     bark() {
         console.log('bark bark')
     }
+    x() {
+        console.log('custom x')
+    }
 }
 
 const d1 = new Dog('Pako')
 console.log(d1.name)
 d1.makeSound()
 d1.bark()
+
+d1.x()
