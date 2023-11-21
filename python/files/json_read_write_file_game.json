@@ -1,8 +1,16 @@
 {
-    "name": "Dror",
-    "data": {
-        "firstName": "shaked",
-        "lastName": "chen",
-        "age": "24"
-    }
+  "name": "unknown",
+  "data": {
+    "firstName": "shaked",
+    "lastName": "chen",
+    "age": "24",
+    "x": [
+      "you",
+      "y7y"
+    ],
+    "a": [
+      "b",
+      "xsa"
+    ]
+  }
 }
