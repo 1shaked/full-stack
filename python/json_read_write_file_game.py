@@ -6,13 +6,12 @@ with open(r'python/files/json_read_write_file_game.json','r') as f:
     json_var = json.load(f);
 # say hello to the player by his name
 print(f"Hello {json_var['name']}")
-toContinue = True
 
-while toContinue:
+while True:
     # ask the user to enter information
     ans= input("Do you want to enter new information? y/n \t") 
     if ans == 'n':
-        toContinue = False
+        break
     else: 
         key = input("Enter the key\t")
         type_of_data = input("What type do you want str / arr?\t")
@@ -27,15 +26,14 @@ while toContinue:
             elif isinstance(json_var['data'][key], str):
                 json_var['data'][key] = [   json_var['data'][key]  ]
             
-            toAddToArray = True
-            while toAddToArray:
+            while True:
                 # ask the user if he want to insert value
                 value = input("Enter the value\t")
                 json_var['data'][key].append(value)
 
                 answerArr = input('Do you wish to add more elements to the array? y/n\t')
                 if (answerArr == 'n'):
-                    toAddToArray = False
+                    break
 # when done save the file
 
 print(json.dumps(json_var, indent=2))
