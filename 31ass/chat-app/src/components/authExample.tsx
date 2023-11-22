@@ -5,10 +5,12 @@ import {
     signInWithEmailAndPassword,
     signOut,
     GoogleAuthProvider,
-    signInWithPopup
+    signInWithPopup,
 } from "firebase/auth";
 import { authFirebase } from "../firebase_connection";
 import { useState } from "react";
+import { useAtomValue, useSetAtom } from "jotai";
+import { isLoggedInAtom, userAtom } from "../userState";
 interface AuthFormInterface {
     email: string;
     password: string;
@@ -17,11 +19,9 @@ interface AuthFormInterface {
 export function AuthExample() {
     const { handleSubmit, register } = useForm<AuthFormInterface>();
     const [login, setLogin] = useState(false);
-    const [user, setUser] = useState(authFirebase.currentUser !== null);
-    function updateUser() {
-        if (authFirebase.currentUser === null) setUser(false);
-        else setUser(true)
-    }
+    const setUser = useSetAtom(userAtom)
+    const isLoggedIn = useAtomValue(isLoggedInAtom)
+
     const queryAuthMutation = useMutation({
         mutationFn: async (data: AuthFormInterface) => {
             console.log(login);
@@ -42,15 +42,16 @@ export function AuthExample() {
             }
         },
         onSuccess: () => {
-            updateUser()
+            setUser(authFirebase.currentUser)
         }
     });
-    if (!user) return <main>
+    if (!isLoggedIn) return <main>
         <h1>AuthExample</h1>
         <button onClick={async () => {
             const provider = new GoogleAuthProvider()
             await signInWithPopup(authFirebase, provider);
-            updateUser()
+            setUser(authFirebase.currentUser)
+
         }}>Google login</button>
         <form
             onSubmit={handleSubmit((data: AuthFormInterface) =>
@@ -73,6 +74,7 @@ export function AuthExample() {
     </main>;
     return <button onClick={async () => {
         await signOut(authFirebase)
-        updateUser();
+        setUser(authFirebase.currentUser)
+
     }}> sign out </button>;
 }

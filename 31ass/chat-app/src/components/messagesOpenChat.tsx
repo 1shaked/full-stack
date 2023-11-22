@@ -24,7 +24,6 @@ async function readMessages() {
     const collectionMessages = collection(firebaseDB, 'messages');
     const q = query(collectionMessages, where('day_format', '==', '20/11/2023'))
     const querySet = (await getDocs(q));
-    querySet.docs[0].id
     return { id: querySet.docs[0].id, data: querySet.docs[0].data() } as MessagesOpenChatInterface
 }
 export function MessagesOpenChat() {
