@@ -2,6 +2,9 @@ import { collection, getDocs, query, where, doc, setDoc } from "firebase/firesto
 import { firebaseDB } from "../firebase_connection";
 import { useQuery } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
+import { useAtomValue } from "jotai";
+import { isLoggedInAtom, userAtom } from "../userState";
+import { getCurrentTimeFormatted } from "../utils/getCurrentTime";
 // import { useQuery } from "@tanstack/react-query";
 interface FormMessageInterface {
     message: string;
@@ -31,20 +34,31 @@ export function MessagesOpenChat() {
         queryKey: ['messagesOpenChat'],
         queryFn: readMessages
     });
+    const isLoggedIn = useAtomValue(isLoggedInAtom)
+    const user = useAtomValue(userAtom)
     const {handleSubmit, register} = useForm<FormMessageInterface>()
     if (messagesQuery.isLoading) return <div>Loading...</div>
+    if (!isLoggedIn) return <div>you are not isLoggedIn</div>
     return <div>
         <h1>open chat</h1>
-        <pre>
+        {/* <pre>
             chat message
             {JSON.stringify(messagesQuery.data, null , 2)}
-        </pre>
+        </pre> */}
+        <div>
+            {Object.entries(messagesQuery.data?.data.messages ?? {}).map((item, index) => {
+                return <div key={index}>
+                    {item[0]} --- {item[1].sender} - {item[1].message}
+                </div>
+            })}
+        </div>
         <form onSubmit={handleSubmit( async (message) => {
             // const collectionMessage = collection(firebaseDB, 'messages');
             if (messagesQuery.data === undefined) return ;
             const dataToSave = {...messagesQuery.data.data};
-            dataToSave.messages['17:46'] = {
-                sender: 'shaked1hen@gmail.com',
+            
+            dataToSave.messages[getCurrentTimeFormatted()] = {
+                sender: user?.email ?? '',
                 message: message.message
             }
             // await addDoc(collectionMessage, dataToSave);
