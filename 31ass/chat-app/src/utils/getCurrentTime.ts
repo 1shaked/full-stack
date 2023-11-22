@@ -6,3 +6,16 @@ export const getCurrentTimeFormatted = () => {
   
     return `${hours}:${minutes}:${seconds}`;
   }
+
+
+export const getCurrentDateFormatted = (): string => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0'); // JavaScript months are 0-based.
+  const day = String(today.getDate()).padStart(2, '0');
+
+  return `${day}-${month}-${year}`;
+}
+
+
+  
