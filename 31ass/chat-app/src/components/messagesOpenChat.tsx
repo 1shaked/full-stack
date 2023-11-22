@@ -1,15 +1,22 @@
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where, doc, setDoc } from "firebase/firestore";
 import { firebaseDB } from "../firebase_connection";
 import { useQuery } from "@tanstack/react-query";
+import { useForm } from "react-hook-form";
 // import { useQuery } from "@tanstack/react-query";
+interface FormMessageInterface {
+    message: string;
+}
 
 interface MessagesOpenChatInterface {
-    day: string;
-    day_format: string;
-    messages: {
-        [key: string]: {
-            sender: string;
-            message: string;
+    id: string;
+    data: {
+        day: string;
+        day_format: string;
+        messages: {
+            [key: string]: {
+                sender: string;
+                message: string;
+            }
         }
     }
 }
@@ -17,27 +24,15 @@ async function readMessages() {
     const collectionMessages = collection(firebaseDB, 'messages');
     const q = query(collectionMessages, where('day_format', '==', '20/11/2023'))
     const querySet = (await getDocs(q));
-    // console.log(querySet)
-    // if (querySet.size === 1) {
-    //     return querySet.docs[0].data() as MessagesOpenChatInterface
-    // }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    // const obj: { [key: string]: any } = {};
-    // for (const item of querySet.docs) {
-    //     const id = item.id
-    //     obj[id] = item.data()
-    //     console.log(item.data())
-    // }
-    // console.log(obj)
-    // return obj;
-
-    return querySet.docs[0].data() as MessagesOpenChatInterface
+    querySet.docs[0].id
+    return { id: querySet.docs[0].id, data: querySet.docs[0].data() } as MessagesOpenChatInterface
 }
 export function MessagesOpenChat() {
     const messagesQuery = useQuery({
         queryKey: ['messagesOpenChat'],
         queryFn: readMessages
-    })
+    });
+    const {handleSubmit, register} = useForm<FormMessageInterface>()
     if (messagesQuery.isLoading) return <div>Loading...</div>
     return <div>
         <h1>open chat</h1>
@@ -45,5 +40,20 @@ export function MessagesOpenChat() {
             chat message
             {JSON.stringify(messagesQuery.data, null , 2)}
         </pre>
+        <form onSubmit={handleSubmit( async (message) => {
+            // const collectionMessage = collection(firebaseDB, 'messages');
+            if (messagesQuery.data === undefined) return ;
+            const dataToSave = {...messagesQuery.data.data};
+            dataToSave.messages['17:46'] = {
+                sender: 'shaked1hen@gmail.com',
+                message: message.message
+            }
+            // await addDoc(collectionMessage, dataToSave);
+            await setDoc(doc(firebaseDB, 'messages', messagesQuery.data.id) , dataToSave)
+            messagesQuery.refetch()
+        })}>
+            <input type="text" placeholder="message" {...register('message')} />
+            <button type="submit">send</button>
+        </form>
     </div>
 }
