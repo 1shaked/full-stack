@@ -5,13 +5,13 @@ const app = express();
 app.get('/', (req , res) => {
     console.log('hey ma!')
     res.send({
-        message: 'hey ma'
+        message: 'hey ma', "arr": [1 , 2 , 3]
     })
 })
 
 app.get('/x', (req , res) => {
     res.send({
-        message: 'hello world'
+        message: 'hello Dror'
     })
 })
 
