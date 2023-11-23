@@ -10,8 +10,10 @@ app.get('/', (req , res) => {
 })
 
 app.get('/x', (req , res) => {
+    console.log('request was sent')
     res.send({
-        message: 'hello Dror'
+        message: 'hello Dror',
+        arr: [true, 9, [0 , 1,  2 , 3] ]
     })
 })
 
