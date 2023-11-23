@@ -6,10 +6,22 @@
 1. npm install dotenv
 1. npx tsc --init
 1. npm install -D concurrently nodemon
-1. add the server to the include (in ts config), you will need to create it ``` "include": ["server/**/*.ts"],
+
+1. create a file called tsconfig.json with the content ``` {
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist"
+  },
+  "lib": ["es2015"]
+} ```
+2. add the server to the include (in ts config), you will need to create it ``` "include": ["server/**/*.ts"],
   "exclude": ["node_modules"] ```
 1. add the exclude to the ts config, 
-1. added the scripts to package.json 
+2. added the scripts to package.json 
     ```
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,9 +32,9 @@
     ```
 ## create a node server
 1. create the file app.ts
-1. in the app.ts import express
-1. create the app ``` const app = express() ```
-1. add ``` app.listen() ```
+2. in the app.ts import express
+3. create the app ``` const app = express() ```
+4. add ``` app.listen() ```
 
 ## create the first api endpoint
 1. create the api end point
