@@ -1,9 +1,9 @@
 import { publicProcedure, router } from './trpc';
 
-const appRouter = router({
+export const appRouter = router({
   // ...
   posts: publicProcedure.query(async () => {
-    return [];
+    return [10, 20 ,30, 40];
   })
 });
 // Export type router type signature,
