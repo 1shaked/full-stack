@@ -3,7 +3,6 @@ import cors from 'cors'
 import {run} from './test'
 
 const app = express(); // create the server and save the ref in the app variable
-run()
 app.use(express.json());
 app.use(cors({
     origin: ['http://localhost:5173']
