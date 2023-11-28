@@ -5,11 +5,13 @@ async function getData() {
     return data
 }
 
+fetch('http://localhost:3301/x')
+    .then((res) => {
+        console.log(res)
+        
+        return res.json()
+    }).then((data) => {
+        console.log(data)
+    });
 /*
-fetch('http://localhost:3301/x').then((res) => {
-    console.log(res)
-    return res.json()
-}).then((data) => {
-    console.log(data)
-})
  */
