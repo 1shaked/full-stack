@@ -1,6 +1,6 @@
 import { prismaDB } from "../../connection";
 import { publicProcedure } from "../trpc";
 
-export const GetAuthors =  publicProcedure.query(() => {
+export const getAuthors =  publicProcedure.query(() => {
     return prismaDB.author.findMany();
 })
