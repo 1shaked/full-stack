@@ -32,3 +32,4 @@ model Book {
   authorId    String @db.ObjectId   // Foreign key to relate the book to an author
   author      Author   @relation(fields: [authorId], references: [id]) // Defines the relationship
 }
+// npx prisma migrate dev --name init
