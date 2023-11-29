@@ -16,3 +16,19 @@ model Post {
   content   String
   published Boolean  @default(false)
 }
+
+model Author {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  bio       String?
+  books     Book[]   // Relation field, represents a one-to-many relationship with Book
+}
+
+model Book {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String?
+  publishedAt DateTime?
+  authorId    String @db.ObjectId   // Foreign key to relate the book to an author
+  author      Author   @relation(fields: [authorId], references: [id]) // Defines the relationship
+}
