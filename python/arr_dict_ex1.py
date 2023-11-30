@@ -19,7 +19,7 @@ example [ {name: 'jj', age:2, lastName: 'xyw'} ] -> 7
 example [ {name: 'jj', age:3, lastName: 'xyw'} ] -> 8
 
 example [ {name: 'jj', age:3, lastName: 'xyw'} , {name: 'j', age:1, lastName: 'x'}] -> 11
-
+.
 '''
 
 def CalculateSumArrObject(array: list[dict[str, any]]): # create the function to calculate the sum
