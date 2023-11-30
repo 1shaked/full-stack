@@ -9,3 +9,4 @@ let arr = [
     ,'d'
     ,'e'
 ]
+console.log(arr[4][3][1])
