@@ -4,6 +4,6 @@ arr_dict = [
     { 'name': 'T', 'age': 34, 'isSingle': True, },  # 2
     { 'name': 'L', 'age': 101, 'isSingle': False, },# 3
 ]
-# .
+# ....
 for person in arr_dict:
     print(person)
