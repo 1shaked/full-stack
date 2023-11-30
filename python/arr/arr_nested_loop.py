@@ -8,3 +8,6 @@ arr = [
 
 # print(arr[3][1])
 
+for inner_arr in arr:
+    for item in inner_arr:
+        print(item)
