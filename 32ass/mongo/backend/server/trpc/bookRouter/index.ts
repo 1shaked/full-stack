@@ -10,5 +10,9 @@ export const BookRouter = router({//
             }
         })
         return book;
-    })
+    }),
+    booksList: publicProcedure.query(async () => {
+        const books = await prismaDB.book.findMany();
+        return books;
+    }) 
 })
