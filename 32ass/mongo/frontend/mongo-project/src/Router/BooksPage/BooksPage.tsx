@@ -10,6 +10,7 @@ interface BookInterface {
 export function BooksPage() {
     const book_list_query = trpc.book.booksList.useQuery();
     const {register, handleSubmit} = useForm<BookInterface>();
+    const authors_details_query = trpc.author.list.useQuery()
     const book_add_mutation = trpc.book.bookCreate.useMutation({
         onSuccess: () => {
             book_list_query.refetch();
@@ -27,10 +28,19 @@ export function BooksPage() {
             </p>
         </div>)}
         {book_list_query.data.length === 0 ? <h2>no books</h2> : <></>}
-        <form onSubmit={handleSubmit((data) => book_add_mutation.mutate(data))}>
+        <form onSubmit={handleSubmit((data) => {
+            console.log(data)
+            debugger;
+            book_add_mutation.mutate(data)
+        })}>
             <input type="text" {...register('title')} placeholder="title" />
             <input type="text" {...register('description')} placeholder="description" />
-            <input type="text" {...register('authorId')} placeholder="authorId" />
+            {/* <input type="text" {...register('authorId')} placeholder="authorId" /> */}
+            <select {...register('authorId')}>
+                {authors_details_query?.data?.map((author, index) => <option key={index} value={author.id}>
+                    {author.name}
+                </option>)}
+            </select>
             <button type="submit">send data</button>
         </form>
     </main>
