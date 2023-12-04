@@ -14,5 +14,15 @@ export const BookRouter = router({//
     booksList: publicProcedure.query(async () => {
         const books = await prismaDB.book.findMany();
         return books;
-    }) 
+    }),
+    bookCreate: publicProcedure.input(z.object({
+        title: z.string(),
+        description: z.string(),
+        authorId: z.string()
+    })).mutation(async (opts) => {
+        const book = await prismaDB.book.create({
+            data: opts.input //  publishedAt: new Date(), }
+        });
+        return book;
+    })
 })
