@@ -24,5 +24,23 @@ export const BookRouter = router({//
             data: opts.input //  publishedAt: new Date(), }
         });
         return book;
+    }),
+    bookEdit: publicProcedure.input(z.object({
+        id: z.string(),
+        title: z.string(),
+        authorId: z.string(),
+        description: z.string()
+    })).mutation(async (opts) => {
+        const book = await prismaDB.book.update({
+            data: {
+                title: opts.input.title,
+                description: opts.input.description,
+                authorId: opts.input.authorId,
+            },
+            where: {
+                id: opts.input.id
+            },
+        });
+        return book;
     })
 })
