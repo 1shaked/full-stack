@@ -10,7 +10,8 @@ export function AuthorDetailsPage() {
     if (author_details_query.data === undefined || author_details_query.data.authorDetails === null) return <h1>No author with this details</h1>
     return <main>
         <h1>AuthorDetailsPage</h1>
-        id is {JSON.stringify(params, null , 2)}
+        id is 
+        {/* {JSON.stringify(params, null , 2)} */}
         <div>
             {author_details_query.data.authorDetails.name}
             <p>
@@ -18,10 +19,13 @@ export function AuthorDetailsPage() {
             </p>
         </div>
         <div>
-            
+            <h3>books</h3>
+            {author_details_query.data.books.map((book , index) => <div key={index}>
+                {book.title}
+            </div>)}
         </div>
-        <pre>
+        {/* <pre>
             {JSON.stringify(author_details_query.data, null, 2 )}
-        </pre>
+        </pre> */}
     </main>
 }
