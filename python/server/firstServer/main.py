@@ -3,10 +3,12 @@ from fastapi import FastAPI
 from example import example_func
 # from router.product import test
 from router.product import router_product
+from router.test import test_router
+import json
 app = FastAPI()
 
 app.include_router(router_product, prefix='/product')
-
+app.include_router(test_router, prefix='/test')
 @app.get("/")
 def read_root():
     return example_func()
@@ -15,7 +17,8 @@ def read_root():
 
 @app.get("/x")
 def read_root():
-    return {"message": "Hello World"}
+        
+    return { "message": "Hello World"}
 
 
 @app.get("/product/z")
