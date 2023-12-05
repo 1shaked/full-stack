@@ -4,11 +4,12 @@ from example import example_func
 # from router.product import test
 from router.product import router_product
 from router.test import test_router
+from router.path_params import path_params_router
 app = FastAPI()
 
 app.include_router(router_product, prefix='/product')
 app.include_router(test_router, prefix='/test')
-
+app.include_router(path_params_router, prefix='/path_params')
 
 @app.get("/")
 def read_root():
