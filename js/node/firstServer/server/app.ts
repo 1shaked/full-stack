@@ -1,10 +1,14 @@
 import express from "express";
 import cors from 'cors'
+import {router_product} from './router/product'
 const app = express();
+
 
 app.use(cors({
     origin: '*'
 }));
+
+app.use('/product', router_product)
 
 app.get('/', (req , res) => {
     console.log('hey ma!')
