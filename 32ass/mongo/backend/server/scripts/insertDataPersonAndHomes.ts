@@ -24,12 +24,16 @@ export async function insertDataPersonAndHomes(interCount: number = 1) {
                 }]
             }
         });
-        prismaDB.person.update({
+        console.log({
+            id: home.id,
+            address: home.address,
+            rooms: home.rooms
+        })
+        const new_person = await prismaDB.person.update({
             where: {
                 id: person.id,
             },
             data: {
-                ...person,
                 homes: [
                     {
                         id: home.id,
@@ -39,6 +43,8 @@ export async function insertDataPersonAndHomes(interCount: number = 1) {
                 ]
             }
         })
+
+        console.log(new_person)
 
     }
 }
