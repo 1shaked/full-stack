@@ -5,6 +5,8 @@ import { AuthorPage } from "./AuthorPage/AuthorPage";
 import { AuthorDetailsPage } from "./AuthorPage/AuthorDetailsPage/AuthorDetailsPage";
 import { BooksPage } from "./BooksPage/BooksPage";
 import { BookDetailsPage } from "./BooksPage/BookDetailsPage/BookDetailsPage";
+import { HousePage } from "./HousePage/HousePage";
+import { HouseDetailsPage } from "./HousePage/HouseDetails/HouseDetails";
 export function RouterComponent() {
     return <>
     <Routes>
@@ -14,6 +16,8 @@ export function RouterComponent() {
         <Route path='/author/:id' element={<AuthorDetailsPage />}></Route>
         <Route path="/books" element={<BooksPage />}></Route>
         <Route path="/books/:id" element={<BookDetailsPage />}></Route>
+        <Route path='/house' element={<HousePage />}></Route>
+        <Route path='/house/:id' element={<HouseDetailsPage />}></Route>
     </Routes>
     </>
 }
