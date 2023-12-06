@@ -10,17 +10,35 @@ export async function insertDataPersonAndHomes(interCount: number = 1) {
                 name: faker.person.firstName(),
                 bio: faker.person.bio(),
                 age: min_age + index,
+                homes: []
             }
         })
-        await prismaDB.home.create({
+        const home = await prismaDB.home.create({
             data: {
                 address: faker.person.jobType() + ' ' +(index + 5),
                 city: faker.person.jobArea(),
                 rooms: 3,
-                personId: person.id
+                persons: [{
+                    id: person.id,
+                    name: person.name,
+                }]
+            }
+        });
+        prismaDB.person.update({
+            where: {
+                id: person.id,
+            },
+            data: {
+                ...person,
+                homes: [
+                    {
+                        id: home.id,
+                        address: home.address,
+                        rooms: home.rooms
+                    }
+                ]
             }
         })
 
-        
     }
 }
