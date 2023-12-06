@@ -13,7 +13,9 @@ export function HouseDetailsPage () {
         <hr />
         {home_details_query.data.city}
         <hr />
-        personId - {home_details_query.data.personId}
+        personId - {home_details_query.data.persons.map((person, index) => <pre key={index}>
+            {JSON.stringify(person, null , 2)}
+        </pre>)}
     </main>
 }
 
