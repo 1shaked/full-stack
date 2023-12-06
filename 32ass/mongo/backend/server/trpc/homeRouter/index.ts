@@ -13,6 +13,6 @@ export const homeRouter = router({
                 id: opts.input
             }
         });
-        return home;
+        return home ?? undefined;
     })
 })
