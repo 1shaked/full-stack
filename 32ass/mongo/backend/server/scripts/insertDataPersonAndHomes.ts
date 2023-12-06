@@ -2,15 +2,25 @@ import { faker } from '@faker-js/faker';
 import { prismaDB } from '../connection';
 
 
-async function insertDataPersonAndHomes(interCount: number = 1) {
+export async function insertDataPersonAndHomes(interCount: number = 1) {
+    const min_age = 20
     for (let index = 0; index < interCount; index++) {
-        prismaDB.home.create({
+        const person = await prismaDB.person.create({
             data: {
-                address: '',
-                city: '',
-                rooms: 5,
-                personId: ''
+                name: faker.person.firstName(),
+                bio: faker.person.bio(),
+                age: min_age + index,
             }
         })
+        await prismaDB.home.create({
+            data: {
+                address: faker.person.jobType() + ' ' +(index + 5),
+                city: faker.person.jobArea(),
+                rooms: 3,
+                personId: person.id
+            }
+        })
+
+        
     }
 }
