@@ -34,13 +34,24 @@ model Book {
 }
 // npx prisma db push
 
+type PersonHomeInfo {
+  id String @db.ObjectId
+  name String
+}
+
+type HomeOfPersonInfo {
+  id String @db.ObjectId
+  address String
+  rooms Int
+  person PersonHomeInfo[]
+}
+
 model Home {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
   address String
   city String
   rooms Int
-  personId String @db.ObjectId
-  person Person @relation(fields: [personId], references: [id])
+  persons PersonHomeInfo[]
 }
 
 model Person {
@@ -48,5 +59,5 @@ model Person {
   name      String
   bio       String?
   age Int
-  homes Home[]
+  homes HomeOfPersonInfo[]
 }
