@@ -2,8 +2,7 @@ import express from 'express';
 import cors from 'cors'
 import * as trpcExpress from '@trpc/server/adapters/express';
 import { appRouter } from "./trpc/index";
-// import { generateData } from './insertDummeyData';
-// generateData();
+
 
 const app = express(); // create the server and save the ref in the app variable
 app.use(express.json());
