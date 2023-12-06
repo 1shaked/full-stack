@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { NavLink, useParams } from "react-router-dom"
 import { trpc } from "../../../trpc"
 import { useForm } from "react-hook-form";
 import { useSignal } from "@preact/signals-react";
@@ -25,7 +25,7 @@ export function HouseDetailsPage () {
         {home_details_query.data?.city}
         <hr />
         persons - {home_details_query.data?.persons?.map((person, index) => <pre key={index}>
-            {JSON.stringify(person, null , 2)}
+            <NavLink to={`/persons/${person.id}`}>{person.name}</NavLink>
         </pre>)}
         <Dialog open={is_add_person_dialog_open.value} onClose={() => is_add_person_dialog_open.value = false}>
             <div style={{ width: '50vw', height: '50vh'}}>
