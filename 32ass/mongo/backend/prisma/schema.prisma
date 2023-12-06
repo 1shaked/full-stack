@@ -33,3 +33,20 @@ model Book {
   author      Author   @relation(fields: [authorId], references: [id]) // Defines the relationship
 }
 // npx prisma db push
+
+model Home {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  address String
+  city String
+  rooms Int
+  personId String @db.ObjectId
+  person Person @relation(fields: [personId], references: [id])
+}
+
+model Person {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  bio       String?
+  age Int
+  homes Home[]
+}
