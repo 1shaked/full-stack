@@ -14,5 +14,38 @@ export const homeRouter = router({
             }
         });
         return home ?? undefined;
+    }),
+    addPerson: publicProcedure.input(z.object({
+        home_id: z.string(),
+        name: z.string(),
+        person_id: z.string(),
+    })).mutation(async (opts) => {
+        // opts.input.
+        const home = await prismaDB.home.update({
+            where: {
+                id: opts.input.home_id
+            },
+            data: {
+                persons: {
+                    push: { id: opts.input.person_id, name: opts.input.name }
+                }
+            }
+        });
+        const person = await prismaDB.person.update({
+            where: {
+                id: opts.input.person_id,
+            },
+            data: {
+                homes: {
+                    push: {
+                        id: opts.input.home_id,
+                        address: home.address,
+                        rooms: home.rooms,
+                        person: []
+                    }
+                }
+            }
+        })
+        return {home, person}; 
     })
 })
