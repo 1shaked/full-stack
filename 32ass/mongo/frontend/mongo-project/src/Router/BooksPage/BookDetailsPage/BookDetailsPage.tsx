@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { NavLink, useParams } from "react-router-dom"
 import { trpc } from "../../../trpc";
 import Dialog from '@mui/material/Dialog';
 import { useSignal } from "@preact/signals-react";
@@ -33,6 +33,7 @@ export function BookDetailsPage() {
             {book_details_query.data.description}
         </p>
         <h5>{book_details_query.data.publishedAt}</h5>
+        <NavLink to={`/author/${book_details_query.data.authorId}`}>{book_details_query.data.authorId}</NavLink>
 
         <Dialog open={is_edit_open.value}>
             <button onClick={() => is_edit_open.value = false}>close</button>
