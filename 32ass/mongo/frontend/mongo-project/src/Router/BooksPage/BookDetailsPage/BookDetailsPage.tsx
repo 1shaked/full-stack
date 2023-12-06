@@ -14,7 +14,7 @@ export function BookDetailsPage() {
     const id = params.id ?? '';
     const book_details_query = trpc.book.bookDetails.useQuery(id);
     const is_edit_open = useSignal(false)
-    const {register, handleSubmit} = useForm<BookDetailsInterface>({
+    const {register, handleSubmit, reset} = useForm<BookDetailsInterface>({
         defaultValues: {...book_details_query.data , description: book_details_query.data?.description ?? '', } 
     });
     const authors_details_query = trpc.author.list.useQuery()
@@ -34,13 +34,12 @@ export function BookDetailsPage() {
         </p>
         <h5>{book_details_query.data.publishedAt}</h5>
         <NavLink to={`/author/${book_details_query.data.authorId}`}>{book_details_query.data.authorId}</NavLink>
-
         <Dialog open={is_edit_open.value}>
             <button onClick={() => is_edit_open.value = false}>close</button>
             <h1>wow</h1>
             <form onSubmit={handleSubmit((data) => {
                 console.log(data);
-                book_edit_mutation.mutate(data)
+                book_edit_mutation.mutate({...data, id: book_details_query?.data?.id ?? ''})
             })}>
                 <input type="text" {...register('title')} />
                 <input type="text" {...register('description')} />
@@ -52,6 +51,9 @@ export function BookDetailsPage() {
             <button type="submit">update data</button>
             </form>
         </Dialog>
-        <button onClick={() => is_edit_open.value = true}>edit</button>
+        <button onClick={() => {
+            is_edit_open.value = true;
+            reset({...book_details_query.data , description: book_details_query.data?.description ?? '', })
+        }}>edit</button>
     </main>
 }
