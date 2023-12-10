@@ -3,6 +3,7 @@ import { trpc } from "../../trpc"
 import './blogList.css'
 export function BlogPage() {
     const blogQuery = trpc.blog.list.useQuery();
+    
     const deleteBlogMutation = trpc.blog.delete.useMutation({
         onSuccess: () => {
             blogQuery.refetch();
