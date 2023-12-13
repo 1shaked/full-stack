@@ -20,5 +20,14 @@ export const personRouter = router({
             }
         });
         return person ?? undefined;
-    })
+    }),
+    list_names: publicProcedure.query(async () => {
+        const persons = await prismaDB.person.findMany({
+            select: {
+                id: true,
+                name: true,
+            }
+        })
+        return persons
+    }),
 })
