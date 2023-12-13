@@ -47,5 +47,19 @@ export const homeRouter = router({
             }
         })
         return {home, person}; 
+    }),
+    createHouse: publicProcedure.input(z.object({
+        address: z.string(),
+        city: z.string(),
+        rooms: z.number(),
+        persons: z.array(z.object({
+            id: z.string(),
+            name: z.string()
+        }))
+    })).mutation(async (opts) => {
+        const house = await prismaDB.home.create({
+            data: opts.input
+        });
+        return house;
     })
 })
