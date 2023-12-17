@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { trpc } from "../trpc"
+import { useState } from "react";
 
 interface UserCreateInterface {
     name: string;
@@ -18,13 +19,55 @@ export function UsersList() {
             users_list_query.refetch()
         }
     })
-    const {register , handleSubmit} = useForm<UserCreateInterface>()
+    const user_update_mutation = trpc.userUpdate.useMutation({
+        onSuccess: () => {
+            users_list_query.refetch()
+        }
+    })
+    const {register , handleSubmit, reset,} = useForm<UserCreateInterface>();
+    const update_form = useForm<UserCreateInterface>()
+    const [selectedUserToUpdate, setSelectedUserToUpdate] = useState(-1);
+
+    // useEffect(() => {
+    //     if (selectedUserToUpdate === -1) reset();
+    //     if (users_list_query.data === undefined) return ;
+    //     const user = users_list_query.data[selectedUserToUpdate]
+    //     reset({
+    //         name: user.name ?? '',
+    //         email: user.email
+    //     })
+    // }, [selectedUserToUpdate])
     if (users_list_query.isLoading) return <div>Loading....</div>
     return <>
         <h1>users list</h1>
         {users_list_query.data?.map((user, index) => <div key={index}>
-            {user.email} - <button onClick={() => user_delete_mutation.mutate(user.id)} style={{color: 'rgb(230, 0 ,0 )'}}>DELETE</button>
-            <hr />
+            {selectedUserToUpdate === index ? <>
+            <form onSubmit={update_form.handleSubmit((data) => {
+                debugger;
+                user_update_mutation.mutate({...data , id: user.id})
+            })}>
+                email <input type="text" {...update_form.register('email')} />
+                <br />
+                name: <input type="text" {...update_form.register('name')} /> 
+                <button type="submit">update</button>
+                <button>cancel</button>
+            </form>
+            </> : <>
+                {user.email} - <button onClick={() => user_delete_mutation.mutate(user.id)} style={{color: 'rgb(230, 0 ,0 )'}}>DELETE</button>
+                - <button onClick={() => {
+                    setSelectedUserToUpdate(index);
+                    update_form.reset({
+                        name: user.name ?? '',
+                        email: user.email,
+                    })
+                    // reset({
+                    //     name: user.name ?? 'name',
+                    //     email: user.email
+                    // })
+                }}> edit</button>
+                <hr />
+            </>}
+            
         </div>)}
 
         <hr />
