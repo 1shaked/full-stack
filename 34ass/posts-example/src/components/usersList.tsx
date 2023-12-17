@@ -8,18 +8,18 @@ interface UserCreateInterface {
 }
 
 export function UsersList() {
-    const users_list_query = trpc.userList.useQuery();
-    const user_add_mutation = trpc.userCreate.useMutation({
+    const users_list_query = trpc.user.userList.useQuery();
+    const user_add_mutation = trpc.user.userCreate.useMutation({
         onSuccess: () => {
             users_list_query.refetch()
         }
     });
-    const user_delete_mutation = trpc.userDelete.useMutation({
+    const user_delete_mutation = trpc.user.userDelete.useMutation({
         onSuccess: () => {
             users_list_query.refetch()
         }
     })
-    const user_update_mutation = trpc.userUpdate.useMutation({
+    const user_update_mutation = trpc.user.userUpdate.useMutation({
         onSuccess: () => {
             users_list_query.refetch()
         }
