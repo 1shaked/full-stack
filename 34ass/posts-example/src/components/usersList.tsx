@@ -24,7 +24,7 @@ export function UsersList() {
             users_list_query.refetch()
         }
     })
-    const {register , handleSubmit, reset,} = useForm<UserCreateInterface>();
+    const {register , handleSubmit,} = useForm<UserCreateInterface>();
     const update_form = useForm<UserCreateInterface>()
     const [selectedUserToUpdate, setSelectedUserToUpdate] = useState(-1);
 
