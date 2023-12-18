@@ -27,16 +27,6 @@ export function UsersList() {
     const {register , handleSubmit,} = useForm<UserCreateInterface>();
     const update_form = useForm<UserCreateInterface>()
     const [selectedUserToUpdate, setSelectedUserToUpdate] = useState(-1);
-
-    // useEffect(() => {
-    //     if (selectedUserToUpdate === -1) reset();
-    //     if (users_list_query.data === undefined) return ;
-    //     const user = users_list_query.data[selectedUserToUpdate]
-    //     reset({
-    //         name: user.name ?? '',
-    //         email: user.email
-    //     })
-    // }, [selectedUserToUpdate])
     if (users_list_query.isLoading) return <div>Loading....</div>
     return <>
         <h1>users list</h1>
@@ -60,10 +50,6 @@ export function UsersList() {
                         name: user.name ?? '',
                         email: user.email,
                     })
-                    // reset({
-                    //     name: user.name ?? 'name',
-                    //     email: user.email
-                    // })
                 }}> edit</button>
                 <hr />
             </>}

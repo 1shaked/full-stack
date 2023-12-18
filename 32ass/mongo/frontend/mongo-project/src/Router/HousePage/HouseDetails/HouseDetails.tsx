@@ -1,8 +1,8 @@
 import { NavLink, useParams } from "react-router-dom"
 import { trpc } from "../../../trpc"
 import { useForm } from "react-hook-form";
-import { useSignal } from "@preact/signals-react";
 import { Dialog } from "@mui/material";
+import { useState } from "react";
 
 
 export function HouseDetailsPage () {
@@ -15,7 +15,7 @@ export function HouseDetailsPage () {
         }
     })
     const {handleSubmit, register, } = useForm<{ person_id: string; }>();
-    const is_add_person_dialog_open = useSignal(true)
+    const [is_add_person_dialog_open, set_is_add_person_dialog_open] = useState(false)
     if (home_details_query.isLoading || person_list_query.data === undefined) return <h1>Loading...</h1>
     if (home_details_query.data === undefined) return <h1>Page does not exist</h1>
     return <main>
@@ -27,7 +27,7 @@ export function HouseDetailsPage () {
         persons - {home_details_query.data?.persons?.map((person, index) => <pre key={index}>
             <NavLink to={`/persons/${person.id}`}>{person.name}</NavLink>
         </pre>)}
-        <Dialog open={is_add_person_dialog_open.value} onClose={() => is_add_person_dialog_open.value = false}>
+        <Dialog open={is_add_person_dialog_open} onClose={() => set_is_add_person_dialog_open(false)}>
             <div style={{ width: '50vw', height: '50vh'}}>
                 <form onSubmit={handleSubmit((data) => {
                     console.log(data)
@@ -47,10 +47,10 @@ export function HouseDetailsPage () {
                     </select>
                     <button type="submit">Submit</button>
                 </form>
-                <button onClick={() => is_add_person_dialog_open.value = false}>Close</button>
+                <button onClick={() => set_is_add_person_dialog_open(false)}>Close</button>
             </div>
         </Dialog>
-        <button onClick={() => is_add_person_dialog_open.value = true}>Add Person</button>
+        <button onClick={() => set_is_add_person_dialog_open(true)}>Add Person</button>
     </main>
 }
 

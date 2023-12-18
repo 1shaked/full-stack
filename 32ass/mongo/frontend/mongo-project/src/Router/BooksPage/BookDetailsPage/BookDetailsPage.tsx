@@ -1,8 +1,8 @@
 import { NavLink, useParams } from "react-router-dom"
 import { trpc } from "../../../trpc";
 import Dialog from '@mui/material/Dialog';
-import { useSignal } from "@preact/signals-react";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 interface BookDetailsInterface {
     id: string;
     title: string;
@@ -13,7 +13,7 @@ export function BookDetailsPage() {
     const params = useParams()
     const id = params.id ?? '';
     const book_details_query = trpc.book.bookDetails.useQuery(id);
-    const is_edit_open = useSignal(false)
+    const [is_edit_open, set_is_edit_open] = useState(false)
     const {register, handleSubmit, reset} = useForm<BookDetailsInterface>({
         defaultValues: {...book_details_query.data , description: book_details_query.data?.description ?? '', } 
     });
@@ -34,8 +34,8 @@ export function BookDetailsPage() {
         </p>
         <h5>{book_details_query.data.publishedAt}</h5>
         <NavLink to={`/author/${book_details_query.data.authorId}`}>{book_details_query.data.authorId}</NavLink>
-        <Dialog open={is_edit_open.value}>
-            <button onClick={() => is_edit_open.value = false}>close</button>
+        <Dialog open={is_edit_open}>
+            <button onClick={() => set_is_edit_open(false)}>close</button>
             <h1>wow</h1>
             <form onSubmit={handleSubmit((data) => {
                 console.log(data);
@@ -52,7 +52,7 @@ export function BookDetailsPage() {
             </form>
         </Dialog>
         <button onClick={() => {
-            is_edit_open.value = true;
+            set_is_edit_open(true);
             reset({...book_details_query.data , description: book_details_query.data?.description ?? '', })
         }}>edit</button>
     </main>
