@@ -10,7 +10,7 @@ export function App() {
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: 'http://localhost:3301/trpc',
+          url: 'https://backend-mongo-example.onrender.com/trpc',
           // You can pass any HTTP headers you wish here
           async headers() {
             return {
