@@ -1,5 +1,7 @@
 {
   "name": "ionicAppNative",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react-vite"
 }
