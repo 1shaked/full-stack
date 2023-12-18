@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors'
 import * as trpcExpress from '@trpc/server/adapters/express';
 import { appRouter } from "./trpc/index";
+import path from 'path'
 // import { insertDataPersonAndHomes } from './scripts/insertDataPersonAndHomes';
 
 // insertDataPersonAndHomes(2)
@@ -18,11 +19,19 @@ app.use(
         // createContext,
     }),
 ); 
-app.get('/' , (req, res) => {
-    res.send({
-        message: 'started my project'
-    })
-});
+// app.get('/' , (req, res) => {
+//     res.send({
+//         message: 'started my project'
+//     })
+// });
+
+app.use(
+    express.static(path.join(__dirname , '../client'))
+);
+
+app.get('*' , (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/index.html'))
+})
 
 
 
