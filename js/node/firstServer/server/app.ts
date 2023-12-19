@@ -4,7 +4,10 @@ import {router_product} from './router/product'
 import {test_router} from './router/test'
 import {path_params_router} from './router/path_params'
 import { query_params_router } from "./router/query_params";
+import { createPost } from "./scripts/createPost";
 const app = express();
+
+// createPost();
 
 
 app.use(cors({
