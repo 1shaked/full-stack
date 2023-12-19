@@ -42,3 +42,4 @@ dist
 31ass/chat-app/firebase.json
 31ass/chat-app/firestore.indexes.json
 31ass/chat-app/firestore.rules
+python/server/firstServer/scripts/secret.py
