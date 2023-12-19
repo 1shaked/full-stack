@@ -10,7 +10,7 @@ import path from 'path'
 const app = express(); // create the server and save the ref in the app variable
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:5173']
+    origin: ['*']
 }));
 app.use(
     '/trpc',

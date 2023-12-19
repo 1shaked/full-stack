@@ -17,7 +17,8 @@ export const getAuthorsDetails = publicProcedure.input(z.string()).query(async (
                 authorId: id,
             }
         }),
-    ])
+    ]);
+    
     return {
         authorDetails,
         books

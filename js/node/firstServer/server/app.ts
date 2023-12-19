@@ -28,8 +28,8 @@ app.get('/x', (req , res) => {
         message: 'hello Dror',
         arr: [true, 9, [0 , 1,  2 , 3] ]
     })
-})
-
+}) // mutation # create  / update / delete
+// query # read
 
 app.listen(3301, () => {
     console.log('server is running on port 3301!')

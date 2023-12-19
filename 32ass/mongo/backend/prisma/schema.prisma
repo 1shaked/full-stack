@@ -56,8 +56,8 @@ model Home {
 
 model Person {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
-  name      String
-  bio       String?
-  age Int
+  name  String
+  bio   String?
+  age   Int
   homes HomeOfPersonInfo[]
 }
