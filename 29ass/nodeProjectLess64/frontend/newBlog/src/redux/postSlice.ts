@@ -22,11 +22,13 @@ interface PostInterface {
 
 interface PostSliceInterface {
     posts: PostInterface[],
+    isLoading: boolean,
 }
 
 
 const initialState: PostSliceInterface = {
-    posts: []
+    posts: [],
+    isLoading: false
 }
 
 export const postSlice = createSlice({
@@ -40,6 +42,10 @@ export const postSlice = createSlice({
     extraReducers(builder) {
         builder.addCase(fetchPosts.fulfilled, (state, action) => {
             state.posts = action.payload
+            state.isLoading = false;
+        })
+        builder.addCase(fetchPosts.pending, (state,) => {
+            state.isLoading = true;
         })
     },
 })

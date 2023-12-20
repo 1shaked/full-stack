@@ -13,6 +13,7 @@ export function ReduxPosts() {
         dispatch(fetchPosts())
     }, [])
     return <div>
+        {post.isLoading ? 'Loading...' : 'not loading'}
         <pre>
             {JSON.stringify(post, null , 2)}
         </pre>
