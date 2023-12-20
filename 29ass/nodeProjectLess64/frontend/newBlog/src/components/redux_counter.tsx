@@ -1,9 +1,10 @@
 
 import { useSelector } from "react-redux"
-import {CounterInterface, incremented, } from '../redux/counterSlice'
+import {incremented } from '../redux/counterSlice'
 import { useDispatch } from "react-redux"
+import { RootState } from "../redux/store"
 export function ReduxCounter() {
-    const counter = useSelector((state: CounterInterface) => state)
+    const counter = useSelector((state: RootState) => state.counter)
     const dispatch = useDispatch()
     
     return <div>

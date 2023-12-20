@@ -1,10 +1,11 @@
 
 import { useSelector } from "react-redux"
-import {CounterInterface, add } from '../redux/counterSlice'
+import {add } from '../redux/counterSlice'
 import { useState } from "react"
 import { useDispatch } from "react-redux"
+import { RootState } from "../redux/store"
 export function ReduxStringArr() {
-    const counter = useSelector((state: CounterInterface) => state)
+    const counter = useSelector((state: RootState) => state.counter)
     const dispatch = useDispatch()
     const [text , setText] = useState('')
     return <div>
