@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { trpc } from "../../trpc"
 import './blogList.css'
 import { ReduxCounter } from "../../components/redux_counter";
+import { ReduxStringArr } from "../../components/redux_string_arr";
 export function BlogPage() {
     const blogQuery = trpc.blog.list.useQuery();
     
@@ -14,6 +15,7 @@ export function BlogPage() {
     return <div>
         <h1>blog list</h1>
         <ReduxCounter />
+        <ReduxStringArr />
         <NavLink to={'/blog/add'} className='AddBlogLink'>add blog</NavLink>
         <hr />
         {blogQuery.data?.map((blog, index) => <div key={index} className='blogListRow'>
