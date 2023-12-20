@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { httpBatchLink } from '@trpc/client';
 import { trpc } from './trpc';
 import { Provider } from 'react-redux'
-import { storeRedux } from './redux/counterSlice';
+import { storeRedux } from './redux/store';
 
 function App() {
   const [queryClient] = useState(() => new QueryClient());
