@@ -12,6 +12,9 @@ export const blogItem = publicProcedure.input(z.object({
         }
     });
     const blogComments = await prisma.comment.findMany({
+        // select: {
+            
+        // },
         where: {
             blogId: opts.input.id
         }
