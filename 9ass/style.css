@@ -1,8 +1,0 @@
-:root {
-    --back: rgba(251, 98, 98, 0.821);
-    --fontSize: 1.5rem;
-}
-body {
-    background: var(--back);
-    font-size: var(--fontSize);
-}
