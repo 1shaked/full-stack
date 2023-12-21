@@ -1,0 +1,46 @@
+.blogListRow {
+    display: flex;
+}
+.blogList {
+    background-color: #f3f1f1;
+    font-size: 1.5rem;
+    padding-left: 10px;
+    transition: 0.2s ease-in;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-left: 3px solid #61efcb;
+    display: block;
+    color: black;
+    font-weight: normal;
+    text-decoration: none;
+    flex: 1;
+}
+.blogList:hover {
+    background-color: #61efcb;
+}
+.AddBlogLink {
+    text-decoration: none;
+    color: black;
+    background-color: rgb(88, 226, 88);
+    padding: 10px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    transition: 0.5s ease-out;
+}
+.AddBlogLink:hover {
+    color: white;
+    background-color: rgb(18, 74, 18);
+}
+.DeleteBlogBtn {
+    background-color: rgb(235, 92, 92);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.DeleteBlogBtn:hover {
+    color: rgb(235, 92, 92);
+    background-color: white;
+}

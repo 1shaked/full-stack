@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            width: 70%;
+            gap: 10px;
+        }
+        .grid > div {
+            background-color: rgba(198, 21, 21, 0.618);
+            display: grid;
+            height: 100px;
+            place-items: center;
+            font-size: 5rem;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2 id="example">Tic Toe</h2>
+        <div class="grid" id="board">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <script src="../js/ticToe.js"></script>
+</body>
+</html>

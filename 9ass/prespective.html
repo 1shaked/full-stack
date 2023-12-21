@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(45deg, #ffffff, #8f70f5);
+        }
+        .container {
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+        .d3effect {
+            width: 200px;
+            height: 200px;
+            background-color: #282222;
+            color: white;
+            transform: rotateX(20deg) rotateY(20deg) perspective(5000px); 
+            transform-style: preserve-3d;
+            box-shadow: 0 0 0 0 currentColor;
+            display: grid;
+            place-items: center;
+            position: relative;
+        }
+        .d3effect::before {
+            content: "";
+            inset: 0.75rem;
+            position: absolute;
+            background-color:black;
+            filter: blur(15px);
+            opacity: 0.5;
+            transform: translateZ(-49px);
+        } 
+        .d3effect::after {
+            content: "";
+            position: absolute;
+            inset: -1rem;
+            background: linear-gradient(-45deg, blue, red);
+            /* z-index: -1; */
+            transform: translateZ(-50px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="d3effect">
+            This is 3d effect
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img-wrap {
+            position: relative;
+            display: inline-block;
+            /* display: inline-grid;
+            place-items: center; */
+        }
+        .img-wrap > span{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0rem;
+            /* background-color: rgba(241, 249, 255, 0.469); */
+            /* opacity: 0; */
+            transition: 2s ease-out;
+        }
+        .img-wrap::before {
+            content: '';
+            transition: 2s ease-out;
+            -webkit-transition: all 3s;
+            transition: all 3s;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            background-image: linear-gradient(to top, rgba(239,239,239,1), rgba(239,239,239,0.5));
+            /* background-image: linear-gradient(90deg, rgba(2,0,36,0.5) 0%, rgba(31,31,223,0.5) 0%, rgba(20,98,235,0.5) 0%, rgba(181,170,20,0.5) 31%, rgba(228,27,27,1) 57%, rgba(159,239,16,0.3) 100%, rgba(20,99,235,1) 100%, rgba(0,212,255,1) 100%); */
+        }
+        .img-wrap:hover:before{
+            content: '';
+            opacity: 1;
+        }
+        .img-wrap:hover span {
+            top: calc(50% - 2rem);
+            transition: 2s ease-out;
+            font-size: 2rem;
+            /* opacity: 1; */
+        }
+        h2::before {
+            content: '--->';
+        }
+        .container {
+            height: 300px;
+            width: 300px;
+            background-color: red;
+        }
+        .box {
+            height: 250px;
+            width: 250px;
+            background-color: blue;
+            transition: 2s ease-out;
+        }
+        .container:hover ~ .box {
+            background-color: rgb(198, 255, 196);
+        }
+    </style>
+</head>
+<body>
+    <div class="img-wrap">
+        <img src="../img/joker.jpeg" height="300px" alt="" srcset="">
+        <span>
+            The joker
+        </span>
+    </div>
+    <h2>
+        whatever
+    </h2>
+
+    <div>
+        <div class="container"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rotateExample {
+            /* background-color: aqua; */
+            width: 50px;
+            height: 50px;
+            transition: 1s ease-in;
+            border-left: 1px solid red;
+            border-left: 1px dotted blue;
+            background: hsla(5, 93%, 28%, 1);
+
+            background: linear-gradient(0deg, hsla(5, 93%, 28%, 1) 0%, hsla(34, 10%, 13%, 1) 100%);
+
+            background: -moz-linear-gradient(0deg, hsla(5, 93%, 28%, 1) 0%, hsla(34, 10%, 13%, 1) 100%);
+
+            background: -webkit-linear-gradient(0deg, hsla(5, 93%, 28%, 1) 0%, hsla(34, 10%, 13%, 1) 100%);
+
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8C1105", endColorstr="#25221E", GradientType=1 );
+        }
+        .rotateExample:hover {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="rotateExample"></div>
+</body>
+</html>

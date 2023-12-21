@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <img class="nav_profile_pic" src="./public/profile.jpeg" alt="" />
+      <h2 class="nav_title">Full stack dev</h2>
+      <div class="nav_links" id="nav_links_container_id">
+        <!-- social media links -->
+        <!-- images of icons -->
+      </div>
+    </nav>
+    <!-- projects -->
+    <div id="projects" class="projects">
+      <!-- <div class="project">
+        <div>
+          <img src="./public/projects_icons/waze.svg" alt="">
+        </div>
+        <div>
+          <h2 class="project_title">waze</h2>
+          <p class="project_description">
+            Waze is a popular GPS navigation and traffic app that revolutionizes the way people navigate roads and highways.
+          It is designed to provide real-time, crowd-sourced information about traffic conditions, accidents, road closures, 
+          and other obstacles, helping users reach their destinations efficiently and avoiding unnecessary delays.
+          
+          </p>
+        </div>
+      </div> -->
+    </div>
+    <div id="app"></div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width="24px"
+      height="24px"
+    >
+    <g>
+      <path
+      
+      id="shape1"
+      d="M19,3H5C3.895,3,3,3.895,3,5v14c0,1.105,0.895,2,2,2h14c1.105,0,2-0.895,2-2V5C21,3.895,20.105,3,19,3z M9,17H6.477v-7H9 V17z M7.694,8.717c-0.771,0-1.286-0.514-1.286-1.2s0.514-1.2,1.371-1.2c0.771,0,1.286,0.514,1.286,1.2S8.551,8.717,7.694,8.717z M18,17h-2.442v-3.826c0-1.058-0.651-1.302-0.895-1.302s-1.058,0.163-1.058,1.302c0,0.163,0,3.826,0,3.826h-2.523v-7h2.523v0.977 C13.93,10.407,14.581,10,15.802,10C17.023,10,18,10.977,18,13.174V17z"
+      />
+    </g>
+    <g>
+      <path
+      style="visibility: hidden;"
+      id="shape2"
+      d="M19.077,4.928C17.191,3.041,14.683,2.001,12.011,2c-5.506,0-9.987,4.479-9.989,9.985 c-0.001,1.76,0.459,3.478,1.333,4.992L2,22l5.233-1.237c1.459,0.796,3.101,1.215,4.773,1.216h0.004 c5.505,0,9.986-4.48,9.989-9.985C22.001,9.325,20.963,6.816,19.077,4.928z M16.898,15.554c-0.208,0.583-1.227,1.145-1.685,1.186 c-0.458,0.042-0.887,0.207-2.995-0.624c-2.537-1-4.139-3.601-4.263-3.767c-0.125-0.167-1.019-1.353-1.019-2.581 S7.581,7.936,7.81,7.687c0.229-0.25,0.499-0.312,0.666-0.312c0.166,0,0.333,0,0.478,0.006c0.178,0.007,0.375,0.016,0.562,0.431 c0.222,0.494,0.707,1.728,0.769,1.853s0.104,0.271,0.021,0.437s-0.125,0.27-0.249,0.416c-0.125,0.146-0.262,0.325-0.374,0.437 c-0.125,0.124-0.255,0.26-0.11,0.509c0.146,0.25,0.646,1.067,1.388,1.728c0.954,0.85,1.757,1.113,2.007,1.239 c0.25,0.125,0.395,0.104,0.541-0.063c0.146-0.166,0.624-0.728,0.79-0.978s0.333-0.208,0.562-0.125s1.456,0.687,1.705,0.812 c0.25,0.125,0.416,0.187,0.478,0.291C17.106,14.471,17.106,14.971,16.898,15.554z"
+      />
+    </g>
+    </svg>
+    
+    <!-- di -->
+
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" class="icon flat-line"
+    data-name="Flat Line" viewBox="0 0 24 24">
+    <g>
+        <path
+        id="shape1"
+        d="M13.38 3C8.25 3 6 6.57 6 10.49v.11a2.4 2.4 0 0 1-2.37 2.47A2.27 2.27 0 0 1 3 13a7 7 0 0 0 3.66 4.53A2 2 0 0 1 10 18.69a17.29 17.29 0 0 0 3.33.3h.71a2 2 0 0 1 3.47-1.27l.13-.05A8.08 8.08 0 0 0 21 11c0-4.49-3-8-7.62-8Z
+        M6.66 17.52A7 7 0 0 1 3 13a2.27 2.27 0 0 0 .63.08A2.4 2.4 0 0 0 6 10.6v-.11C6 6.57 8.25 3 13.38 3 18 3 21 6.51 21 11a8.08 8.08 0 0 1-3.39 6.62
+        M10 18.69a17.29 17.29 0 0 0 3.33.3h.62
+        M18 19a2 2 0 1 1-2-2 2 2 0 0 1 2 2ZM6 19a2 2 0 1 0 2-2 2 2 0 0 0-2 2Z
+        M15.95 9h.1
+        M11.05 9h-.1"
+        style="fill:#2ca9bc;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2" />
+    </g>
+    <g>
+    
+        <path
+        id="shape2" 
+        style="visibility: hidden;"
+        d="M12,11.5c1.4,0,2.5-1.1,2.5-2.5S13.4,6.5,12,6.5S9.5,7.6,9.5,9S10.6,11.5,12,11.5 M12,2c3.9,0,7,3.1,7,7c0,5.2-7,13-7,13
+	S5,14.2,5,9C5,5.1,8.1,2,12,2 M3,9c0,4.5,5.1,10.7,6,11.8L8,22c0,0-7-7.8-7-13c0-3.2,2.1-5.8,5-6.7C4.2,3.9,3,6.3,3,9z M18,2.3
+	c2.9,0.9,5,3.5,5,6.7c0,5.2-7,13-7,13l-1-1.2c0.9-1.1,6-7.3,6-11.8C21,6.3,19.8,3.9,18,2.3z"/>
+    </g>
+</svg>
+-->
+      <script src="
+      https://cdn.jsdelivr.net/npm/kute.js@2.2.4/dist/kute.min.js"></script>
+    <script>
+      const tween = KUTE.fromTo('#shape1', {path: '#shape1' }, 
+      { path: '#shape2' }, {repeat: 15, duration: 3000, yoyo: true});
+      tween.start();
+    </script>  
+
+    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/ts/nav_links.ts"></script>
+    <script type="module" src="/src/ts/binarySeach.ts"></script>
+    <script type="module" src="/src/ts/projects.ts"></script>
+  </body>
+</html>

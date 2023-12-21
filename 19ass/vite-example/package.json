@@ -1,0 +1,19 @@
+{
+  "name": "vite-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "supabase": "^1.77.6",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.25.0"
+  }
+}

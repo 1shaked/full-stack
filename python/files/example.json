@@ -1,0 +1,7 @@
+{
+    "name": "shaked",
+    "last-name": "chen",
+    "age": 24,
+    "is": true,
+    "ages": ["x" , 24, false]
+}

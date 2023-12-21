@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  content   String
+  published Boolean  @default(false)
+}
+
+model Author {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  bio       String?
+  books     Book[]   // Relation field, represents a one-to-many relationship with Book
+}
+
+model Book {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String?
+  publishedAt DateTime?
+  authorId    String @db.ObjectId   // Foreign key to relate the book to an author
+  author      Author   @relation(fields: [authorId], references: [id]) // Defines the relationship
+}
+// npx prisma db push
+
+type PersonHomeInfo {
+  id String @db.ObjectId
+  name String
+}
+
+type HomeOfPersonInfo {
+  id String @db.ObjectId
+  address String
+  rooms Int
+  person PersonHomeInfo[]
+}
+
+model Home {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  address String
+  city String
+  rooms Int
+  persons PersonHomeInfo[]
+}
+
+model Person {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String
+  bio   String?
+  age   Int
+  homes HomeOfPersonInfo[]
+}

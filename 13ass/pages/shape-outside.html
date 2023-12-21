@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape-outside Example</title>
+    <style>
+        body {
+            background: url('../img/chess.jpeg');
+            background-size: cover;
+            color: aliceblue;
+        }
+        .circle-image {
+            float: left;
+            width: 200px;
+            height: 200px;
+            /* shape-outside: circle(50%); */
+            /* shape-outside: ellipse(50% 75% at 50% 50%); */
+            /* shape-outside: polygon(0% 0%, 100% 0%, 50% 100%); */
+            /* clip-path: circle(50%);             */
+            /* clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+            shape-outside: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); */
+            margin-right: 20px;
+            /* shape-outside: linear-gradient(50deg, rgb(77, 26, 103), transparent 80%,transparent);;
+            shape-image-threshold: 0.2; */
+
+        }
+    </style>
+</head>
+<body>
+    <img src="../img/balloons.png" alt="Circular Image" class="circle-image">
+    <p>
+        How to
+        <a href="https://tympanus.net/codrops/css_reference/shape-outside/" target="_blank" rel="noopener noreferrer"></a>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut odio eu augue rutrum pharetra non et quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin feugiat orci non lectus tincidunt, non cursus mauris posuere. Cras vehicula ipsum vel dolor ullamcorper, ut vulputate erat facilisis. Quisque luctus mi quis elit sollicitudin, eget convallis est auctor. Mauris nec mi id odio tincidunt convallis et eget sem. Sed vel augue bibendum, sollicitudin lorem vitae, aliquam sem. Curabitur tincidunt nec purus vel bibendum. Aenean vitae vestibulum lacus. Fusce fermentum metus eu nulla tempus, non tempor enim ultrices.
+    </p>
+</body>
+</html>

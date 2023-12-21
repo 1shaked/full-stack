@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="openDialog">openDialog</button>
+    <dialog id="myDialog">
+        Hello, this is a dialog!
+        <button id="closeButton">Close</button>
+      </dialog>
+      
+      <script>
+        let openDialog = document.getElementById('openDialog');
+        
+        let dialog = document.getElementById('myDialog');
+        let closeButton = document.getElementById('closeButton');
+      
+        closeButton.addEventListener('click', function() {
+          dialog.close();
+        });
+        openDialog.addEventListener('click', function() {
+          let dialog = document.getElementById('myDialog');
+          dialog.showModal();
+        });
+        // dialog.showModal(); // this would automatically open the dialog when the page loads
+      </script>
+      
+</body>
+</html>

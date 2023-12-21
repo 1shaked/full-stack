@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int             @id @default(autoincrement())
+  email       String          @unique
+  name        String
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  authMethods AuthMethod[]
+  sessions    Session[]
+}
+
+
+model AuthMethod {
+  id          Int      @id @default(autoincrement())
+  provider    String
+  externalId  String   // This could be GoogleID, FacebookID, etc.
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
+  createdAt   DateTime @default(now())
+}
+
+
+model Session {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  sid       String   @unique
+  user        User     @relation(fields: [userId], references: [id])
+  expiresAt   DateTime
+  sessionToken String  @unique
+  createdAt   DateTime @default(now())
+  data String
+  updateAt DateTime @updatedAt
+}
+
+
+
+// model Session {
+//   id        String   @id
+//   sid       String   @unique
+//   data      String    // MediumText may be needed for MySql
+//   expiresAt   DateTime
+// }
+
+
+
+// model Session {
+//   id        String   @id
+//   sid       String   @unique
+//   data      String    // MediumText may be needed for MySql
+//   expiresAt   DateTime
+//   userId      Int
+//   user        User     @relation(fields: [userId], references: [id])
+// }
