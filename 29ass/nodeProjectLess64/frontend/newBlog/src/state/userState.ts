@@ -1,10 +1,4 @@
 import { atom } from "jotai";
+import { UserType } from "../types/userType";
 
-
-interface UserDataInterface {
-    email: string;
-    password: string;
-    id: number;
-}
-
-export const UserInfoAtom = atom<UserDataInterface | null >(null)
+export const UserInfoAtom = atom<UserType | null >(null)
