@@ -3,6 +3,6 @@ import { createUser } from './createUser'
 import { getUser } from './getUser'
 
 export const UserRouterTrpc = router({
-    get: getUser,
+    login: getUser,
     create: createUser
 })
