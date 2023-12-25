@@ -2,7 +2,7 @@ import {z} from 'zod'
 
 
 export const UserTypeZod = z.object({
-    email: z.string().email(),
+    email: z.string(),
     password: z.string(),
     id: z.number(),
 });

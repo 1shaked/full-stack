@@ -13,10 +13,11 @@ export function CustomRouter() {
     const navigate = useNavigate()
     useEffect(() => {
         const user_str = localStorage.getItem('user_node');
-        if (user_str === null) return navigate('/sign-up');
+        if (user_str === null || user_str.length === 0) return navigate('/sign-up');
         const user_obj_zod = UserTypeZod.safeParse(JSON.parse(user_str)); 
         if (user_obj_zod.success) {
-            set_user_info(user_obj_zod.data)
+            set_user_info(user_obj_zod.data);
+            return ;
         }
         localStorage.setItem('user_node', '');
         navigate('/sign-up');
