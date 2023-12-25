@@ -17,6 +17,7 @@ export function SignUp() {
         onSuccess: (data, variables) => {
             console.log({data , variables});
             set_user_info(data);
+            localStorage.setItem('user_node', JSON.stringify(data))
             navigate('/blog');
         }
     })
