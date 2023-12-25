@@ -5,6 +5,9 @@ import { CustomRouter } from './routes'
 import { useState } from 'react';
 import { httpBatchLink } from '@trpc/client';
 import { trpc } from './trpc';
+import { Provider } from 'react-redux'
+import { storeRedux } from './redux/store';
+
 function App() {
   const [queryClient] = useState(() => new QueryClient());
   const [trpcClient] = useState(() =>
@@ -25,14 +28,16 @@ function App() {
   );
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <div>
-            <h1>shaked is here</h1>
-            <CustomRouter />
-          </div>
-        </BrowserRouter>
-      </QueryClientProvider>
+      <Provider store={storeRedux}>
+        <QueryClientProvider client={queryClient}>
+          <BrowserRouter>
+            <div>
+              <h1>shaked is here</h1>
+              <CustomRouter />
+            </div>
+          </BrowserRouter>
+        </QueryClientProvider>
+      </Provider>
     </trpc.Provider>
   )
 }
