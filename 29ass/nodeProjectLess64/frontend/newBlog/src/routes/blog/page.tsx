@@ -1,13 +1,16 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { trpc } from "../../trpc"
 import './blogList.css'
-import { useAtomValue } from "jotai";
+import { useAtom } from "jotai";
 import { UserInfoAtom } from "../../state/userState";
+import { USER_LOCAL_KEY } from "../../utils/CONST";
 // import { ReduxCounter } from "../../components/redux_counter";
 // import { ReduxStringArr } from "../../components/redux_string_arr";
 // import { ReduxPosts } from "../../components/redux_posts";
 export function BlogPage() {
-    const user_info = useAtomValue(UserInfoAtom)
+    const navigation = useNavigate()
+    const [user_info, set_user_info] = useAtom(UserInfoAtom);
+
     const blogQuery = trpc.blog.list.useQuery();
     
     const deleteBlogMutation = trpc.blog.delete.useMutation({
@@ -15,9 +18,15 @@ export function BlogPage() {
             blogQuery.refetch();
         }
     })
+    function signOut () {
+        localStorage.removeItem(USER_LOCAL_KEY);
+        set_user_info(null);
+        navigation('/login')
+    }
     if (blogQuery.isLoading) return <div>Loading...</div>
     return <div>
         <h1>blog list</h1>
+        <button onClick={signOut}>sign out</button>
         user = {JSON.stringify(user_info, null , 2)}
         {/* <ReduxPosts /> */}
         {/* <ReduxCounter /> */}
