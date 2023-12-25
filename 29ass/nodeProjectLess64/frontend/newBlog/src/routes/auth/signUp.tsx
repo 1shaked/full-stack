@@ -3,6 +3,7 @@ import { trpc } from "../../trpc";
 import { useAtom } from "jotai";
 import { UserInfoAtom } from "../../state/userState";
 import { useNavigate } from 'react-router-dom';
+import { USER_LOCAL_KEY } from "../../utils/CONST";
 
 interface SignUpFormInterface {
     email: string;
@@ -17,7 +18,7 @@ export function SignUp() {
         onSuccess: (data, variables) => {
             console.log({data , variables});
             set_user_info(data);
-            localStorage.setItem('user_node', JSON.stringify(data))
+            localStorage.setItem(USER_LOCAL_KEY, JSON.stringify(data))
             navigate('/blog');
         }
     })

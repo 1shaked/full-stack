@@ -8,18 +8,19 @@ import { useEffect } from "react"
 import { UserTypeZod } from "../types/userType"
 import { useSetAtom } from "jotai"
 import { UserInfoAtom } from "../state/userState"
+import { USER_LOCAL_KEY } from "../utils/CONST"
 export function CustomRouter() {
     const set_user_info = useSetAtom(UserInfoAtom)
     const navigate = useNavigate()
     useEffect(() => {
-        const user_str = localStorage.getItem('user_node');
+        const user_str = localStorage.getItem(USER_LOCAL_KEY);
         if (user_str === null || user_str.length === 0) return navigate('/sign-up');
         const user_obj_zod = UserTypeZod.safeParse(JSON.parse(user_str)); 
         if (user_obj_zod.success) {
             set_user_info(user_obj_zod.data);
             return ;
         }
-        localStorage.setItem('user_node', '');
+        localStorage.setItem(USER_LOCAL_KEY, '');
         navigate('/sign-up');
     } , [])
     return <div>
