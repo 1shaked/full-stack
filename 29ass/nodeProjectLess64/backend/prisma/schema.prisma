@@ -16,6 +16,15 @@ model User {
   password String
 
   book Book[]
+  sessions Session[]
+}
+
+model Session {
+  id String @id @default(uuid())
+  userId Int
+  expires DateTime
+
+  user User @relation(fields: [userId], references: [id])
 }
 
 model Book {
