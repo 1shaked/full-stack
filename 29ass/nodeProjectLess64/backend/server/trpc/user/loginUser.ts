@@ -1,8 +1,11 @@
 import { prisma } from "../../connection";
 import { checkPassword } from "../../utils/checkPassword";
 import { example_middleware, publicProcedure } from "../trpc";
+import { CreateExpressContextOptions } from '@trpc/server/adapters/express'
+
 import {z} from 'zod'
 import moment from "moment";
+import { Context } from "../../app";
 export const loginUser = publicProcedure.input(z.object({
     email: z.string(),
     password: z.string()
@@ -16,13 +19,15 @@ export const loginUser = publicProcedure.input(z.object({
     const is_password_matched = await checkPassword(opts.input.password, user?.password);
 
     if (!is_password_matched) return null;
-    const current_time_plus_2_h = moment().add(2, 'hours').format('YYYY-MM-DD h:mm:ss');
+    const current_time_plus_2_h = moment().add(2, 'hours').toISOString();
     const session = await prisma.session.create({
         data: {
             userId: user.id,
-            expires: current_time_plus_2_h
+            expires: current_time_plus_2_h,
         }
     });
-    // opts.ctx.
+    const ctx = opts.ctx as Context;
+
+    ctx.req.cookies['session'] = session.id;
     return session;
 })
