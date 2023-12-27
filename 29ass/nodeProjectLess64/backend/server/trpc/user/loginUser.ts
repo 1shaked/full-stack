@@ -1,4 +1,5 @@
 import { prisma } from "../../connection";
+import { checkPassword } from "../../utils/checkPassword";
 import { example_middleware, publicProcedure } from "../trpc";
 import {z} from 'zod'
 
@@ -9,9 +10,12 @@ export const loginUser = publicProcedure.input(z.object({
     const user = await prisma.user.findUnique({
         where: {
             email: opts.input.email,
-            password: opts.input.password
         }
     });
+    if (user === null) return user;
+    const is_password_matched = await checkPassword(opts.input.password, user?.password);
 
-    return user;
+    if (is_password_matched) return user;
+
+    return null;
 })
