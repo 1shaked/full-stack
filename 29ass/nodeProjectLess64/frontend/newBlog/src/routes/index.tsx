@@ -25,7 +25,7 @@ export function CustomRouter() {
             }
             return ;
         }
-        localStorage.setItem(USER_LOCAL_KEY, '');
+        localStorage.removeItem(USER_LOCAL_KEY);
         navigate('/sign-up');
     } , [])
     return <div>
