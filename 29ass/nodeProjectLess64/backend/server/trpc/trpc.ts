@@ -6,6 +6,10 @@ import { initTRPC } from '@trpc/server';
  */
 const t = initTRPC.create();
 
+export const example_middleware = t.middleware(async (opts) => {
+    console.log(`example_middleware, ${opts.path}`);
+    return opts.next();
+})
 /**
  * Export reusable router and procedure helpers
  * that can be used throughout the router
