@@ -27,5 +27,5 @@ export const loginUser = publicProcedure.input(z.object({
     });
     opts.ctx.res.cookie('session', session.id, { maxAge: 1000 * 20 * 60 });
 
-    return session;
+    return user;
 })

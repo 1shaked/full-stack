@@ -15,8 +15,7 @@ export function LoginPage() {
     const login_form = useForm<LoginFormInterface>()
     const navigate = useNavigate()
     const login_user_mutation = trpc.user.login.useMutation({
-        onSuccess: (data, variables) => {
-            console.log({data , variables});
+        onSuccess: (data) => {
             set_user_info(data);
             localStorage.setItem(USER_LOCAL_KEY, JSON.stringify(data))
             navigate('/blog');

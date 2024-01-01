@@ -15,11 +15,13 @@ export function SignUp() {
     const sign_up_form = useForm<SignUpFormInterface>()
     const navigate = useNavigate()
     const create_user_mutation = trpc.user.create.useMutation({
-        onSuccess: (data, variables) => {
-            console.log({data , variables});
+        onSuccess: (data) => {
             set_user_info(data);
             localStorage.setItem(USER_LOCAL_KEY, JSON.stringify(data))
             navigate('/blog');
+        },
+        onError: () => {
+            navigate('/login')
         }
     })
 
@@ -37,6 +39,7 @@ export function SignUp() {
             <hr />
             <button>submit</button>
         </form>
+        {create_user_mutation.error?.message}
     </main>
 }
 
