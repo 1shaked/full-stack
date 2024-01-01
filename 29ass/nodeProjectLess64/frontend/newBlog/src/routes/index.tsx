@@ -10,6 +10,7 @@ import { useSetAtom } from "jotai"
 import { UserInfoAtom } from "../state/userState"
 import { USER_LOCAL_KEY } from "../utils/CONST"
 import { LoginPage } from "./auth/login"
+import { MemoExample } from "../components/memo"
 export function CustomRouter() {
     const set_user_info = useSetAtom(UserInfoAtom)
     const navigate = useNavigate();
@@ -31,6 +32,7 @@ export function CustomRouter() {
     return <div>
         <Routes>
             <Route path="/" element={<HomePage />}/>
+            <Route path="memo" element={<MemoExample />}/>
             <Route path="/blog">
                 <Route index element={<BlogPage />} />
                 <Route path="add" element={<AddBlog />} />
