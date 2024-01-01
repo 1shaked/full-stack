@@ -3,27 +3,19 @@ import cors from 'cors'
 import { blogRouter } from "./blog";
 import * as trpcExpress from '@trpc/server/adapters/express';
 import { appRouter } from "./trpc/index";
-import { Request } from 'express'
-import { CreateExpressContextOptions } from "@trpc/server/adapters/express";
-
-type ExpressRequest = Omit<CreateExpressContextOptions, 'req'> & {
-  req: Request
-}
+import { createContext } from "./utils/trpcExpressContent";
+import cookieParser from "cookie-parser";
 const app = express();
 app.use(express.json());
+app.use(cookieParser())
 app.use(cors({
-    origin: ['http://localhost:5173']
+    origin: ['http://localhost:5173'],
+    credentials: true,
 }));
 
 app.use('/blog', blogRouter); // /blog give it to the blogRouter 
 
 
-// created for each request
-const createContext = ({
-    req,
-    res,
-  }: trpcExpress.CreateExpressContextOptions) => ({ req }); // no context
-export type Context = Awaited<ReturnType<typeof createContext>>;
 
 
 app.use(

@@ -14,7 +14,14 @@ function App() {
     trpc.createClient({
       links: [
         httpBatchLink({
+          
           url: 'http://localhost:3300/trpc',
+          fetch(url, options) {
+            return fetch(url, {
+              ...options,
+              credentials: 'include',
+            });
+          },
           // You can pass any HTTP headers you wish here
           headers() {
             return {
