@@ -5,7 +5,6 @@ import { CreateExpressContextOptions } from '@trpc/server/adapters/express'
 
 import {z} from 'zod'
 import moment from "moment";
-import { Context } from "../../app";
 export const loginUser = publicProcedure.input(z.object({
     email: z.string(),
     password: z.string()
@@ -26,8 +25,7 @@ export const loginUser = publicProcedure.input(z.object({
             expires: current_time_plus_2_h,
         }
     });
-    const ctx = opts.ctx as Context;
+    opts.ctx.res.cookie('session', session.id, { maxAge: 1000 * 20 * 60 });
 
-    ctx.req.cookies['session'] = session.id;
     return session;
 })
