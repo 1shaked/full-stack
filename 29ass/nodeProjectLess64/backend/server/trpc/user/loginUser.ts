@@ -1,15 +1,13 @@
 import { prisma } from "../../connection";
 import { checkPassword } from "../../utils/checkPassword";
-import { example_middleware, publicProcedure } from "../trpc";
-import { CreateExpressContextOptions } from '@trpc/server/adapters/express'
+import { publicProcedure } from "../trpc";
 
 import {z} from 'zod'
 import moment from "moment";
-import { Context } from "../../app";
 export const loginUser = publicProcedure.input(z.object({
     email: z.string(),
     password: z.string()
-})).use(example_middleware).mutation(async (opts) => {
+})).mutation(async (opts) => {
     const user = await prisma.user.findUnique({
         where: {
             email: opts.input.email,
@@ -26,8 +24,6 @@ export const loginUser = publicProcedure.input(z.object({
             expires: current_time_plus_2_h,
         }
     });
-    const ctx = opts.ctx as Context;
-
-    ctx.req.cookies['session'] = session.id;
+    opts.ctx.res.cookie('session', session.id, { maxAge: 1000 * 60 * 60 * 2});
     return session;
 })

@@ -16,7 +16,7 @@ export function CustomRouter() {
     const location = useLocation()
     useEffect(() => {
         const user_str = localStorage.getItem(USER_LOCAL_KEY);
-        if (user_str === null || user_str.length === 0) return navigate('/sign-up');
+        if (user_str === null || user_str.length === 0 && location.pathname !== '/login') return navigate('/sign-up');
         const user_obj_zod = UserTypeZod.safeParse(JSON.parse(user_str)); 
         if (user_obj_zod.success) {
             set_user_info(user_obj_zod.data);
