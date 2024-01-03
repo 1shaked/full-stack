@@ -1,6 +1,7 @@
 import { TRPCError, initTRPC } from '@trpc/server';
-import { Context } from '../app';
-
+import { Context } from '../utils/trpcExpressContent';
+import {z} from 'zod'
+import { prisma } from '../connection';
 /**
  * Initialization of tRPC backend
  * Should be done only once per backend!
@@ -9,36 +10,47 @@ const t = initTRPC.context<Context>().create();
 
 export const example_middleware = t.middleware(async (opts) => {
     console.log(`example_middleware, ${opts.path}`);
-    //    const ctx = opts.ctx as Context;
-    try {
-        opts.ctx.res.cookie('session', 'x1x1');
-        console.log(Object.keys(opts.ctx.req.cookies));
-        console.log(opts.ctx.req.cookies);
-        // opts.ctx.req.
-        opts.ctx.res.cookie('session', 'wow');
-    } catch (e) {
-        console.log(e);
-        console.log('error in example_middleware');
-    }
-
+    // console.log(opts.ctx.req.cookies)
+    // opts.ctx.res.cookie('session', 'chen')
     return opts.next();
 });
 
-export const check_logged_in = t.middleware(async (opts) => {
-    console.log(`check_logged_in, ${opts.path}`);
-    //    const ctx = opts.ctx as Context;
-    if (opts.ctx.req.cookies.session === undefined) {
-        console.log('session is undefined');
+export const login_middleware = t.middleware(async (opts) => {
+    // check if has a session
+    const session_temp = opts.ctx.req.cookies['session'];
+    const session_zod = z.string().safeParse(session_temp);
+    if (!session_zod.success) {
         throw new TRPCError({
-            code: 'UNAUTHORIZED',
-            message: 'You must be logged in to access this resource',
-          });
-        
+            message: 'User is not logged in!',
+            code: 'UNAUTHORIZED'
+        })
     }
-    console.log(Object.keys(opts.ctx.req.cookies));
-    console.log(opts.ctx.req.cookies);
+    const session = session_zod.data;
+    const session_from_db = await prisma.session.findUnique({
+        where: {
+            id: session
+        }
+    });
+    if (session_from_db === null ) {
+        throw new TRPCError({
+            message: 'User session does not exists',
+            code: 'UNAUTHORIZED'
+        })
+    }
+    if (session_from_db.expires < new Date()) {
+        await prisma.session.delete({
+            where: {
+                id: session
+            }
+        })
+        throw new TRPCError({
+            message: 'User session has expired',
+            code: 'UNAUTHORIZED'
+        });
+    }
+    
     return opts.next();
-})
+});
 /**
  * Export reusable router and procedure helpers
  * that can be used throughout the router

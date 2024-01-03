@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { trpc } from "../../trpc"
 import './blogList.css'
-import { useAtom } from "jotai";
+import { useSetAtom } from "jotai";
 import { UserInfoAtom } from "../../state/userState";
 import { USER_LOCAL_KEY } from "../../utils/CONST";
 // import { ReduxCounter } from "../../components/redux_counter";
@@ -9,7 +9,7 @@ import { USER_LOCAL_KEY } from "../../utils/CONST";
 // import { ReduxPosts } from "../../components/redux_posts";
 export function BlogPage() {
     const navigation = useNavigate()
-    const [user_info, set_user_info] = useAtom(UserInfoAtom);
+    const set_user_info = useSetAtom(UserInfoAtom);
 
     const blogQuery = trpc.blog.list.useQuery();
     
@@ -27,7 +27,6 @@ export function BlogPage() {
     return <div>
         <h1>blog list</h1>
         <button onClick={signOut}>sign out</button>
-        user = {JSON.stringify(user_info, null , 2)}
         {/* <ReduxPosts /> */}
         {/* <ReduxCounter /> */}
         {/* <ReduxStringArr /> */}
