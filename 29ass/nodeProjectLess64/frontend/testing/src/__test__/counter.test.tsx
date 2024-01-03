@@ -38,15 +38,16 @@ test('testing multiple clicks' , () => {
 
     let count = 0;
     
-    // get random number + 1 or -1
-    const change_by = Math.random() < 0.5 ? 1 : -1;
-    
-    const increment_button = screen.getByTestId('increment-button');
-    const decrement_button = screen.getByTestId('decrement-button');
-    if (change_by === 1) fireEvent.click(increment_button);
-    else fireEvent.click(decrement_button);
-    count = count + change_by;
-    const text = screen.getByTestId('counter').textContent;
-    console.log(text)
-    expect(text).toBe(count.toString())
+    for (let i = 0; i < 1000; i ++) {
+        // get random number + 1 or -1
+        const change_by = Math.random() < 0.5 ? 1 : -1;
+        
+        const increment_button = screen.getByTestId('increment-button');
+        const decrement_button = screen.getByTestId('decrement-button');
+        if (change_by === 1) fireEvent.click(increment_button);
+        else fireEvent.click(decrement_button);
+        count = count + change_by;
+        const text = screen.getByTestId('counter').textContent;
+        expect(text).toBe(count.toString())
+    }
 })
