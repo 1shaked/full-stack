@@ -29,6 +29,7 @@ function App() {
               // authorization: getAuthCookie(),
             };
           },
+          
         }),
       ],
     }),

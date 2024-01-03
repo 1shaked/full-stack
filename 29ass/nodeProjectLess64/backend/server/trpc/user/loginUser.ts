@@ -7,7 +7,7 @@ import moment from "moment";
 export const loginUser = publicProcedure.input(z.object({
     email: z.string(),
     password: z.string()
-})).use(example_middleware).mutation(async (opts) => {
+})).mutation(async (opts) => {
     const user = await prisma.user.findUnique({
         where: {
             email: opts.input.email,

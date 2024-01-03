@@ -1,12 +1,13 @@
 import { z } from "zod";
-import { publicProcedure } from "../trpc";
+import { check_logged_in, publicProcedure } from "../trpc";
 import { prisma } from "../../connection";
 
 
 export const blogItem = publicProcedure.input(z.object({
     id: z.number()
-})).query(async (opts) => {
-   const blogData = await  prisma.blog.findFirst({
+})).use(check_logged_in).query(async (opts) => {
+    console.log('blogItem')
+    const blogData = await  prisma.blog.findFirst({
         where: {
             id: opts.input.id,
         }

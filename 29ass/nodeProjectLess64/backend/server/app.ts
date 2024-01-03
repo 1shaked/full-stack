@@ -12,7 +12,7 @@ app.use(cors({
     origin: ['http://localhost:5173'],
     credentials: true,
 }));
-
+app.use(cookieParser()); // parse the cookies
 app.use('/blog', blogRouter); // /blog give it to the blogRouter 
 
 
