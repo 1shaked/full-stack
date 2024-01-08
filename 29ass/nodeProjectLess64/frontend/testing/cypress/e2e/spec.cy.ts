@@ -1,10 +1,10 @@
-/// <reference types="cypress" />
 
-describe('template spec', () => {
+describe('example test', () => {
   beforeEach(() => {
     cy.log('before each')
     cy.visit('http://localhost:5173')
-  })
+  });
+
   it('check if counter exists', () => {
     cy.get('#counter').should('exist');
     cy.get('#counter').should('have.text', '0');
@@ -15,5 +15,5 @@ describe('template spec', () => {
     cy.get('#counter').should('have.text', '1');
     cy.get('#decrement').click();
     cy.get('#counter').should('have.text', '0');
-  })
+  });
 })
