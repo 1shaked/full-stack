@@ -1,22 +1,15 @@
 
 import { useState } from 'react';
 import './App.css'
+import { generateSource } from './utils/generateSource';
 // import { Todos } from './components/todos'
+
 
 function App() {
   const [count, setCount] = useState(0);
   const [n, setN] = useState(0);
   const [source, setSource] = useState<[number , number][]>([ ]);
   // 12 -> [ [1 , 12 ] , [2 , 6], [3 , 4], [4 , 3] , [6 , 2] , ] 
-  function generateSource () {
-    const arr_sources: [number , number][] = []
-    for (let i = 1; i < n; i++) {
-      // check if this is a source
-      if (n % i !== 0) continue;
-      arr_sources.push([i , n / i]);
-    }
-    setSource(arr_sources)
-  }
   return (
 
     <>
@@ -29,10 +22,11 @@ function App() {
 
         <hr />
 
-        <input type="number" onChange={(e) => setN(parseInt(e.target.value))} />
-        <button onClick={generateSource}>generate source - {n}</button>
+        <input type="number" onChange={(e) => setN(parseInt(e.target.value))} id='source_input' />
+        <button onClick={() => setSource(generateSource(n))} id='source_generate_button'>generate source - {n}</button>
 
-        {source.map((source_item , index) => <div key={index}>
+        {source.map((source_item , index) => <div key={index} 
+        id={`source_item_${source_item[0]}_${source_item[1]}`}>
           {source_item[0]}
           X
           {source_item[1]}
