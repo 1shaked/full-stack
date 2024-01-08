@@ -25,7 +25,7 @@ export function BlogPage() {
     }
     if (blogQuery.isLoading) return <div>Loading...</div>
     return <div>
-        <h1>blog list</h1>
+        <h1 id="blog_list_title">blog list</h1>
         <button onClick={signOut}>sign out</button>
         {/* <ReduxPosts /> */}
         {/* <ReduxCounter /> */}

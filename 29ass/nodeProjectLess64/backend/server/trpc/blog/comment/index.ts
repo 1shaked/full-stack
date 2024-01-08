@@ -1,11 +1,11 @@
 import { z } from "zod";
 import { prisma } from "../../../connection";
-import { router, publicProcedure, check_logged_in } from "../../trpc";
+import { router, publicProcedure } from "../../trpc";
 
 export const CommentRouterTrpc = router({
   list: publicProcedure.input(z.object({
     id: z.number(),
-  })).use(check_logged_in).query(async (opts) => {
+  })).query(async (opts) => {
     console.log(opts.input)
     return await prisma.comment.findMany(
         {

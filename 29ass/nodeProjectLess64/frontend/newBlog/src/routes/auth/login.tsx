@@ -29,11 +29,12 @@ export function LoginPage() {
             login_user_mutation.mutate(data);
         })}
         style={{ border: '5px solid red'}}>
-            <input type="email" placeholder="email" {...login_form.register('email')} />
+            email
+            <input id="login_email_input" type="email" placeholder="email" {...login_form.register('email')} />
             <br />
-            <input type="password" placeholder="password" {...login_form.register('password')} />
+            password <input id="login_password_input" type="password" placeholder="password" {...login_form.register('password')} />
             <hr />
-            <button>submit</button>
+            <button id="login_submit_btn">submit</button>
         </form>
     </main>
 }
