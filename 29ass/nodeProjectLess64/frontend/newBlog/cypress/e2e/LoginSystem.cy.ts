@@ -14,6 +14,12 @@ describe('check login', () => {
         cy.get('#blog_list_title').should('exist');
 
         cy.contains('a', 'add').click();
+        cy.get('#add_blog_title').type('new blog')
+        cy.get('#add_blog_content').type('new blog content')
+        cy.get('#add_blog_submit').click();
+
         
+    
+
     })
 })

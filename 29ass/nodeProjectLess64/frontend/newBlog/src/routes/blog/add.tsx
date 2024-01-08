@@ -19,9 +19,9 @@ export function AddBlog() {
     });
     return <div>
         <form onSubmit={handleSubmit( (data) => addBlogMutation.mutate(data) )}>
-            <input type="text" placeholder="title" {...register('title')} />
-            <input type="text" placeholder="content" {...register('content')} />
-            <button type="submit">add blog</button>
+            <input id="add_blog_title" type="text" placeholder="title" {...register('title')} />
+            <input id="add_blog_content" type="text" placeholder="content" {...register('content')} />
+            <button id="add_blog_submit" type="submit">add blog</button>
         </form>
     </div>
 }
