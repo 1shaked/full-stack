@@ -8,7 +8,7 @@ export default function App() {
   const [newTodo, setNewTodo] = useState('');
 
   const [images, setImages] = useState<string[]>([
-    'https://image.lexica.art/full_webp/665f425f-31f8-4d19-a10c-20d133252959'
+    'https://image.lexica.art/full_webp/edbf66b4-4d00-46eb-9584-6cb361e44511'
   ])
   return (
     <View style={styles.container}>
@@ -52,7 +52,8 @@ export default function App() {
 
          
         </Text>)} */}
-          <FlatList showsVerticalScrollIndicator={false} data={todos} 
+          <FlatList showsVerticalScrollIndicator={false} data={todos}
+            numColumns={4} 
             renderItem={(item) => <Text> {item.item}</Text>}/>
         {/* <ScrollView>
         </ScrollView> */}
