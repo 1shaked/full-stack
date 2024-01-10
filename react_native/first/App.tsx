@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, Button, FlatList, TextInput, Image } from 'react-native';
+import { Todo } from './components/Todo';
 
 export default function App() {
-  const [count , setCount] = useState(0);
-  const [todos, setTodos] = useState<string[]>([ 'A', 'B', 'C', 'D', 'E', 'F',])
+  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState<string[]>(['A', 'B', 'C', 'D', 'E', 'F',])
   const [newTodo, setNewTodo] = useState('');
 
   const [images, setImages] = useState<string[]>([
@@ -14,57 +15,57 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.textBold}>Shaked nf {count}</Text>
-        <Button title='increment' onPress={() => {
-          setCount(count + 1);
-          setTodos((prev) => {
-            return [...prev, count.toString()]
-          })
-        }} />
-        <Button title='decrement' onPress={() => setCount(count - 1)} />
+      <Button title='increment' onPress={() => {
+        setCount(count + 1);
+        setTodos((prev) => {
+          return [...prev, count.toString()]
+        })
+      }} />
+      <Button title='decrement' onPress={() => setCount(count - 1)} />
 
-        <TextInput style={{
-          height: 40,
-          borderColor: '#ccc',
-          borderWidth: 1,
-          width: 150
-        }} placeholder='placeholder'
+      <TextInput style={{
+        height: 40,
+        borderColor: '#ccc',
+        borderWidth: 1,
+        width: 150
+      }} placeholder='placeholder'
         onChangeText={(e) => setNewTodo(e)} />
-        <Text>{newTodo}</Text>
-        <Button title='add todo' onPress={() => {
-          setTodos((prev) => {
-            return [...prev, newTodo]
-          })
-        }}></Button>
-
-        <FlatList 
-        data={images}
-        renderItem={(item) => <View>
-          <Text>{item.item}</Text>
-          <Image style={{
-            width: 100,
-            height: 100
-          }} source={{
-            uri: item.item
-          }}/>
-        </View>}
-        />
-        <Image 
+      <Text>{newTodo}</Text>
+      <Button title='add todo' onPress={() => {
+        setTodos((prev) => {
+          return [...prev, newTodo]
+        })
+      }}></Button>
+      <Image
         style={{
           width: 100,
           height: 100,
         }}
         source={{ uri: 'https://image.lexica.art/full_webp/54ea9d47-3dc2-40a9-905f-c0ae51359479' }} />
-        {/* {todos.map((todo, index) => <Text key={index}>
+      {/* {todos.map((todo, index) => <Text key={index}>
           {todo}
 
       
 
          
         </Text>)} */}
-          <FlatList showsVerticalScrollIndicator={false} data={todos}
-            numColumns={4} 
-            renderItem={(item) => <Text> {item.item}</Text>}/>
-        {/* <ScrollView>
+      <FlatList showsVerticalScrollIndicator={false} data={todos}
+        numColumns={4}
+        renderItem={(item) => <View>
+          <Todo title={item.item} onDelete={() => {
+            setTodos((prev) => {
+              return prev.filter((todo, index) => index !== item.index)
+            })
+          }} />
+          {/* <Text> {item.item}</Text>
+          <Button title='delete' onPress={() => {
+            // setTodos(todos.filter((todo, index) => index !== item.index))
+            setTodos((prev) => {
+              return prev.filter((todo, index) => index !== item.index)
+            })
+          }} /> */}
+        </View>} />
+      {/* <ScrollView>
         </ScrollView> */}
       <StatusBar style="auto" />
     </View>
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  textBold : {
+  textBold: {
     fontWeight: 'bold',
     fontSize: 40,
     color: 'black'
