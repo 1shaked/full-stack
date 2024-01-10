@@ -8,7 +8,8 @@ export default function App() {
   const [newTodo, setNewTodo] = useState('');
 
   const [images, setImages] = useState<string[]>([
-    'https://image.lexica.art/full_webp/edbf66b4-4d00-46eb-9584-6cb361e44511'
+    'https://image.lexica.art/full_webp/54ea9d47-3dc2-40a9-905f-c0ae51359479',
+    'https://image.lexica.art/full_webp/b70a8641-e62d-49b6-b765-7680cdfb93c9'
   ])
   return (
     <View style={styles.container}>
@@ -37,7 +38,15 @@ export default function App() {
 
         <FlatList 
         data={images}
-        renderItem={(item) => <Image source={{ uri: item.item}}/>}
+        renderItem={(item) => <View>
+          <Text>{item.item}</Text>
+          <Image style={{
+            width: 100,
+            height: 100
+          }} source={{
+            uri: item.item
+          }}/>
+        </View>}
         />
         <Image 
         style={{
