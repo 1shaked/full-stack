@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "1. npm init -y 1. npm install typescript express ts-node  1. npm install --save-dev @types/node @types/express 1. npm install dotenv 1. npx tsc --init 1. npm install -D concurrently nodemon 2. npm install cors @types/cors  3. add the server to the include (in ts config), you will need to create it ``` \"include\": [\"server/**/*.ts\"],   \"exclude\": [\"node_modules\"] ``` 1. add the exclude to the ts config,  2. change the in line 58  ``` \"outDir\": \"./dist\" ```                               3. added the scripts to package.json      ```     \"scripts\": {         \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\",         \"build\": \"npx tsc\",         \"start\": \"ts-node server/app.ts\",         \"dev\": \"concurrently \\\"npx tsc --watch\\\" \\\"nodemon -q dist/app.js\\\"\"     },     ``` ## create a node server 1. create the file app.ts 2. in the app.ts import express 3. create the app ``` const app = express() ``` 4. add ``` app.listen() ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "start": "ts-node server/app.ts",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/app.js\""
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.2",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.2"
+  }
+}
