@@ -42,10 +42,10 @@ const io = new Server(server, {
 io.on('connection', (socket) => {
     console.log('a user connected', socket.id);
 
-    socket.on('x', (data) => {
+    socket.on('x', async (data) => {
         console.log(data)
         const message = {...data, socketId: socket.id};
-        db.messages.create({
+        await db.messages.create({
             data: {
                 content: JSON.stringify(message, null , 2)
             }
