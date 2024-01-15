@@ -9,3 +9,11 @@ console.log(socket);
 
 // const app = document.getElementById('app');
 // 
+
+const send_message_btn = document.getElementById('send-message');
+
+send_message_btn?.addEventListener('click', () => {
+  socket.emit('x', {
+    rand: Math.random().toFixed(3)
+  })
+})

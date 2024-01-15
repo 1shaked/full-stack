@@ -39,6 +39,10 @@ const io = new Server(server, {
 
 io.on('connection', (socket) => {
     console.log('a user connected', socket.id);
+
+    socket.on('x', (data) => {
+        console.log(data)
+    })
 });
   
 const PORT = process?.env?.PORT ?? 8080;
