@@ -7,6 +7,7 @@ interface AddBlogInterface {
 }
 export function AddBlog() {
     const {handleSubmit, register} = useForm<AddBlogInterface>();
+    
     const addBlogMutation = trpc.blog.create.useMutation({
         onSuccess: (data) => {
             alert(`blog was added ${data.title} with the id ${data.id}`)

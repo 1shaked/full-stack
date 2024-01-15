@@ -4,6 +4,7 @@ import { useAtom } from "jotai";
 import { UserInfoAtom } from "../../state/userState";
 import { useNavigate } from 'react-router-dom';
 import { USER_LOCAL_KEY } from "../../utils/CONST";
+import { EventBase } from "../../components/eventBased";
 
 interface SignUpFormInterface {
     email: string;
@@ -13,7 +14,8 @@ interface SignUpFormInterface {
 export function SignUp() {
     const [user_info, set_user_info] = useAtom(UserInfoAtom);
     const sign_up_form = useForm<SignUpFormInterface>()
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    
     const create_user_mutation = trpc.user.create.useMutation({
         onSuccess: (data) => {
             set_user_info(data);
@@ -40,6 +42,9 @@ export function SignUp() {
             <button>submit</button>
         </form>
         {create_user_mutation.error?.message}
+
+
+        <EventBase />
     </main>
 }
 

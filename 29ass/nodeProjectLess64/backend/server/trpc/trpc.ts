@@ -6,7 +6,7 @@ import { prisma } from '../connection';
  * Initialization of tRPC backend
  * Should be done only once per backend!
  */
-const t = initTRPC.context<Context>().create();
+export const t = initTRPC.context<Context>().create();
 
 export const example_middleware = t.middleware(async (opts) => {
     console.log(`example_middleware, ${opts.path}`);
