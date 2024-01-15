@@ -3,7 +3,9 @@ import http from 'http';
 import WebSocket from 'ws';
 import cors from 'cors'
 import { Server } from 'socket.io';
+import { PrismaClient } from '@prisma/client';
 
+const db = new PrismaClient()
 const app = express();
 app.use(express.json())
 app.use(cors({
@@ -42,7 +44,13 @@ io.on('connection', (socket) => {
 
     socket.on('x', (data) => {
         console.log(data)
-        socket.broadcast.emit('x', [{...data, socketId: socket.id}])
+        const message = {...data, socketId: socket.id};
+        db.messages.create({
+            data: {
+                content: JSON.stringify(message, null , 2)
+            }
+        })
+        socket.broadcast.emit('x', [message])
     });
 
 });
