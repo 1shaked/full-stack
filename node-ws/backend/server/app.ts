@@ -5,7 +5,7 @@ import cors from 'cors'
 import { Server } from 'socket.io';
 
 const app = express();
-
+app.use(express.json())
 app.use(cors({
     origin: ['*']
 }));
@@ -42,7 +42,9 @@ io.on('connection', (socket) => {
 
     socket.on('x', (data) => {
         console.log(data)
-    })
+        socket.broadcast.emit('x', [{...data, socketId: socket.id}])
+    });
+
 });
   
 const PORT = process?.env?.PORT ?? 8080;
