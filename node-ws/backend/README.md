@@ -6,8 +6,10 @@
 1. npm install dotenv
 1. npx tsc --init
 1. npm install -D concurrently nodemon
-2. npm install cors @types/cors 
-3. add the server to the include (in ts config), you will need to create it ``` "include": ["server/**/*.ts"],
+2. npm i ws
+3. npm i --save-dev @types/ws
+4. npm install cors @types/cors 
+5. add the server to the include (in ts config), you will need to create it ``` "include": ["server/**/*.ts"],
   "exclude": ["node_modules"] ```
 1. add the exclude to the ts config, 
 2. change the in line 58  ``` "outDir": "./dist" ```                              
