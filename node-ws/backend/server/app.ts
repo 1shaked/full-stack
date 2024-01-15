@@ -1,11 +1,13 @@
 import express from 'express';
 import http from 'http';
 import WebSocket from 'ws';
-
+import cors from 'cors'
 const app = express();
+app.use(cors({
+    origin: ['*']
+}));
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
-
 app.get('/example', (req, res) => {
     res.send({
         message: 'wow',
