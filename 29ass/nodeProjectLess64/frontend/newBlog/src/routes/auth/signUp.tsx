@@ -5,6 +5,7 @@ import { UserInfoAtom } from "../../state/userState";
 import { useNavigate } from 'react-router-dom';
 import { USER_LOCAL_KEY } from "../../utils/CONST";
 import { EventBase } from "../../components/eventBased";
+import { RefComponent } from "../../components/ref";
 
 interface SignUpFormInterface {
     email: string;
@@ -43,8 +44,8 @@ export function SignUp() {
         </form>
         {create_user_mutation.error?.message}
 
-
-        <EventBase />
+        <RefComponent / >
+        {/* <EventBase /> */}
     </main>
 }
 
