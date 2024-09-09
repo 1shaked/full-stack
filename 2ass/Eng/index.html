@@ -15,13 +15,21 @@
             background-color: rgb(206, 56, 199);
         }
         .headClass {
-            font-size: xx-large;
             border: 5px solid salmon;
-            transition: all 3s;
+            transition: all 2s;
         }
         .headClass:hover {
             background-color: black;
             color: white;
+        }
+        .example1 {
+            font-size: 30px;
+            font-weight: bold;
+            transition: all 2s;
+        }
+        .example1:hover {
+            font-size: 50px;
+            font-weight: normal;
         }
     </style>
 </head>
@@ -38,12 +46,12 @@
         This is a new paragraph
         Wow, this is cool
     </p>
-    <p class="headClass">ww</p>
-    <p class="headClass">ww</p>
-    <p>ww</p>
-    <p class="headClass">ww</p>
-    <p>ww</p>
-    <p>ww</p>
+    <p class="headClass">headClass - ww - 1</p>
+    <p class="headClass">headClass - ww - 2</p>
+    <p class="example1"> example1 - ww - 3</p>
+    <p class="headClass">headClass - ww - 4</p>
+    <p class="example1"> example1 - ww - 5</p>
+    <p class="headClass example1">example1 - headClass - 6</p>
     <p>ww</p>
     <p>ww</p>
 
