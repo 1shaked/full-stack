@@ -22,6 +22,6 @@
     "@types/markdown-it": "^12.2.3",
     "contentful": "^9.3.5",
     "markdown-it": "^13.0.1",
-    "zod": "^3.21.4"
+    "zod": "^3.22.3"
   }
 }
