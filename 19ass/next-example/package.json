@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^1.9.6",
+    "@reduxjs/toolkit": "^2.0.0",
     "@supabase/auth-helpers-nextjs": "^0.7.4",
     "@supabase/supabase-js": "^2.31.0",
     "@types/node": "20.2.5",
@@ -20,9 +20,9 @@
     "next-redux-wrapper": "^8.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-redux": "^8.1.2",
+    "react-redux": "^9.0.0",
     "recoil": "^0.7.7",
-    "redux": "^4.2.1",
+    "redux": "^5.0.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",
     "typescript": "5.1.3",
