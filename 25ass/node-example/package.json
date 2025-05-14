@@ -15,10 +15,10 @@
   "dependencies": {
     "@prisma/client": "^5.2.0",
     "@trpc/client": "^10.38.0",
-    "@trpc/server": "^10.38.0",
+    "@trpc/server": "^11.1.1",
     "@types/crypto-js": "^4.1.1",
     "argon2": "^0.31.0",
-    "bcrypt": "^5.1.1",
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "crypto-js": "^4.1.1",
     "dotenv": "^16.3.1",
